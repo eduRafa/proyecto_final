@@ -16,7 +16,7 @@ public class Connect {
 
 	
 	//Atributo que gestiona la conexión con la BBDD
-	private Connection miConexion;
+	private Connection myConnection;
 	
 	private String host; //Host que contiene la BBDD
 	private String bbdd; //Nombre de la BBDD
@@ -35,7 +35,7 @@ public class Connect {
 		
 	}
 	
-	/*Método: conectar()
+	/*Método: startConnection()
 	Tipo: boolean
 	Parámetros: ninguno
 	Devuelve: booleano que indica el estado de la conexión
@@ -55,7 +55,7 @@ public class Connect {
 		//miConexion= DriverManager.getConnection("jdbc:mysql://"+this.host+"/"+this.bbdd+"?user="+this.login+"&password="+this.password);
 		
 		//conexión completa para evitar errores de sincronizacion con el servidor
-		miConexion= DriverManager.getConnection("jdbc:mysql://"+this.host+"/"+this.bbdd+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&user="+this.login+"&password="+this.password);
+		myConnection= DriverManager.getConnection("jdbc:mysql://"+this.host+"/"+this.bbdd+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&user="+this.login+"&password="+this.password);
 		
         
 		this.state=true;
@@ -67,7 +67,7 @@ public class Connect {
 		return this.state;
 	}
 	
-	/*Método: getConexion()
+	/*Método: getConect()
 	Tipo: Connection
 	Parámetros: ninguno
 	Devuelve: Connection
@@ -76,10 +76,10 @@ public class Connect {
 	
 	public Connection getConect()
 	{
-		return miConexion;
+		return myConnection;
 	}
 	
-	/*Método: getEstado()
+	/*Método: getState()
 	Tipo: boolean
 	Parámetros: ninguno
 	Devuelve: boolean
@@ -92,7 +92,7 @@ public class Connect {
 		
 	}
 	
-	/*Método: cerrarConexion()
+	/*Método: closeConnection()
 	Tipo: boolean
 	Parámetros: ninguno
 	Devuelve: boolean
@@ -104,7 +104,7 @@ public class Connect {
 		boolean seCerro=false;
 		try
 		{
-			this.miConexion.close();
+			this.myConnection.close();
 			seCerro=true;
 			
 		}catch(SQLException se){
