@@ -62,6 +62,18 @@ public class UI extends javax.swing.JFrame {
         button.setContentAreaFilled(true);
         button.setForeground(secundaryColor);
     }
+    
+    private void changeIcon(Component x) {
+        /*    if(x instanceof JButton){
+            JButton tmpButton=(JButton) x;
+            tmpButton.setIcon(defaultIcon);
+        }
+        if(x instanceof JLabel){
+            JLabel tmpButton=(JLabel) x;
+            tmpButton.setIcon(defaultIcon);
+        }
+         */
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -92,12 +104,11 @@ public class UI extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         layeredConfMain = new javax.swing.JLayeredPane();
         pnlConf = new javax.swing.JPanel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         layeredConf = new javax.swing.JLayeredPane();
         pnlConfMain = new javax.swing.JPanel();
+        jButton9 = new javax.swing.JButton();
         pnlConfTheme = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -117,6 +128,7 @@ public class UI extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jToggleButton6 = new javax.swing.JToggleButton();
         jPanel12 = new javax.swing.JPanel();
+        jButton6 = new javax.swing.JButton();
         pnlMain = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -369,9 +381,9 @@ public class UI extends javax.swing.JFrame {
         pnlFormDecoratedLayout.setVerticalGroup(
             pnlFormDecoratedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFormDecoratedLayout.createSequentialGroup()
-                .addGroup(pnlFormDecoratedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlFormDecoratedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0))
         );
 
@@ -380,28 +392,19 @@ public class UI extends javax.swing.JFrame {
 
         pnlConf.setBackground(new java.awt.Color(255, 255, 255));
 
-        jSeparator1.setForeground(new java.awt.Color(255, 190, 113));
-
-        jButton3.setBackground(new java.awt.Color(255, 190, 113));
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Vista de sospechosos");
-        jButton3.setBorderPainted(false);
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                mouseBttExit(evt);
-            }
-        });
-
         jButton5.setBackground(new java.awt.Color(255, 190, 113));
         jButton5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Temas");
         jButton5.setBorderPainted(false);
-        jButton5.setPreferredSize(new java.awt.Dimension(161, 25));
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton5MouseClicked(evt);
+            }
+        });
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                mouseBttExit(evt);
             }
         });
 
@@ -414,16 +417,41 @@ public class UI extends javax.swing.JFrame {
 
         pnlConfMain.setBackground(new java.awt.Color(255, 255, 255));
 
+        jButton9.setBackground(new java.awt.Color(255, 190, 113));
+        jButton9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton9.setForeground(new java.awt.Color(255, 255, 255));
+        jButton9.setText("Vista de sospechosos");
+        jButton9.setBorderPainted(false);
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                mouseBttExit(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlConfMainLayout = new javax.swing.GroupLayout(pnlConfMain);
         pnlConfMain.setLayout(pnlConfMainLayout);
         pnlConfMainLayout.setHorizontalGroup(
             pnlConfMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 760, Short.MAX_VALUE)
+            .addGroup(pnlConfMainLayout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(483, Short.MAX_VALUE))
         );
         pnlConfMainLayout.setVerticalGroup(
             pnlConfMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 401, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlConfMainLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(205, 205, 205))
         );
+
+        jButton6.setFocusable(false);
+
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                mouseBttHover(evt);
+            }
+        });
 
         pnlConfTheme.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -680,7 +708,7 @@ public class UI extends javax.swing.JFrame {
                 .addGroup(pnlConfThemeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addGap(75, 75, 75))
         );
         pnlConfThemeLayout.setVerticalGroup(
             pnlConfThemeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -695,7 +723,7 @@ public class UI extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(11, 11, 11))
         );
 
         layeredConf.setLayer(pnlConfMain, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -713,61 +741,53 @@ public class UI extends javax.swing.JFrame {
             layeredConfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layeredConfLayout.createSequentialGroup()
                 .addComponent(pnlConfTheme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 34, Short.MAX_VALUE))
+                .addGap(0, 56, Short.MAX_VALUE))
             .addGroup(layeredConfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(pnlConfMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jButton6.setBackground(new java.awt.Color(255, 190, 113));
+        jButton6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jButton6.setText("Vista de sospechosos");
+        jButton6.setBorderPainted(false);
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                mouseBttExit(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlConfLayout = new javax.swing.GroupLayout(pnlConf);
         pnlConf.setLayout(pnlConfLayout);
         pnlConfLayout.setHorizontalGroup(
             pnlConfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(layeredConf, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(pnlConfLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jSeparator1)
-                .addGap(30, 30, 30))
-            .addGroup(pnlConfLayout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addComponent(jButton3)
+                .addGap(148, 148, 148)
+                .addComponent(jButton6)
                 .addGap(0, 0, 0)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(layeredConf, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         pnlConfLayout.setVerticalGroup(
             pnlConfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlConfLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlConfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, 0)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jButton5)
+                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton6))
+                .addGap(13, 13, 13)
                 .addComponent(layeredConf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jButton3.setFocusable(false);
-
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                mouseBttHover(evt);
-            }
-        });
         jButton5.setFocusable(false);
 
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 mouseBttHover(evt);
-            }
-        });
-
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                mouseBttExit(evt);
             }
         });
         jButton7.setFocusable(false);
@@ -781,6 +801,13 @@ public class UI extends javax.swing.JFrame {
         jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 mouseBttExit(evt);
+            }
+        });
+        jButton6.setFocusable(false);
+
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                mouseBttHover(evt);
             }
         });
 
@@ -842,7 +869,7 @@ public class UI extends javax.swing.JFrame {
             .addGroup(pnlMainLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addGap(108, 108, 108))
         );
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -993,23 +1020,12 @@ public class UI extends javax.swing.JFrame {
         pnlMenu3.setBackground(new Color(255, 190, 115));
     }//GEN-LAST:event_pnlMenu3MouseExited
 
-
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        pnlConfMain.setVisible(false);
         pnlConfTheme.setVisible(true);
     }//GEN-LAST:event_jButton5MouseClicked
 
-    private void changeIcon(Component x) {
-        /*    if(x instanceof JButton){
-            JButton tmpButton=(JButton) x;
-            tmpButton.setIcon(defaultIcon);
-        }
-        if(x instanceof JLabel){
-            JLabel tmpButton=(JLabel) x;
-            tmpButton.setIcon(defaultIcon);
-        }
-         */
-    }
+
+    
 
     /**
      * @param args the command line arguments
@@ -1049,10 +1065,11 @@ public class UI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -1066,7 +1083,6 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
