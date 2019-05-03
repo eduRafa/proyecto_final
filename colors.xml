@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<colors>
+    <color1>
+        <primaryColor>000000</primaryColor>
+        <secundaryColor>FFFFFF</secundaryColor>
+    </color1>
+    
+    <color2>
+        <primaryColor>FFFFFF</primaryColor>
+        <secundaryColor>000000</secundaryColor>
+    </color2>
+    
+    <color3>
+        <primaryColor>ECE358</primaryColor>
+        <secundaryColor>000000</secundaryColor>
+    </color3>
+    
+    <color4>
+        <primaryColor>33F1E9</primaryColor>
+        <secundaryColor>FFFFFF</secundaryColor>
+    </color4>
+    
+    <color5>
+        <primaryColor>CD96E9</primaryColor>
+        <secundaryColor>FFFFFF</secundaryColor>
+    </color5>
+    
+    <color6>
+        <primaryColor>F56FCC</primaryColor>
+        <secundaryColor>FFFFFF</secundaryColor>
+    </color6>
+    
+</colors>
