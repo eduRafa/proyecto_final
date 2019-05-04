@@ -6,12 +6,9 @@ and open the template in the editor.
 -->
 
 
-<colors>
-    <color1>
-        <primaryColor>000000</primaryColor>
-        <secundaryColor>FFFFFF</secundaryColor>
-    </color1>
+<props>
+    <prop name="matricula"></prop>
+    <prop name="ubicacionesFechas"></prop>
+    <prop name="profesiones"></prop>
     
-  
-    
-</colors>
+</props>
