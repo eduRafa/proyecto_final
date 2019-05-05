@@ -52,6 +52,7 @@ public class UI extends javax.swing.JFrame {
         pnlMain.setVisible(false);
         pnlSearch.setVisible(false);
         pnlAdd.setVisible(false);
+        this.getAccessibleContext().getAccessibleName();
     }
 
     private void hideConfLayouts() {
@@ -59,58 +60,6 @@ public class UI extends javax.swing.JFrame {
         pnlConfTheme.setVisible(false);
         pnlConfSuspectView.setVisible(false);
         pnlConfStadistics.setVisible(false);
-    }
-
-    /**
-     * Metodo que agrupa el evento entered de algunos botones de la interfaz.
-     *
-     * @param evt Evento, en este caso Entered.
-     */
-    private void mouseBttHover(java.awt.event.MouseEvent evt) {
-        JButton button = (JButton) evt.getComponent();
-        changeIcon(button);
-        button.setContentAreaFilled(false);
-        button.setForeground(primaryColor);
-    }
-
-    /**
-     * Metodo que agrupa el evento exited de algunos botones de la interfaz.
-     *
-     * @param evt Evento, en este caso Exited.
-     */
-    private void mouseBttExit(java.awt.event.MouseEvent evt) {
-        JButton button = (JButton) evt.getComponent();
-        changeIcon(button);
-        button.setContentAreaFilled(true);
-        button.setForeground(secundaryColor);
-    }
-
-    private void mousePnlHover(java.awt.event.MouseEvent evt) {
-        JPanel panel = (JPanel) evt.getComponent();
-        panel.setBackground(secundaryColor);
-        panel.setForeground(primaryColor);
-    }
-
-    private void mousePnlExit(java.awt.event.MouseEvent evt) {
-        JPanel panel = (JPanel) evt.getComponent();
-        panel.setBackground(primaryColor);
-        panel.setForeground(primaryColor);
-    }
-
-    private void changeIcon(Component x) {
-        /*    if(x instanceof JButton){
-            JButton tmpButton=(JButton) x;
-            tmpButton.setIcon(defaultIcon);
-        }
-        if(x instanceof JLabel){
-            JLabel tmpButton=(JLabel) x;
-            tmpButton.setIcon(defaultIcon);
-        }
-         */
-    }
-
-    private void replacePrimaryColor(Color c) {
-        myController.setPrimaryColor(c);
     }
 
     private void setThemeColors() {
@@ -121,6 +70,14 @@ public class UI extends javax.swing.JFrame {
         themeColor[3] = new Color(222, 169, 218);
         themeColor[4] = new Color(225, 157, 156);
         themeColor[5] = new Color(248, 239, 92);
+    }
+
+    public static Color getPrimaryColor() {
+        return primaryColor;
+    }
+
+    public static Color getSecundaryColor() {
+        return secundaryColor;
     }
 
     /**
@@ -150,12 +107,12 @@ public class UI extends javax.swing.JFrame {
         lblMenu44 = new javax.swing.JLabel();
         lblMenu4 = new javax.swing.JLabel();
         pnlFormDecorated = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        pnlFormDecoratedCloseWindow = new javax.swing.JButton();
+        pnlFormDecoratedMinimizeWindow = new javax.swing.JButton();
         layeredConfMain = new javax.swing.JLayeredPane();
         pnlMain = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        scrollTblMain = new javax.swing.JScrollPane();
+        tblMain = new javax.swing.JTable();
         jCheckBox4 = new javax.swing.JCheckBox();
         jCheckBox5 = new javax.swing.JCheckBox();
         jCheckBox6 = new javax.swing.JCheckBox();
@@ -168,17 +125,17 @@ public class UI extends javax.swing.JFrame {
         jCheckBox2 = new javax.swing.JCheckBox();
         jCheckBox3 = new javax.swing.JCheckBox();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        scrollTblSearchSearch = new javax.swing.JScrollPane();
+        tblSearchSearch = new javax.swing.JTable();
         jButton6 = new javax.swing.JButton();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        scrollTblSearchAnswer = new javax.swing.JScrollPane();
+        tblSearchAnswer = new javax.swing.JTable();
         jLabel25 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         pnlConf = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        btnConfTheme = new javax.swing.JButton();
+        btnConfStadistics = new javax.swing.JButton();
+        btnConfSuspctView = new javax.swing.JButton();
         layeredConf = new javax.swing.JLayeredPane();
         pnlConfMain = new javax.swing.JPanel();
         pnlConfMainThemes = new javax.swing.JPanel();
@@ -194,8 +151,8 @@ public class UI extends javax.swing.JFrame {
         lblConfMainSuspectViewDesc = new javax.swing.JLabel();
         lblConfMainSuspectViewIcon = new javax.swing.JLabel();
         pnlConfSuspectView = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        scrollTblConfSuspectView = new javax.swing.JScrollPane();
+        tblConfSuspectView = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         pnlConfStadistics = new javax.swing.JPanel();
@@ -261,9 +218,9 @@ public class UI extends javax.swing.JFrame {
 
         pnlMenu.setBackground(primaryColor);
         pnlMenu.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
-        pnlMenu.setToolTipText(null);
 
         pnlMenu2.setBackground(primaryColor);
+        pnlMenu2.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor, 0));
         pnlMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlMenu2MouseClicked(evt);
@@ -277,7 +234,7 @@ public class UI extends javax.swing.JFrame {
         });
 
         lblMenu22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblMenu22.setForeground(new java.awt.Color(255, 255, 255));
+        lblMenu22.setForeground(secundaryColor);
         lblMenu22.setText("Búsqueda");
 
         lblMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-búsqueda-30-blanco.png"))); // NOI18N
@@ -302,7 +259,10 @@ public class UI extends javax.swing.JFrame {
                     .addComponent(lblMenu2, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)))
         );
 
+        lblMenu22.getAccessibleContext().setAccessibleName("0$-$0");
+
         pnlMenu1.setBackground(primaryColor);
+        pnlMenu1.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor, 0));
         pnlMenu1.setPreferredSize(new java.awt.Dimension(192, 46));
         pnlMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -318,7 +278,7 @@ public class UI extends javax.swing.JFrame {
 
         lblMenu11.setBackground(secundaryColor);
         lblMenu11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblMenu11.setForeground(new java.awt.Color(255, 255, 255));
+        lblMenu11.setForeground(secundaryColor);
         lblMenu11.setText("Menu Principal");
 
         lblMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-casa-30-blanco.png"))); // NOI18N
@@ -340,10 +300,13 @@ public class UI extends javax.swing.JFrame {
                 .addGap(2, 2, 2)
                 .addGroup(pnlMenu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblMenu11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblMenu1, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)))
+                    .addComponent(lblMenu1, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)))
         );
 
+        lblMenu11.getAccessibleContext().setAccessibleName("0$-$0");
+
         pnlMenu3.setBackground(primaryColor);
+        pnlMenu3.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor, 0));
         pnlMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlMenu3MouseClicked(evt);
@@ -358,7 +321,7 @@ public class UI extends javax.swing.JFrame {
 
         lblMenu33.setBackground(new java.awt.Color(255, 255, 255));
         lblMenu33.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblMenu33.setForeground(new java.awt.Color(255, 255, 255));
+        lblMenu33.setForeground(secundaryColor);
         lblMenu33.setText("Agregar sospechoso");
 
         lblMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-añadir-usuario-masculino-30-blanco.png"))); // NOI18N
@@ -383,7 +346,10 @@ public class UI extends javax.swing.JFrame {
                     .addComponent(lblMenu3, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)))
         );
 
+        lblMenu33.getAccessibleContext().setAccessibleName("0$-$0");
+
         pnlMenu4.setBackground(primaryColor);
+        pnlMenu4.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor, 0));
         pnlMenu4.setPreferredSize(new java.awt.Dimension(192, 46));
         pnlMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -399,7 +365,7 @@ public class UI extends javax.swing.JFrame {
 
         lblMenu44.setBackground(secundaryColor);
         lblMenu44.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblMenu44.setForeground(new java.awt.Color(255, 255, 255));
+        lblMenu44.setForeground(secundaryColor);
         lblMenu44.setText("Configuración");
 
         lblMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-servicios-30-blanco.png"))); // NOI18N
@@ -421,17 +387,19 @@ public class UI extends javax.swing.JFrame {
                 .addGap(2, 2, 2)
                 .addGroup(pnlMenu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblMenu44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblMenu4, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)))
+                    .addComponent(lblMenu4, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)))
         );
+
+        lblMenu44.getAccessibleContext().setAccessibleName("0$-$0");
 
         javax.swing.GroupLayout pnlMenuLayout = new javax.swing.GroupLayout(pnlMenu);
         pnlMenu.setLayout(pnlMenuLayout);
         pnlMenuLayout.setHorizontalGroup(
             pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlMenu2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnlMenu1, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+            .addComponent(pnlMenu1, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
             .addComponent(pnlMenu3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnlMenu4, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+            .addComponent(pnlMenu4, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
         );
         pnlMenuLayout.setVerticalGroup(
             pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -447,33 +415,38 @@ public class UI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        pnlMenu2.getAccessibleContext().setAccessibleName("1$-$-");
+        pnlMenu1.getAccessibleContext().setAccessibleName("1$-$-");
+        pnlMenu3.getAccessibleContext().setAccessibleName("1$-$-");
+        pnlMenu4.getAccessibleContext().setAccessibleName("1$-$-");
+
         pnlFormDecorated.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setBackground(new java.awt.Color(161, 0, 0));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-eliminar-20-negro.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        pnlFormDecoratedCloseWindow.setBackground(new java.awt.Color(161, 0, 0));
+        pnlFormDecoratedCloseWindow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-eliminar-20-negro.png"))); // NOI18N
+        pnlFormDecoratedCloseWindow.setBorderPainted(false);
+        pnlFormDecoratedCloseWindow.setContentAreaFilled(false);
+        pnlFormDecoratedCloseWindow.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton1MouseEntered(evt);
+                pnlFormDecoratedCloseWindowMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton1MouseExited(evt);
+                pnlFormDecoratedCloseWindowMouseExited(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        pnlFormDecoratedCloseWindow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                pnlFormDecoratedCloseWindowActionPerformed(evt);
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-línea-horizontal-18.png"))); // NOI18N
-        jButton2.setToolTipText(null);
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        pnlFormDecoratedMinimizeWindow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-línea-horizontal-18.png"))); // NOI18N
+        pnlFormDecoratedMinimizeWindow.setToolTipText(null);
+        pnlFormDecoratedMinimizeWindow.setBorderPainted(false);
+        pnlFormDecoratedMinimizeWindow.setContentAreaFilled(false);
+        pnlFormDecoratedMinimizeWindow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                pnlFormDecoratedMinimizeWindowActionPerformed(evt);
             }
         });
 
@@ -483,27 +456,28 @@ public class UI extends javax.swing.JFrame {
             pnlFormDecoratedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFormDecoratedLayout.createSequentialGroup()
                 .addGap(671, 671, 671)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlFormDecoratedMinimizeWindow, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pnlFormDecoratedCloseWindow, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlFormDecoratedLayout.setVerticalGroup(
             pnlFormDecoratedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFormDecoratedLayout.createSequentialGroup()
                 .addGroup(pnlFormDecoratedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlFormDecoratedCloseWindow, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlFormDecoratedMinimizeWindow, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0))
         );
 
-        jButton1.setFocusable(false);
-        jButton2.setFocusable(false);
+        pnlFormDecoratedCloseWindow.setFocusable(false);
+        pnlFormDecoratedMinimizeWindow.setFocusable(false);
 
         pnlMain.setBackground(new java.awt.Color(255, 255, 255));
 
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        scrollTblMain.setBorder(null);
+        scrollTblMain.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblMain.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -539,17 +513,18 @@ public class UI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jTable1.setAutoscrolls(false);
-        jTable1.setGridColor(new java.awt.Color(198, 198, 198));
-        jTable1.setPreferredSize(new java.awt.Dimension(748, 480));
-        jTable1.setSelectionBackground(primaryColor);
-        jTable1.getTableHeader().setResizingAllowed(false);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
-        jTable1.getTableHeader().setBackground(primaryColor);
-        jTable1.getTableHeader().setForeground(secundaryColor);
-        jTable1.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
+        tblMain.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tblMain.setAutoscrolls(false);
+        tblMain.setGridColor(new java.awt.Color(198, 198, 198));
+        tblMain.setPreferredSize(new java.awt.Dimension(748, 480));
+        tblMain.setSelectionBackground(primaryColor);
+        tblMain.getTableHeader().setResizingAllowed(false);
+        tblMain.getTableHeader().setReorderingAllowed(false);
+        scrollTblMain.setViewportView(tblMain);
+        tblMain.getTableHeader().setBackground(primaryColor);
+        tblMain.getTableHeader().setForeground(secundaryColor);
+        tblMain.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
+        tblMain.getAccessibleContext().setAccessibleName("1$1$0");
 
         jCheckBox4.setBackground(secundaryColor);
         jCheckBox4.setText("Orden ascendente");
@@ -573,7 +548,10 @@ public class UI extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Filtrar por:");
 
+        jButton10.setBackground(primaryColor);
+        jButton10.setForeground(secundaryColor);
         jButton10.setText("Actualizar");
+        jButton10.setBorder(javax.swing.BorderFactory.createLineBorder(secundaryColor));
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
@@ -587,7 +565,7 @@ public class UI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scrollTblMain, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlMainLayout.createSequentialGroup()
                         .addComponent(jCheckBox4)
                         .addGap(12, 12, 12)
@@ -608,7 +586,7 @@ public class UI extends javax.swing.JFrame {
             pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainLayout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollTblMain, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
@@ -621,6 +599,19 @@ public class UI extends javax.swing.JFrame {
                         .addComponent(jButton10)))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
+
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+        });
+
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+        });
+        jButton10.getAccessibleContext().setAccessibleName("1$0$0");
 
         pnlSearch.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -642,11 +633,11 @@ public class UI extends javax.swing.JFrame {
         jComboBox1.setBorder(null);
         jComboBox1.setFocusable(false);
 
-        jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane2.setBorder(null);
-        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        scrollTblSearchSearch.setBackground(new java.awt.Color(255, 255, 255));
+        scrollTblSearchSearch.setBorder(null);
+        scrollTblSearchSearch.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblSearchSearch.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null}
             },
@@ -654,23 +645,24 @@ public class UI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable2.setSelectionBackground(primaryColor);
-        jTable2.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(jTable2);
-        jTable2.getTableHeader().setBackground(primaryColor);
-        jTable2.getTableHeader().setForeground(secundaryColor);
-        jTable2.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
+        tblSearchSearch.setSelectionBackground(primaryColor);
+        tblSearchSearch.getTableHeader().setReorderingAllowed(false);
+        scrollTblSearchSearch.setViewportView(tblSearchSearch);
+        tblSearchSearch.getTableHeader().setBackground(primaryColor);
+        tblSearchSearch.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
+        tblSearchSearch.getTableHeader().setForeground(secundaryColor);
+        tblSearchSearch.getAccessibleContext().setAccessibleName("1$1$0");
 
         jButton6.setBackground(primaryColor);
         jButton6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton6.setForeground(secundaryColor);
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-búsqueda-15.png"))); // NOI18N
         jButton6.setText("Buscar");
-        jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(198, 198, 198)));
+        jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(secundaryColor));
         jButton6.setFocusable(false);
         jButton6.setPreferredSize(new java.awt.Dimension(35, 35));
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        tblSearchAnswer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -691,13 +683,14 @@ public class UI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable4.setAutoscrolls(false);
-        jTable4.setSelectionBackground(primaryColor);
-        jTable4.getTableHeader().setReorderingAllowed(false);
-        jScrollPane4.setViewportView(jTable4);
-        jTable4.getTableHeader().setBackground(primaryColor);
-        jTable4.getTableHeader().setForeground(secundaryColor);
-        jTable4.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
+        tblSearchAnswer.setAutoscrolls(false);
+        tblSearchAnswer.setSelectionBackground(primaryColor);
+        tblSearchAnswer.getTableHeader().setReorderingAllowed(false);
+        scrollTblSearchAnswer.setViewportView(tblSearchAnswer);
+        tblSearchAnswer.getTableHeader().setBackground(primaryColor);
+        tblSearchAnswer.getTableHeader().setForeground(secundaryColor);
+        tblSearchAnswer.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
+        tblSearchAnswer.getAccessibleContext().setAccessibleName("1$1$0");
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-filtro-relleno-18 (2).png"))); // NOI18N
 
@@ -714,7 +707,7 @@ public class UI extends javax.swing.JFrame {
                 .addGap(56, 56, 56)
                 .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlSearchLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2)
+                        .addComponent(scrollTblSearchSearch)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55))
@@ -733,7 +726,7 @@ public class UI extends javax.swing.JFrame {
                         .addGap(90, 90, 90))))
             .addGroup(pnlSearchLayout.createSequentialGroup()
                 .addGap(70, 70, 70)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollTblSearchAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(77, 77, 77))
         );
         pnlSearchLayout.setVerticalGroup(
@@ -745,7 +738,7 @@ public class UI extends javax.swing.JFrame {
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSearchLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(scrollTblSearchSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
                 .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -757,67 +750,84 @@ public class UI extends javax.swing.JFrame {
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(44, 44, 44)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollTblSearchAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(99, 99, 99))
         );
 
         jCheckBox1.setFocusable(false);
         jCheckBox2.setFocusable(false);
         jCheckBox3.setFocusable(false);
+        jButton6.getAccessibleContext().setAccessibleName("1$0$0");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+        });
+
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+        });
 
         pnlConf.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton5.setBackground(primaryColor);
-        jButton5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton5.setForeground(secundaryColor);
-        jButton5.setText("Temas");
-        jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
-        jButton5.setFocusable(false);
-        jButton5.setPreferredSize(new java.awt.Dimension(161, 25));
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnConfTheme.setBackground(primaryColor);
+        btnConfTheme.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnConfTheme.setForeground(secundaryColor);
+        btnConfTheme.setText("Temas");
+        btnConfTheme.setBorder(javax.swing.BorderFactory.createLineBorder(secundaryColor));
+        btnConfTheme.setFocusable(false);
+        btnConfTheme.setPreferredSize(new java.awt.Dimension(161, 25));
+        btnConfTheme.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
+                btnConfThemeMouseClicked(evt);
             }
         });
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                mouseBttExit(evt);
-            }
-        });
-
-        jButton7.setBackground(primaryColor);
-        jButton7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton7.setForeground(secundaryColor);
-        jButton7.setText("Estadísticas");
-        jButton7.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
-        jButton7.setFocusable(false);
-        jButton7.setPreferredSize(new java.awt.Dimension(161, 25));
-        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton7MouseClicked(evt);
-            }
-        });
-
-        jButton8.setBackground(primaryColor);
-        jButton8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton8.setForeground(secundaryColor);
-        jButton8.setText("Vista de sospechosos");
-        jButton8.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
-        jButton8.setFocusable(false);
-        jButton8.setPreferredSize(new java.awt.Dimension(161, 25));
-        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton8MouseClicked(evt);
-            }
-        });
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        btnConfTheme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                btnConfThemeActionPerformed(evt);
             }
         });
-        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnConfTheme.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                mouseBttExit(evt);
+                uiUtils.mouseComponentEffect(evt);
+            }
+        });
+
+        btnConfStadistics.setBackground(primaryColor);
+        btnConfStadistics.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnConfStadistics.setForeground(secundaryColor);
+        btnConfStadistics.setText("Estadísticas");
+        btnConfStadistics.setBorder(javax.swing.BorderFactory.createLineBorder(secundaryColor));
+        btnConfStadistics.setFocusable(false);
+        btnConfStadistics.setPreferredSize(new java.awt.Dimension(161, 25));
+        btnConfStadistics.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnConfStadisticsMouseClicked(evt);
+            }
+        });
+
+        btnConfSuspctView.setBackground(primaryColor);
+        btnConfSuspctView.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnConfSuspctView.setForeground(secundaryColor);
+        btnConfSuspctView.setText("Vista de sospechosos");
+        btnConfSuspctView.setBorder(javax.swing.BorderFactory.createLineBorder(secundaryColor));
+        btnConfSuspctView.setFocusable(false);
+        btnConfSuspctView.setPreferredSize(new java.awt.Dimension(161, 25));
+        btnConfSuspctView.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnConfSuspctViewMouseClicked(evt);
+            }
+        });
+        btnConfSuspctView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfSuspctViewActionPerformed(evt);
+            }
+        });
+        btnConfSuspctView.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
             }
         });
 
@@ -829,12 +839,6 @@ public class UI extends javax.swing.JFrame {
         pnlConfMainThemes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlConfMainThemesMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlConfMainThemesMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlConfMainThemesMouseExited(evt);
             }
         });
 
@@ -876,18 +880,15 @@ public class UI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        lblConfMainThemesTitle.getAccessibleContext().setAccessibleName("-$-$1");
+        lblConfMainThemesDesc.getAccessibleContext().setAccessibleName("-$-$1");
+
         pnlConfMainStadistics.setBackground(secundaryColor);
         pnlConfMainStadistics.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
         pnlConfMainStadistics.setPreferredSize(new java.awt.Dimension(209, 412));
         pnlConfMainStadistics.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlConfMainStadisticsMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlConfMainStadisticsMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlConfMainStadisticsMouseExited(evt);
             }
         });
 
@@ -931,17 +932,14 @@ public class UI extends javax.swing.JFrame {
                 .addContainerGap(136, Short.MAX_VALUE))
         );
 
+        lbllConfMainStadisticsTitle.getAccessibleContext().setAccessibleName("-$-$1");
+        lbllConfMainStadisticsDesc.getAccessibleContext().setAccessibleName("-$-$1");
+
         pnlConfMainSuspectView.setBackground(secundaryColor);
         pnlConfMainSuspectView.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
         pnlConfMainSuspectView.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlConfMainSuspectViewMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlConfMainSuspectViewMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlConfMainSuspectViewMouseExited(evt);
             }
         });
 
@@ -984,6 +982,9 @@ public class UI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        lblConfMainSuspectViewTitle.getAccessibleContext().setAccessibleName("-$-$1");
+        lblConfMainSuspectViewDesc.getAccessibleContext().setAccessibleName("-$-$1");
+
         javax.swing.GroupLayout pnlConfMainLayout = new javax.swing.GroupLayout(pnlConfMain);
         pnlConfMain.setLayout(pnlConfMainLayout);
         pnlConfMainLayout.setHorizontalGroup(
@@ -1008,9 +1009,37 @@ public class UI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        pnlConfMainThemes.getAccessibleContext().setAccessibleName("0$1$-");
+        pnlConfMainThemes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+        });
+        pnlConfMainStadistics.getAccessibleContext().setAccessibleName("0$1$-");
+        pnlConfMainStadistics.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+        });
+        pnlConfMainSuspectView.getAccessibleContext().setAccessibleName("0$1$-");
+        pnlConfMainSuspectView.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+        });
+
         pnlConfSuspectView.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tblConfSuspectView.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -1040,22 +1069,23 @@ public class UI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable3.setGridColor(new java.awt.Color(198, 198, 198));
-        jTable3.setSelectionBackground(primaryColor);
-        jTable3.getTableHeader().setResizingAllowed(false);
-        jTable3.getTableHeader().setReorderingAllowed(false);
-        jScrollPane3.setViewportView(jTable3);
-        jTable3.getTableHeader().setBackground(new java.awt.Color(255,255,255));
-        jTable3.getTableHeader().setBackground(primaryColor);
-        jTable3.getTableHeader().setForeground(secundaryColor);
-        jTable3.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
+        tblConfSuspectView.setGridColor(new java.awt.Color(198, 198, 198));
+        tblConfSuspectView.setSelectionBackground(primaryColor);
+        tblConfSuspectView.getTableHeader().setResizingAllowed(false);
+        tblConfSuspectView.getTableHeader().setReorderingAllowed(false);
+        scrollTblConfSuspectView.setViewportView(tblConfSuspectView);
+        tblConfSuspectView.getTableHeader().setBackground(new java.awt.Color(255,255,255));
+        tblConfSuspectView.getTableHeader().setBackground(primaryColor);
+        tblConfSuspectView.getTableHeader().setForeground(secundaryColor);
+        tblConfSuspectView.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
+        tblConfSuspectView.getAccessibleContext().setAccessibleName("1$1$0");
 
         jButton3.setBackground(primaryColor);
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton3.setForeground(secundaryColor);
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-más-25.png"))); // NOI18N
         jButton3.setText("Insertar campo");
-        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(198, 198, 198)));
+        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(secundaryColor));
         jButton3.setFocusable(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1063,6 +1093,7 @@ public class UI extends javax.swing.JFrame {
             }
         });
 
+        jLabel10.setBackground(secundaryColor);
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setForeground(primaryColor);
         jLabel10.setText("0/10");
@@ -1074,7 +1105,7 @@ public class UI extends javax.swing.JFrame {
             .addGroup(pnlConfSuspectViewLayout.createSequentialGroup()
                 .addGap(106, 106, 106)
                 .addGroup(pnlConfSuspectViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scrollTblConfSuspectView, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlConfSuspectViewLayout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1086,13 +1117,27 @@ public class UI extends javax.swing.JFrame {
             pnlConfSuspectViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlConfSuspectViewLayout.createSequentialGroup()
                 .addGap(72, 72, 72)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollTblConfSuspectView, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(pnlConfSuspectViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
+
+        jButton3.getAccessibleContext().setAccessibleName("1$0$0");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+        });
+
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+        });
+        jLabel10.getAccessibleContext().setAccessibleName("0$-$1");
 
         pnlConfStadistics.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1163,7 +1208,7 @@ public class UI extends javax.swing.JFrame {
                             .addComponent(jLabel22)
                             .addComponent(jLabel23)
                             .addComponent(jLabel24))))
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
         pnlConfStadisticsLayout.setVerticalGroup(
             pnlConfStadisticsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1548,11 +1593,11 @@ public class UI extends javax.swing.JFrame {
             .addComponent(layeredConf, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(pnlConfLayout.createSequentialGroup()
                 .addGap(142, 142, 142)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnConfSuspctView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnConfTheme, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnConfStadistics, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(154, 154, 154))
         );
         pnlConfLayout.setVerticalGroup(
@@ -1560,41 +1605,45 @@ public class UI extends javax.swing.JFrame {
             .addGroup(pnlConfLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlConfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnConfTheme, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlConfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnConfStadistics, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnConfSuspctView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(0, 0, 0)
                 .addComponent(layeredConf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnConfTheme.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                mouseBttHover(evt);
+                uiUtils.mouseComponentEffect(evt);
             }
         });
 
-        jButton5.setVisible(false);
-        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnConfTheme.setVisible(false);
+        btnConfTheme.getAccessibleContext().setAccessibleName("1$0$0");
+        btnConfStadistics.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                mouseBttHover(evt);
+                uiUtils.mouseComponentEffect(evt);
             }
         });
 
-        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnConfStadistics.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                mouseBttExit(evt);
+                uiUtils.mouseComponentEffect(evt);
             }
         });
 
-        jButton7.setVisible(false);
-        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnConfStadistics.setVisible(false);
+        btnConfStadistics.getAccessibleContext().setAccessibleName("1$0$0"); // NOI18N
+        btnConfSuspctView.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                mouseBttHover(evt);
+                //mouseBttHover(evt);
+                uiUtils.mouseComponentEffect(evt);
             }
         });
 
-        jButton8.setVisible(false);
+        btnConfSuspctView.setVisible(false);
+        btnConfSuspctView.getAccessibleContext().setAccessibleName("1$0$0");
 
         pnlAdd.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1635,12 +1684,13 @@ public class UI extends javax.swing.JFrame {
         jTable5.getTableHeader().setBackground(primaryColor);
         jTable5.getTableHeader().setForeground(secundaryColor);
         jTable5.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
+        jTable5.getAccessibleContext().setAccessibleName("1$1$0");
 
         jButton9.setBackground(primaryColor);
         jButton9.setForeground(secundaryColor);
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-más-25.png"))); // NOI18N
         jButton9.setText("Añadir sospechoso");
-        jButton9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(198, 198, 198)));
+        jButton9.setBorder(javax.swing.BorderFactory.createLineBorder(secundaryColor));
         jButton9.setFocusable(false);
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1668,6 +1718,19 @@ public class UI extends javax.swing.JFrame {
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(89, Short.MAX_VALUE))
         );
+
+        jButton9.getAccessibleContext().setAccessibleName("1$0$0");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+        });
+
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+        });
 
         layeredConfMain.setLayer(pnlMain, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredConfMain.setLayer(pnlSearch, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1724,6 +1787,8 @@ public class UI extends javax.swing.JFrame {
             .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        pnlMenu.getAccessibleContext().setAccessibleName("1$1$-");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1734,6 +1799,8 @@ public class UI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnl1Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        pnl1Background.getAccessibleContext().setAccessibleName("-$1$-");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1754,46 +1821,46 @@ public class UI extends javax.swing.JFrame {
 
     private void pnlConfMainThemesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlConfMainThemesMouseClicked
         pnlConfTheme.setVisible(true);
-        jButton5.setVisible(true);
-        jButton7.setVisible(true);
-        jButton8.setVisible(true);
+        btnConfTheme.setVisible(true);
+        btnConfStadistics.setVisible(true);
+        btnConfSuspctView.setVisible(true);
         pnlConfMain.setVisible(false);
     }//GEN-LAST:event_pnlConfMainThemesMouseClicked
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void btnConfSuspctViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfSuspctViewActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_btnConfSuspctViewActionPerformed
 
-    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+    private void btnConfSuspctViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfSuspctViewMouseClicked
         hideConfLayouts();
         pnlConfSuspectView.setVisible(true);
-        jButton5.setVisible(true);
-        jButton7.setVisible(true);
-        jButton8.setVisible(true);
-    }//GEN-LAST:event_jButton8MouseClicked
+        btnConfTheme.setVisible(true);
+        btnConfStadistics.setVisible(true);
+        btnConfSuspctView.setVisible(true);
+    }//GEN-LAST:event_btnConfSuspctViewMouseClicked
 
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+    private void btnConfThemeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfThemeMouseClicked
         hideConfLayouts();
         pnlConfTheme.setVisible(true);
-    }//GEN-LAST:event_jButton5MouseClicked
+    }//GEN-LAST:event_btnConfThemeMouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void pnlFormDecoratedMinimizeWindowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pnlFormDecoratedMinimizeWindowActionPerformed
         setExtendedState(ICONIFIED);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_pnlFormDecoratedMinimizeWindowActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void pnlFormDecoratedCloseWindowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pnlFormDecoratedCloseWindowActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_pnlFormDecoratedCloseWindowActionPerformed
 
-    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
-        jButton1.setContentAreaFilled(false);
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-eliminar-20-negro.png")));
-    }//GEN-LAST:event_jButton1MouseExited
+    private void pnlFormDecoratedCloseWindowMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFormDecoratedCloseWindowMouseExited
+        pnlFormDecoratedCloseWindow.setContentAreaFilled(false);
+        pnlFormDecoratedCloseWindow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-eliminar-20-negro.png")));
+    }//GEN-LAST:event_pnlFormDecoratedCloseWindowMouseExited
 
-    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
-        jButton1.setContentAreaFilled(true);
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-eliminar-20-blanco.png")));
-    }//GEN-LAST:event_jButton1MouseEntered
+    private void pnlFormDecoratedCloseWindowMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlFormDecoratedCloseWindowMouseEntered
+        pnlFormDecoratedCloseWindow.setContentAreaFilled(true);
+        pnlFormDecoratedCloseWindow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-eliminar-20-blanco.png")));
+    }//GEN-LAST:event_pnlFormDecoratedCloseWindowMouseEntered
 
     private void pnlMenu4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlMenu4MouseExited
         lblMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-servicios-30-blanco.png")));
@@ -1810,9 +1877,9 @@ public class UI extends javax.swing.JFrame {
     private void pnlMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlMenu4MouseClicked
         hideLayouts();
         hideConfLayouts();
-        jButton5.setVisible(false);
-        jButton7.setVisible(false);
-        jButton8.setVisible(false);
+        btnConfTheme.setVisible(false);
+        btnConfStadistics.setVisible(false);
+        btnConfSuspctView.setVisible(false);
         pnlConf.setVisible(true);
         pnlConfMain.setVisible(true);
         pnlMain.setVisible(false);
@@ -1834,6 +1901,7 @@ public class UI extends javax.swing.JFrame {
         hideLayouts();
         pnlConf.setVisible(false);
         pnlMain.setVisible(true);
+
     }//GEN-LAST:event_pnlMenu1MouseClicked
 
     private void pnlMenu2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlMenu2MouseExited
@@ -1856,26 +1924,26 @@ public class UI extends javax.swing.JFrame {
     private void pnlConfMainSuspectViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlConfMainSuspectViewMouseClicked
         hideConfLayouts();
         pnlConfSuspectView.setVisible(true);
-        jButton5.setVisible(true);
-        jButton7.setVisible(true);
-        jButton8.setVisible(true);
+        btnConfTheme.setVisible(true);
+        btnConfStadistics.setVisible(true);
+        btnConfSuspctView.setVisible(true);
     }//GEN-LAST:event_pnlConfMainSuspectViewMouseClicked
 
     private void pnlConfMainStadisticsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlConfMainStadisticsMouseClicked
         hideConfLayouts();
         pnlConfStadistics.setVisible(true);
-        jButton5.setVisible(true);
-        jButton7.setVisible(true);
-        jButton8.setVisible(true);
+        btnConfTheme.setVisible(true);
+        btnConfStadistics.setVisible(true);
+        btnConfSuspctView.setVisible(true);
     }//GEN-LAST:event_pnlConfMainStadisticsMouseClicked
 
-    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+    private void btnConfStadisticsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfStadisticsMouseClicked
         hideConfLayouts();
         pnlConfStadistics.setVisible(true);
-        jButton5.setVisible(true);
-        jButton7.setVisible(true);
-        jButton8.setVisible(true);
-    }//GEN-LAST:event_jButton7MouseClicked
+        btnConfTheme.setVisible(true);
+        btnConfStadistics.setVisible(true);
+        btnConfSuspctView.setVisible(true);
+    }//GEN-LAST:event_btnConfStadisticsMouseClicked
 
     private void pnlMenu3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlMenu3MouseExited
         lblMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-añadir-usuario-masculino-30-blanco.png")));
@@ -1902,55 +1970,6 @@ public class UI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void pnlConfMainSuspectViewMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlConfMainSuspectViewMouseEntered
-        pnlConfMainSuspectView.setBackground(primaryColor);
-        lblConfMainSuspectViewTitle.setForeground(secundaryColor);
-        lblConfMainSuspectViewDesc.setForeground(secundaryColor);
-        pnlConfMainSuspectView.setBorder(javax.swing.BorderFactory.createLineBorder(Color.WHITE));
-        lblConfMainSuspectViewIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-visible-filled-64-blanco.png")));
-    }//GEN-LAST:event_pnlConfMainSuspectViewMouseEntered
-
-    private void pnlConfMainSuspectViewMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlConfMainSuspectViewMouseExited
-        pnlConfMainSuspectView.setBackground(secundaryColor);
-        lblConfMainSuspectViewTitle.setForeground(primaryColor);
-        lblConfMainSuspectViewDesc.setForeground(primaryColor);
-        pnlConfMainSuspectView.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
-        lblConfMainSuspectViewIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-visible-filled-64.png")));
-    }//GEN-LAST:event_pnlConfMainSuspectViewMouseExited
-
-    private void pnlConfMainThemesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlConfMainThemesMouseEntered
-        pnlConfMainThemes.setBackground(primaryColor);
-        lblConfMainThemesTitle.setForeground(secundaryColor);
-        lblConfMainThemesDesc.setForeground(secundaryColor);
-        pnlConfMainThemes.setBorder(javax.swing.BorderFactory.createLineBorder(Color.WHITE));
-        lblConfMainThemesIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-brocha-64-blanco.png")));
-    }//GEN-LAST:event_pnlConfMainThemesMouseEntered
-
-    private void pnlConfMainThemesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlConfMainThemesMouseExited
-        pnlConfMainThemes.setBackground(secundaryColor);
-        lblConfMainThemesTitle.setForeground(primaryColor);
-        lblConfMainThemesDesc.setForeground(primaryColor);
-        pnlConfMainThemes.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
-        lblConfMainThemesIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-brocha-64.png")));
-    }//GEN-LAST:event_pnlConfMainThemesMouseExited
-
-    private void pnlConfMainStadisticsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlConfMainStadisticsMouseEntered
-        pnlConfMainStadistics.setBackground(primaryColor);
-        lbllConfMainStadisticsTitle.setForeground(secundaryColor);
-        lbllConfMainStadisticsDesc.setForeground(secundaryColor);
-        pnlConfMainStadistics.setBorder(javax.swing.BorderFactory.createLineBorder(Color.WHITE));
-        lbllConfMainStadisticsIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-gráfico-de-barras-64-blanco.png")));
-    }//GEN-LAST:event_pnlConfMainStadisticsMouseEntered
-
-    private void pnlConfMainStadisticsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlConfMainStadisticsMouseExited
-        pnlConfMainStadistics.setBackground(secundaryColor);
-        lbllConfMainStadisticsTitle.setForeground(primaryColor);
-        lbllConfMainStadisticsDesc.setForeground(primaryColor);
-        pnlConfMainStadistics.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
-        lbllConfMainStadisticsIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-gráfico-de-barras-64.png")));
-
-    }//GEN-LAST:event_pnlConfMainStadisticsMouseExited
-
     private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox4ActionPerformed
@@ -1960,28 +1979,38 @@ public class UI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jToggleButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton1MouseClicked
-        Communication.setPrimaryColor(themeColor[0]);
+        myController.setPrimaryColor(themeColor[0]);
+        primaryColor = themeColor[0];
     }//GEN-LAST:event_jToggleButton1MouseClicked
 
     private void jToggleButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton2MouseClicked
-        Communication.setPrimaryColor(themeColor[1]);
+        myController.setPrimaryColor(themeColor[1]);
+        primaryColor = themeColor[1];
     }//GEN-LAST:event_jToggleButton2MouseClicked
 
     private void jToggleButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton3MouseClicked
-        Communication.setPrimaryColor(themeColor[2]);
+        myController.setPrimaryColor(themeColor[2]);
+        primaryColor = themeColor[2];
     }//GEN-LAST:event_jToggleButton3MouseClicked
 
     private void jToggleButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton4MouseClicked
-        Communication.setPrimaryColor(themeColor[3]);
+        myController.setPrimaryColor(themeColor[3]);
+        primaryColor = themeColor[3];
     }//GEN-LAST:event_jToggleButton4MouseClicked
 
     private void jToggleButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton5MouseClicked
-        Communication.setPrimaryColor(themeColor[4]);
+        myController.setPrimaryColor(themeColor[4]);
+        primaryColor = themeColor[4];
     }//GEN-LAST:event_jToggleButton5MouseClicked
 
     private void jToggleButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton6MouseClicked
-        Communication.setPrimaryColor(themeColor[5]);
+        myController.setPrimaryColor(themeColor[5]);
+        primaryColor = themeColor[5];
     }//GEN-LAST:event_jToggleButton6MouseClicked
+
+    private void btnConfThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfThemeActionPerformed
+
+    }//GEN-LAST:event_btnConfThemeActionPerformed
 
     public static void start() {
         /* Set the Nimbus look and feel */
@@ -2016,17 +2045,15 @@ public class UI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConfStadistics;
+    private javax.swing.JButton btnConfSuspctView;
+    private javax.swing.JButton btnConfTheme;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
@@ -2067,17 +2094,9 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
@@ -2115,6 +2134,8 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JPanel pnlConfSuspectView;
     private javax.swing.JPanel pnlConfTheme;
     private javax.swing.JPanel pnlFormDecorated;
+    private javax.swing.JButton pnlFormDecoratedCloseWindow;
+    private javax.swing.JButton pnlFormDecoratedMinimizeWindow;
     private javax.swing.JPanel pnlMain;
     private javax.swing.JPanel pnlMenu;
     private javax.swing.JPanel pnlMenu1;
@@ -2122,11 +2143,19 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JPanel pnlMenu3;
     private javax.swing.JPanel pnlMenu4;
     private javax.swing.JPanel pnlSearch;
+    private javax.swing.JScrollPane scrollTblConfSuspectView;
+    private javax.swing.JScrollPane scrollTblMain;
+    private javax.swing.JScrollPane scrollTblSearchAnswer;
+    private javax.swing.JScrollPane scrollTblSearchSearch;
+    private javax.swing.JTable tblConfSuspectView;
+    private javax.swing.JTable tblMain;
+    private javax.swing.JTable tblSearchAnswer;
+    private javax.swing.JTable tblSearchSearch;
     // End of variables declaration//GEN-END:variables
     private int xMousePosition;
     private int yMousePosition;
-    private Color primaryColor;
-    private Color secundaryColor = Color.white;
+    private static Color primaryColor;
+    private static Color secundaryColor = Color.white;
     private static Color[] themeColor;
     private static Controller myController;
 

@@ -8,6 +8,7 @@ package controller;
 import java.awt.Color;
 import model.Communication;
 import view.UI;
+import view.uiUtils;
 
 /**
  *
@@ -42,5 +43,6 @@ public class Controller {
     
     public void setPrimaryColor(Color c){
         Communication.setPrimaryColor(c);
+        uiUtils.printAllComponents(myUI, c);
     }
 }
