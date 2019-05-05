@@ -33,13 +33,13 @@ import org.xml.sax.SAXException;
  * @author rafa0
  */
 public class Communication {
-    
+
     static Document getDocumentXML() {
         Document docParsed = null;
 
         try {
             DocumentBuilder doc = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            docParsed = doc.parse(new File("colors.xml"));
+            docParsed = doc.parse(new File("colors.xml"));//debería de ser dinámico
         } catch (ParserConfigurationException ex) {
             Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SAXException ex) {
@@ -51,28 +51,30 @@ public class Communication {
     }
 
     public static void setPrimaryColor(Color c) {
-        boolean changed = false;
-        Document doc = getDocumentXML();
-        NodeList object = doc.getDocumentElement().getChildNodes();
+        if (c != null) {
+            boolean changed = false;
+            Document doc = getDocumentXML();
+            NodeList object = doc.getDocumentElement().getChildNodes();
 
-        for (int i = 0; i < object.getLength(); i++) {
-            Node tempNode = object.item(i);
-            if (tempNode.getNodeType() == Node.ELEMENT_NODE) {
-                if (tempNode.getNodeName().equals("primaryColor")) {
-                    tempNode.setTextContent(String.valueOf(c.getRed())+","
-                            +String.valueOf(c.getGreen())+","+(String.valueOf(
-                                    c.getBlue())));
-                    saveDocument(doc);
+            for (int i = 0; i < object.getLength(); i++) {
+                Node tempNode = object.item(i);
+                if (tempNode.getNodeType() == Node.ELEMENT_NODE) {
+                    if (tempNode.getNodeName().equals("primaryColor")) {
+                        tempNode.setTextContent(String.valueOf(c.getRed()) + ","
+                                + String.valueOf(c.getGreen()) + "," + (String.valueOf(
+                                c.getBlue())));
+                        saveDocument(doc);
+                    }
                 }
             }
         }
     }
 
     static void saveDocument(Document doc) {
-        File color=new File("color.xml");/*Deberia de ser dinámico(Pasar por
+        File color = new File("colors.xml");/*Deberia de ser dinámico(Pasar por
         parametro la ruta o en este caso el nombre del archivo ya que se 
         encunentra en la raiz)*/
-        
+
         try {
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
             Result output = new StreamResult(color);//color: Debería de ser dinámico
@@ -93,29 +95,31 @@ public class Communication {
     }
 
     public static String xmlToString(Document xml) {
-        TransformerFactory tf = TransformerFactory.newInstance();
-        Transformer transformer;
         String xmlString = null;
 
-        try {
-            transformer = tf.newTransformer();
+        if (xml != null) {
+            TransformerFactory tf = TransformerFactory.newInstance();
+            Transformer transformer;
 
-            // Uncomment if you do not require XML declaration
-            transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
-            //A character stream that collects its output in a string buffer,
-            //which can then be used to construct a string.
-            StringWriter writer = new StringWriter();
+            try {
+                transformer = tf.newTransformer();
 
-            //transform document to string
-            transformer.transform(new DOMSource(xml), new StreamResult(writer));
+                // Uncomment if you do not require XML declaration
+                transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+                //A character stream that collects its output in a string buffer,
+                //which can then be used to construct a string.
+                StringWriter writer = new StringWriter();
 
-            xmlString = writer.getBuffer().toString();
-        } catch (TransformerException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
+                //transform document to string
+                transformer.transform(new DOMSource(xml), new StreamResult(writer));
+
+                xmlString = writer.getBuffer().toString();
+            } catch (TransformerException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-
         return xmlString;
     }
 
@@ -133,7 +137,7 @@ public class Communication {
                     for (int z = 0; z < rgbString.length; z++) {
                         rgb[z] = Integer.valueOf(rgbString[z]);
                     }
-                    pnlColor = new Color(rgb[0],rgb[1],rgb[2]);
+                    pnlColor = new Color(rgb[0], rgb[1], rgb[2]);
                 }
             }
         }
