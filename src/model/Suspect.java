@@ -12,7 +12,7 @@ package model;
 public class Suspect {
     
     public String acts;
-    public Photo photos;
+    public String photos;
     public String firstname;
     public String surname;
     public String dni;
