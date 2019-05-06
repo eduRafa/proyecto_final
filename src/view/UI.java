@@ -396,10 +396,10 @@ public class UI extends javax.swing.JFrame {
         pnlMenu.setLayout(pnlMenuLayout);
         pnlMenuLayout.setHorizontalGroup(
             pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMenu2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pnlMenu1, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
             .addComponent(pnlMenu3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pnlMenu4, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+            .addComponent(pnlMenu2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlMenuLayout.setVerticalGroup(
             pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -542,7 +542,7 @@ public class UI extends javax.swing.JFrame {
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-filtro-relleno-18 (2).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-filtro-relleno-18.png"))); // NOI18N
 
         jLabel3.setBackground(secundaryColor);
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -692,7 +692,7 @@ public class UI extends javax.swing.JFrame {
         tblSearchAnswer.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
         tblSearchAnswer.getAccessibleContext().setAccessibleName("1$1$0");
 
-        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-filtro-relleno-18 (2).png"))); // NOI18N
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-filtro-relleno-18.png"))); // NOI18N
 
         jLabel2.setBackground(secundaryColor);
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -1247,6 +1247,9 @@ public class UI extends javax.swing.JFrame {
                     .addComponent(jLabel24))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
+
+        jSeparator1.getAccessibleContext().setAccessibleName("-$-$1");
+        jSeparator2.getAccessibleContext().setAccessibleName("-$-$1");
 
         pnlConfTheme.setBackground(new java.awt.Color(255, 255, 255));
 

@@ -118,10 +118,10 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="pnlMenu2" max="32767" attributes="0"/>
                   <Component id="pnlMenu1" pref="258" max="32767" attributes="0"/>
                   <Component id="pnlMenu3" alignment="1" max="32767" attributes="0"/>
                   <Component id="pnlMenu4" alignment="0" pref="258" max="32767" attributes="0"/>
+                  <Component id="pnlMenu2" alignment="1" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -700,7 +700,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel1">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/view/images/icons8-filtro-relleno-18 (2).png"/>
+                      <Image iconType="3" name="/view/images/icons8-filtro-relleno-18.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -997,7 +997,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel25">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/view/images/icons8-filtro-relleno-18 (2).png"/>
+                      <Image iconType="3" name="/view/images/icons8-filtro-relleno-18.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -1770,6 +1770,9 @@
                               <Connection code="primaryColor" type="code"/>
                             </Property>
                           </Properties>
+                          <AccessibilityProperties>
+                            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="-$-$1"/>
+                          </AccessibilityProperties>
                         </Component>
                         <Component class="javax.swing.JSeparator" name="jSeparator2">
                           <Properties>
@@ -1777,6 +1780,9 @@
                               <Connection code="primaryColor" type="code"/>
                             </Property>
                           </Properties>
+                          <AccessibilityProperties>
+                            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="-$-$1"/>
+                          </AccessibilityProperties>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel14">
                           <Properties>

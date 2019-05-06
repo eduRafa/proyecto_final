@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 import javax.swing.JTable;
 
 /**
@@ -57,7 +58,10 @@ public class uiUtils {
                 if (comp instanceof JPanel) {
                     applyBackgroundPanelColor((JPanel) comp, value[0], col);
                     applyBorderPanelColor((JPanel) comp, value[1], col);
-                    applyForegroundColor((JPanel) comp, value[2], col);
+                    applyForegroundColor(comp, value[2], col);
+                }
+                if(comp instanceof JSeparator){
+                    applyForegroundColor(comp, value[2], col);
                 }
             }
             if (comp instanceof Container) {
