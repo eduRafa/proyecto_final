@@ -9,12 +9,15 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.util.ArrayList;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
+import java.util.Arrays;
 
 /**
  *
@@ -41,32 +44,32 @@ public class uiUtils {
                     getAccessibleContext().getAccessibleName().contains("$")) {
                 String[] value = comp.getAccessibleContext().getAccessibleName().split("\\$");
                 if (comp instanceof JButton) {
+                    JButton tmpButton=(JButton) comp;
                     applyBackgroundColor(comp, value[0], col);
-                    applyButtonBorderColor((JButton) comp, value[1], col);
+                    applyButtonBorderColor(tmpButton, value[1], col);
                     applyForegroundColor(comp, value[2], col);
-                }
-                if (comp instanceof JLabel) {
+                    if(tmpButton.getIcon()!=null){
+                        getNewIcon(tmpButton.getIcon());
+                    }
+                }else if (comp instanceof JLabel) {
                     applyBackgroundColor(comp, value[0], col);
                     //applyButtonBorderColor((JButton)comp, value[1], col);
                     applyForegroundColor(comp, value[2], col);
-                }
-                if (comp instanceof JTable) {
+                }else if (comp instanceof JTable) {
                     applyBackgroundTableHeaderColor((JTable) comp, value[0], col);
                     applyBorderTableHeaderColor((JTable) comp, value[1], col);
                     applyForegroundColor((JTable) comp, value[2], col);
-                }
-                if (comp instanceof JPanel) {
+                    ((JTable) comp).setSelectionBackground(col);
+                }else if (comp instanceof JPanel) {
                     applyBackgroundPanelColor((JPanel) comp, value[0], col);
                     applyBorderPanelColor((JPanel) comp, value[1], col);
                     applyForegroundColor(comp, value[2], col);
-                }
-                if(comp instanceof JSeparator){
+                }else if(comp instanceof JSeparator){
                     applyForegroundColor(comp, value[2], col);
                 }
             }
             if (comp instanceof Container) {
                 printAllComponents((Container) comp, col);
-
             }
         }
     }
@@ -146,6 +149,27 @@ public class uiUtils {
                 pnl.setBorder(javax.swing.BorderFactory.createLineBorder(newPrimaryColor));
                 break;
         }
+    }
+    
+    private static void getNewIcon(Icon oldIcon){
+        /*splitear por / obtener las finales hasta la raiz(con las cuales
+        se setara el nuevo icono, de la ultima splitear por - y la última contendra el color,
+        además del .extension)*/
+        String oldPath[]=oldIcon.toString().split("\\-");
+        oldPath[oldPath.length-1]=/*nuevo Color;*/"PRUEBA";
+        StringBuilder newPath=new StringBuilder();
+        for (int i = 0; i < oldPath.length; i++) {
+            if(i!=oldPath.length-1){
+                newPath.append(oldPath[i]+"-");
+            }
+        }
+        StringBuilder x=new StringBuilder();
+        for (String string : oldPath) {
+            x.append(string);
+        }
+        
+        System.out.println(x.toString());
+        System.out.println(newPath.toString());
     }
     
     

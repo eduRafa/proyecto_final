@@ -12,8 +12,11 @@ import java.awt.Image;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.table.TableColumnModel;
 import model.Communication;
 
 /**
@@ -25,15 +28,24 @@ public class UI extends javax.swing.JFrame {
     /**
      * Creates new form UI
      */
-    public UI() {
+    private UI() {
+        me=this;
         myController = Controller.getInstance();
-        myController.setUi(this);
+        myController.setUi(me);
         primaryColor = myController.getPrimaryColor();
         setThemeColors();
         initComponents();
         setLocationRelativeTo(null);
         hideLayouts();
         pnlMain.setVisible(true);
+    }
+    
+    public static UI getInstance() throws Exception{
+        if(me==null){
+            return new UI();
+        }else{
+            throw new Exception("Interfaz ya instanciada");
+        }
     }
 
     public static void setController(Controller c) {
@@ -225,12 +237,6 @@ public class UI extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlMenu2MouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlMenu2MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlMenu2MouseExited(evt);
-            }
         });
 
         lblMenu22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -267,12 +273,6 @@ public class UI extends javax.swing.JFrame {
         pnlMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlMenu1MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlMenu1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlMenu1MouseExited(evt);
             }
         });
 
@@ -311,12 +311,6 @@ public class UI extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlMenu3MouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlMenu3MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlMenu3MouseExited(evt);
-            }
         });
 
         lblMenu33.setBackground(new java.awt.Color(255, 255, 255));
@@ -354,12 +348,6 @@ public class UI extends javax.swing.JFrame {
         pnlMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pnlMenu4MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pnlMenu4MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pnlMenu4MouseExited(evt);
             }
         });
 
@@ -416,9 +404,42 @@ public class UI extends javax.swing.JFrame {
         );
 
         pnlMenu2.getAccessibleContext().setAccessibleName("1$-$-");
+        pnlMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+        });
         pnlMenu1.getAccessibleContext().setAccessibleName("1$-$-");
+        pnlMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+        });
         pnlMenu3.getAccessibleContext().setAccessibleName("1$-$-");
+        pnlMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+        });
         pnlMenu4.getAccessibleContext().setAccessibleName("1$-$-");
+        pnlMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                uiUtils.mouseComponentEffect(evt);
+
+            }
+        });
 
         pnlFormDecorated.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -524,7 +545,12 @@ public class UI extends javax.swing.JFrame {
         tblMain.getTableHeader().setBackground(primaryColor);
         tblMain.getTableHeader().setForeground(secundaryColor);
         tblMain.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
-        tblMain.getAccessibleContext().setAccessibleName("1$1$0");
+        tblMain.getAccessibleContext().setAccessibleName("1$1$1");
+        TableColumnModel tblMainColumnModel = tblMain.getColumnModel();
+
+        for (int i = 0; i < tblMainColumnModel.getColumnCount(); i++) {
+            tblMainColumnModel.getColumn(i).setMinWidth(200);
+        }
 
         jCheckBox4.setBackground(secundaryColor);
         jCheckBox4.setText("Orden ascendente");
@@ -635,23 +661,32 @@ public class UI extends javax.swing.JFrame {
 
         scrollTblSearchSearch.setBackground(new java.awt.Color(255, 255, 255));
         scrollTblSearchSearch.setBorder(null);
+        scrollTblSearchSearch.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         scrollTblSearchSearch.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         tblSearchSearch.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Apellido 1", "Apellido 2", "Teléfonos", "Correo", "Direcciones", "Acompañantes", "Matrículas", "Antecedentes", "Hechos", "Fotos"
             }
         ));
+        tblSearchSearch.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tblSearchSearch.setAutoscrolls(false);
         tblSearchSearch.setSelectionBackground(primaryColor);
+        tblSearchSearch.getTableHeader().setResizingAllowed(false);
         tblSearchSearch.getTableHeader().setReorderingAllowed(false);
         scrollTblSearchSearch.setViewportView(tblSearchSearch);
         tblSearchSearch.getTableHeader().setBackground(primaryColor);
         tblSearchSearch.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
         tblSearchSearch.getTableHeader().setForeground(secundaryColor);
-        tblSearchSearch.getAccessibleContext().setAccessibleName("1$1$0");
+        tblSearchSearch.getAccessibleContext().setAccessibleName("1$1$1");
+        TableColumnModel tblSearchColumnModel = tblSearchSearch.getColumnModel();
+
+        for (int i = 0; i < tblSearchSearch.getColumnCount(); i++) {
+            tblSearchColumnModel.getColumn(i).setMinWidth(200);
+        }
 
         jButton6.setBackground(primaryColor);
         jButton6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -661,6 +696,8 @@ public class UI extends javax.swing.JFrame {
         jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(secundaryColor));
         jButton6.setFocusable(false);
         jButton6.setPreferredSize(new java.awt.Dimension(35, 35));
+
+        scrollTblSearchAnswer.setToolTipText("");
 
         tblSearchAnswer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -683,6 +720,7 @@ public class UI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblSearchAnswer.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tblSearchAnswer.setAutoscrolls(false);
         tblSearchAnswer.setSelectionBackground(primaryColor);
         tblSearchAnswer.getTableHeader().setReorderingAllowed(false);
@@ -690,7 +728,12 @@ public class UI extends javax.swing.JFrame {
         tblSearchAnswer.getTableHeader().setBackground(primaryColor);
         tblSearchAnswer.getTableHeader().setForeground(secundaryColor);
         tblSearchAnswer.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
-        tblSearchAnswer.getAccessibleContext().setAccessibleName("1$1$0");
+        tblSearchAnswer.getAccessibleContext().setAccessibleName("1$1$1");
+        TableColumnModel columnModel = tblSearchAnswer.getColumnModel();
+
+        for (int i = 0; i < columnModel.getColumnCount(); i++) {
+            columnModel.getColumn(i).setMinWidth(200);
+        }
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-filtro-relleno-18.png"))); // NOI18N
 
@@ -732,14 +775,14 @@ public class UI extends javax.swing.JFrame {
         pnlSearchLayout.setVerticalGroup(
             pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSearchLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSearchLayout.createSequentialGroup()
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSearchLayout.createSequentialGroup()
-                        .addComponent(scrollTblSearchSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                        .addComponent(scrollTblSearchSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jCheckBox2)
@@ -1865,18 +1908,6 @@ public class UI extends javax.swing.JFrame {
         pnlFormDecoratedCloseWindow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-eliminar-20-blanco.png")));
     }//GEN-LAST:event_pnlFormDecoratedCloseWindowMouseEntered
 
-    private void pnlMenu4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlMenu4MouseExited
-        lblMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-servicios-30-blanco.png")));
-        lblMenu44.setForeground(secundaryColor);
-        pnlMenu4.setBackground(primaryColor);
-    }//GEN-LAST:event_pnlMenu4MouseExited
-
-    private void pnlMenu4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlMenu4MouseEntered
-        lblMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-servicios-30.png")));
-        lblMenu44.setForeground(primaryColor);
-        pnlMenu4.setBackground(secundaryColor);
-    }//GEN-LAST:event_pnlMenu4MouseEntered
-
     private void pnlMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlMenu4MouseClicked
         hideLayouts();
         hideConfLayouts();
@@ -1888,36 +1919,12 @@ public class UI extends javax.swing.JFrame {
         pnlMain.setVisible(false);
     }//GEN-LAST:event_pnlMenu4MouseClicked
 
-    private void pnlMenu1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlMenu1MouseExited
-        pnlMenu1.setBackground(primaryColor);
-        lblMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-casa-30-blanco.png")));
-        lblMenu11.setForeground(secundaryColor);
-    }//GEN-LAST:event_pnlMenu1MouseExited
-
-    private void pnlMenu1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlMenu1MouseEntered
-        pnlMenu1.setBackground(secundaryColor);
-        lblMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-casa-30.png")));
-        lblMenu11.setForeground(primaryColor);
-    }//GEN-LAST:event_pnlMenu1MouseEntered
-
     private void pnlMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlMenu1MouseClicked
         hideLayouts();
         pnlConf.setVisible(false);
         pnlMain.setVisible(true);
 
     }//GEN-LAST:event_pnlMenu1MouseClicked
-
-    private void pnlMenu2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlMenu2MouseExited
-        lblMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-búsqueda-30-blanco.png")));
-        lblMenu22.setForeground(secundaryColor);
-        pnlMenu2.setBackground(primaryColor);
-    }//GEN-LAST:event_pnlMenu2MouseExited
-
-    private void pnlMenu2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlMenu2MouseEntered
-        lblMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-búsqueda-30.png")));
-        lblMenu22.setForeground(primaryColor);
-        pnlMenu2.setBackground(secundaryColor);
-    }//GEN-LAST:event_pnlMenu2MouseEntered
 
     private void pnlMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlMenu2MouseClicked
         hideLayouts();
@@ -1947,18 +1954,6 @@ public class UI extends javax.swing.JFrame {
         btnConfStadistics.setVisible(true);
         btnConfSuspctView.setVisible(true);
     }//GEN-LAST:event_btnConfStadisticsMouseClicked
-
-    private void pnlMenu3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlMenu3MouseExited
-        lblMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-añadir-usuario-masculino-30-blanco.png")));
-        lblMenu33.setForeground(secundaryColor);
-        pnlMenu3.setBackground(primaryColor);
-    }//GEN-LAST:event_pnlMenu3MouseExited
-
-    private void pnlMenu3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlMenu3MouseEntered
-        lblMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-añadir-usuario-masculino-30.png")));
-        lblMenu33.setForeground(primaryColor);
-        pnlMenu3.setBackground(secundaryColor);
-    }//GEN-LAST:event_pnlMenu3MouseEntered
 
     private void pnlMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlMenu3MouseClicked
         hideLayouts();
@@ -2042,7 +2037,11 @@ public class UI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UI().setVisible(true);
+                try {
+                    UI.getInstance().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -2161,5 +2160,6 @@ public class UI extends javax.swing.JFrame {
     private static Color secundaryColor = Color.white;
     private static Color[] themeColor;
     private static Controller myController;
+    private static UI me;
 
 }

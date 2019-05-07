@@ -6,6 +6,8 @@
 package controller;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import model.Communication;
 import view.UI;
 import view.uiUtils;
@@ -14,7 +16,7 @@ import view.uiUtils;
  *
  * @author rafa0
  */
-public class Controller {
+public class Controller implements ActionListener{
 
     private static UI myUI;
     private static Controller me;
@@ -37,6 +39,11 @@ public class Controller {
         myUI.setController(me);
     }
     
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+    }
+    
     public Color getPrimaryColor(){
         return Communication.getPrimaryColor();
     }
@@ -45,4 +52,6 @@ public class Controller {
         Communication.setPrimaryColor(c);
         uiUtils.printAllComponents(myUI, c);
     }
+
+    
 }
