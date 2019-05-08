@@ -44,27 +44,31 @@ public class uiUtils {
                     getAccessibleContext().getAccessibleName().contains("$")) {
                 String[] value = comp.getAccessibleContext().getAccessibleName().split("\\$");
                 if (comp instanceof JButton) {
-                    JButton tmpButton=(JButton) comp;
+                    JButton tmpButton = (JButton) comp;
                     applyBackgroundColor(comp, value[0], col);
                     applyButtonBorderColor(tmpButton, value[1], col);
                     applyForegroundColor(comp, value[2], col);
-                    if(tmpButton.getIcon()!=null){
+                    if (tmpButton.getIcon() != null) {
                         getNewIcon(tmpButton.getIcon());
                     }
-                }else if (comp instanceof JLabel) {
+                } else if (comp instanceof JLabel) {
+                    JLabel tmpLabel = (JLabel) comp;
                     applyBackgroundColor(comp, value[0], col);
                     //applyButtonBorderColor((JButton)comp, value[1], col);
                     applyForegroundColor(comp, value[2], col);
-                }else if (comp instanceof JTable) {
+                    if (tmpLabel.getIcon() != null) {
+                        getNewIcon(tmpLabel.getIcon());
+                    }
+                } else if (comp instanceof JTable) {
                     applyBackgroundTableHeaderColor((JTable) comp, value[0], col);
                     applyBorderTableHeaderColor((JTable) comp, value[1], col);
                     applyForegroundColor((JTable) comp, value[2], col);
                     ((JTable) comp).setSelectionBackground(col);
-                }else if (comp instanceof JPanel) {
+                } else if (comp instanceof JPanel) {
                     applyBackgroundPanelColor((JPanel) comp, value[0], col);
                     applyBorderPanelColor((JPanel) comp, value[1], col);
                     applyForegroundColor(comp, value[2], col);
-                }else if(comp instanceof JSeparator){
+                } else if (comp instanceof JSeparator) {
                     applyForegroundColor(comp, value[2], col);
                 }
             }
@@ -150,50 +154,30 @@ public class uiUtils {
                 break;
         }
     }
-    
-    private static void getNewIcon(Icon oldIcon){
+
+    private static void getNewIcon(Icon oldIcon) {
         /*splitear por / obtener las finales hasta la raiz(con las cuales
         se setara el nuevo icono, de la ultima splitear por - y la última contendra el color,
         además del .extension)*/
-        String oldPath[]=oldIcon.toString().split("\\-");
-        oldPath[oldPath.length-1]=/*nuevo Color;*/"PRUEBA";
-        StringBuilder newPath=new StringBuilder();
+        
+                System.out.println(oldIcon.toString());
+
+        String oldPath[] = oldIcon.toString().split("\\-");
+        oldPath[oldPath.length - 1] =/*nuevo Color;*/ "PRUEBA";
+        StringBuilder newPath = new StringBuilder();
         for (int i = 0; i < oldPath.length; i++) {
-            if(i!=oldPath.length-1){
-                newPath.append(oldPath[i]+"-");
+            if (i != oldPath.length) {
+                newPath.append(oldPath[i] + "-");
             }
         }
-        StringBuilder x=new StringBuilder();
+        StringBuilder x = new StringBuilder();
         for (String string : oldPath) {
             x.append(string);
         }
-        
+
         System.out.println(x.toString());
         System.out.println(newPath.toString());
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     ////////////////////////////////////////////////////////////////////////////
     /**
@@ -215,30 +199,24 @@ public class uiUtils {
             jPanelEffects((JPanel) callingComponent, values);
         }
     }
-    
-    
-    
 
-    public static void jPanelEffects(JPanel pnl,String[] values) {
+    public static void jPanelEffects(JPanel pnl, String[] values) {
         if (pnl instanceof Container) {
             ArrayList<Component> innerPanelComponents = getAllComponents(pnl);
             for (Component innerPanelComponent : innerPanelComponents) {
-                if(innerPanelComponent instanceof JLabel && innerPanelComponent.getAccessibleContext().getAccessibleName().contains("$")){////aqui
+                if (innerPanelComponent instanceof JLabel && innerPanelComponent.getAccessibleContext().getAccessibleName().contains("$")) {////aqui
                     String[] innerPanelComponentValues = innerPanelComponent.getAccessibleContext().getAccessibleName().split("\\$");
                     applyForegroundColorEffect(innerPanelComponent, innerPanelComponentValues[2]);
                     innerPanelComponent.getAccessibleContext().setAccessibleName(changeValues(innerPanelComponentValues));
                 }
             }
         }
-            applyBackgroundColorEffect(pnl, values[0]);
-            applyPanelBorderColorEffect(pnl, values[1]);
-            applyForegroundColorEffect(pnl, values[2]);
-            pnl.getAccessibleContext().setAccessibleName(changeValues(values));
+        applyBackgroundColorEffect(pnl, values[0]);
+        applyPanelBorderColorEffect(pnl, values[1]);
+        applyForegroundColorEffect(pnl, values[2]);
+        pnl.getAccessibleContext().setAccessibleName(changeValues(values));
     }
 
-    
-    
-    
     private static void applyBackgroundColorEffect(Component c, String backgroundColor) {
         switch (backgroundColor) {
             case "0":
