@@ -155,12 +155,10 @@
                 </Property>
               </Properties>
               <AccessibilityProperties>
-                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$-$-"/>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$-$-" postCode="pnlMenu2.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
               </AccessibilityProperties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlMenu2MouseClicked"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlMenu2MouseEntered"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlMenu2MouseExited"/>
               </Events>
 
               <Layout>
@@ -228,12 +226,10 @@
                 </Property>
               </Properties>
               <AccessibilityProperties>
-                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$-$-"/>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$-$-" postCode="pnlMenu1.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
               </AccessibilityProperties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlMenu1MouseClicked"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlMenu1MouseEntered"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlMenu1MouseExited"/>
               </Events>
 
               <Layout>
@@ -301,12 +297,10 @@
                 </Property>
               </Properties>
               <AccessibilityProperties>
-                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$-$-"/>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$-$-" postCode="pnlMenu3.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
               </AccessibilityProperties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlMenu3MouseClicked"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlMenu3MouseEntered"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlMenu3MouseExited"/>
               </Events>
 
               <Layout>
@@ -377,12 +371,10 @@
                 </Property>
               </Properties>
               <AccessibilityProperties>
-                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$-$-"/>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$-$-" postCode="pnlMenu4.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;                uiUtils.mouseComponentEffect(evt);&#xa;&#xa;    }&#xa;});"/>
               </AccessibilityProperties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlMenu4MouseClicked"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlMenu4MouseEntered"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlMenu4MouseExited"/>
               </Events>
 
               <Layout>
@@ -624,11 +616,15 @@
                     <Component class="javax.swing.JTable" name="tblMain">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="4" rowCount="29">
-                            <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                          <Table columnCount="8" rowCount="29">
+                            <Column editable="true" title="Nombre" type="java.lang.Object"/>
+                            <Column editable="true" title="Apellido 1" type="java.lang.Object"/>
+                            <Column editable="true" title="Apellido 2" type="java.lang.Object"/>
+                            <Column editable="true" title="Tel&#xe9;fonos" type="java.lang.Object"/>
+                            <Column editable="true" title="Correos" type="java.lang.Object"/>
+                            <Column editable="true" title="Direcciones" type="java.lang.Object"/>
+                            <Column editable="true" title="Acompa&#xf1;antes" type="java.lang.Object"/>
+                            <Column editable="true" title="Matr&#xed;culas" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="autoResizeMode" type="int" value="0"/>
@@ -647,7 +643,7 @@
                         </Property>
                       </Properties>
                       <AccessibilityProperties>
-                        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$1$0"/>
+                        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$1$1" postCode="TableColumnModel tblMainColumnModel = tblMain.getColumnModel();&#xa;&#xa;        for (int i = 0; i &lt; tblMainColumnModel.getColumnCount(); i++) {&#xa;            tblMainColumnModel.getColumn(i).setMinWidth(200);&#xa;        }"/>
                       </AccessibilityProperties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="tblMain.getTableHeader().setBackground(primaryColor);&#xa;tblMain.getTableHeader().setForeground(secundaryColor);&#xa;tblMain.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));"/>
@@ -758,46 +754,46 @@
                           <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="scrollTblSearchSearch" max="32767" attributes="0"/>
+                                  <Component id="scrollTblSearchSearch" pref="568" max="32767" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jButton6" min="-2" pref="72" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                  <Component id="jLabel25" min="-2" pref="21" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                  <Component id="jLabel2" min="-2" pref="55" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" min="-2" pref="72" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="scrollTblSearchAnswer" min="-2" pref="568" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                          <Component id="jLabel25" min="-2" pref="21" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                          <Component id="jLabel2" min="-2" pref="55" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jComboBox1" min="-2" pref="72" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                                   <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                          <Component id="scrollTblSearchAnswer" min="-2" pref="568" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace pref="20" max="32767" attributes="0"/>
+                          <EmptySpace pref="14" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jButton6" min="-2" pref="19" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="scrollTblSearchSearch" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="scrollTblSearchSearch" min="-2" pref="58" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -895,6 +891,7 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
+                    <Property name="horizontalScrollBarPolicy" type="int" value="32"/>
                     <Property name="verticalScrollBarPolicy" type="int" value="21"/>
                   </Properties>
                   <AuxValues>
@@ -906,22 +903,31 @@
                     <Component class="javax.swing.JTable" name="tblSearchSearch">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="4" rowCount="1">
-                            <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                          <Table columnCount="11" rowCount="1">
+                            <Column editable="true" title="Nombre" type="java.lang.Object"/>
+                            <Column editable="true" title="Apellido 1" type="java.lang.Object"/>
+                            <Column editable="true" title="Apellido 2" type="java.lang.Object"/>
+                            <Column editable="true" title="Tel&#xe9;fonos" type="java.lang.Object"/>
+                            <Column editable="true" title="Correo" type="java.lang.Object"/>
+                            <Column editable="true" title="Direcciones" type="java.lang.Object"/>
+                            <Column editable="true" title="Acompa&#xf1;antes" type="java.lang.Object"/>
+                            <Column editable="true" title="Matr&#xed;culas" type="java.lang.Object"/>
+                            <Column editable="true" title="Antecedentes" type="java.lang.Object"/>
+                            <Column editable="true" title="Hechos" type="java.lang.Object"/>
+                            <Column editable="true" title="Fotos" type="java.lang.Object"/>
                           </Table>
                         </Property>
+                        <Property name="autoResizeMode" type="int" value="0"/>
+                        <Property name="autoscrolls" type="boolean" value="false"/>
                         <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                           <Connection code="primaryColor" type="code"/>
                         </Property>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                          <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
+                          <TableHeader reorderingAllowed="false" resizingAllowed="false"/>
                         </Property>
                       </Properties>
                       <AccessibilityProperties>
-                        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$1$0"/>
+                        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$1$1" postCode="TableColumnModel tblSearchColumnModel = tblSearchSearch.getColumnModel();&#xa;&#xa;        for (int i = 0; i &lt; tblSearchSearch.getColumnCount(); i++) {&#xa;            tblSearchColumnModel.getColumn(i).setMinWidth(200);&#xa;        }"/>
                       </AccessibilityProperties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="tblSearchSearch.getTableHeader().setBackground(primaryColor);&#xa;tblSearchSearch.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));&#xa;tblSearchSearch.getTableHeader().setForeground(secundaryColor);"/>
@@ -961,6 +967,9 @@
                   </AccessibilityProperties>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="scrollTblSearchAnswer">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -970,13 +979,18 @@
                     <Component class="javax.swing.JTable" name="tblSearchAnswer">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="4" rowCount="14">
-                            <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                          <Table columnCount="8" rowCount="14">
+                            <Column editable="true" title="Nombre" type="java.lang.Object"/>
+                            <Column editable="true" title="Apellido 1" type="java.lang.Object"/>
+                            <Column editable="true" title="Apellido 2" type="java.lang.Object"/>
+                            <Column editable="true" title="Telefono" type="java.lang.Object"/>
+                            <Column editable="true" title="Correo" type="java.lang.Object"/>
+                            <Column editable="true" title="Direcciones" type="java.lang.Object"/>
+                            <Column editable="true" title="Acompa&#xf1;antes" type="java.lang.Object"/>
+                            <Column editable="true" title="Matr&#xed;culas" type="java.lang.Object"/>
                           </Table>
                         </Property>
+                        <Property name="autoResizeMode" type="int" value="0"/>
                         <Property name="autoscrolls" type="boolean" value="false"/>
                         <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                           <Connection code="primaryColor" type="code"/>
@@ -986,7 +1000,7 @@
                         </Property>
                       </Properties>
                       <AccessibilityProperties>
-                        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$1$0"/>
+                        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$1$1" postCode="TableColumnModel columnModel = tblSearchAnswer.getColumnModel();&#xa;&#xa;        for (int i = 0; i &lt; columnModel.getColumnCount(); i++) {&#xa;            columnModel.getColumn(i).setMinWidth(200);&#xa;        }"/>
                       </AccessibilityProperties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="tblSearchAnswer.getTableHeader().setBackground(primaryColor);&#xa;tblSearchAnswer.getTableHeader().setForeground(secundaryColor);&#xa;tblSearchAnswer.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));"/>
@@ -1532,32 +1546,31 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace pref="114" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="scrollTblConfSuspectView" min="-2" pref="548" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                           <Component id="jButton3" min="-2" pref="164" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="107" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                                  <Component id="scrollTblConfSuspectView" min="-2" pref="258" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                                  <Component id="scrollTblConfSuspectView" min="-2" pref="155" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jButton3" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                       <Component id="jLabel10" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="52" max="32767" attributes="0"/>
+                                  <EmptySpace pref="149" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1573,8 +1586,17 @@
                             <Component class="javax.swing.JTable" name="tblConfSuspectView">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                  <Table columnCount="3" rowCount="15">
-                                    <Column editable="true" title="Campo" type="java.lang.Object"/>
+                                  <Table columnCount="3" rowCount="8">
+                                    <Column editable="true" title="Campo" type="java.lang.Object">
+                                      <Data value="Nombre"/>
+                                      <Data value="Apellido 1"/>
+                                      <Data value="Apellido 2"/>
+                                      <Data value="Tel&#xe9;fono"/>
+                                      <Data value="Correo"/>
+                                      <Data value="Direcciones"/>
+                                      <Data value="Acompa&#xf1;antes"/>
+                                      <Data value="Matriculas"/>
+                                    </Column>
                                     <Column editable="true" title="% Rellenado sobre el total" type="java.lang.Object"/>
                                     <Column editable="false" title="" type="java.lang.Object"/>
                                   </Table>
@@ -2356,23 +2378,38 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton9" min="-2" max="-2" attributes="0"/>
-                              <Component id="jScrollPane5" min="-2" pref="342" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jButton9" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jScrollPane5" min="-2" pref="342" max="-2" attributes="0"/>
+                                  <EmptySpace pref="189" max="32767" attributes="0"/>
+                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace pref="265" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                          <Component id="jScrollPane5" min="-2" pref="267" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
+                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane5" min="-2" pref="171" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jButton9" min="-2" pref="34" max="-2" attributes="0"/>
-                          <EmptySpace pref="89" max="32767" attributes="0"/>
+                          <EmptySpace pref="136" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2388,8 +2425,18 @@
                     <Component class="javax.swing.JTable" name="jTable5">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="2" rowCount="15">
-                            <Column editable="false" title="Campo" type="java.lang.Object"/>
+                          <Table columnCount="2" rowCount="9">
+                            <Column editable="false" title="Campo" type="java.lang.Object">
+                              <Data value="Nombre"/>
+                              <Data value="Apellido 1"/>
+                              <Data value="Apellido 2"/>
+                              <Data value="Tel&#xe9;fonos"/>
+                              <Data value="Correo"/>
+                              <Data value="Direcciones"/>
+                              <Data value="Acompa&#xf1;antes"/>
+                              <Data value="Matr&#xed;culas"/>
+                              <Data value="Fotos"/>
+                            </Column>
                             <Column editable="true" title="Valor" type="java.lang.Object"/>
                           </Table>
                         </Property>
@@ -2436,6 +2483,11 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel4">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel4"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
