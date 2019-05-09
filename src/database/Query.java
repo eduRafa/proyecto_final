@@ -23,20 +23,17 @@ public class Query {
     
     public static boolean addSuspect(String[] attributes){
         boolean correct=false;
-        String nombre;
-        String apellido1;
-        String apellido2;
-        String Telefono;
-        String correo;
-        String direcciones;
-        String acompañantes;
-        String matriculas;
-        String antecedentes;
-        String hechos;
-        String image;
+        //nombre apellido1 apellido2 Telefono correo direcciones acompañantes matriculas antecedentes hechos image
+        String[] phoneNumbers=attributes[3].split("$");
+        String[] e_mails=attributes[4].split("$");
+        String[] addresses=attributes[5].split("$");
+        String[] companions=attributes[6].split("$");
+        String[] carRegistrations=attributes[7].split("$");
+        String[] images=attributes[10].split("$");
+        
         try {
             Statement s=c.createStatement();
-            rs=s.executeQuery("INSERT ")
+            rs=s.executeQuery("INSERT ");
         } catch (SQLException ex) {
             Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
         }
