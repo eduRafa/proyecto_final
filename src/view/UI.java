@@ -244,7 +244,7 @@ public class UI extends javax.swing.JFrame {
         lblMenu22.setForeground(secundaryColor);
         lblMenu22.setText("Búsqueda");
 
-        lblMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-búsqueda-30-blanco.png"))); // NOI18N
+        lblMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-busqueda-30-$255,255,255$.png"))); // NOI18N
 
         javax.swing.GroupLayout pnlMenu2Layout = new javax.swing.GroupLayout(pnlMenu2);
         pnlMenu2.setLayout(pnlMenu2Layout);
@@ -267,6 +267,7 @@ public class UI extends javax.swing.JFrame {
         );
 
         lblMenu22.getAccessibleContext().setAccessibleName("0$-$0");
+        lblMenu2.getAccessibleContext().setAccessibleName("-$-$-");
 
         pnlMenu1.setBackground(primaryColor);
         pnlMenu1.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor, 0));
@@ -305,6 +306,8 @@ public class UI extends javax.swing.JFrame {
         );
 
         lblMenu11.getAccessibleContext().setAccessibleName("0$-$0");
+        lblMenu1.getAccessibleContext().setAccessibleName("-$-$-");
+        lblMenu1.getAccessibleContext().setAccessibleDescription("icons8-busqueda-30-$255,255,255$");
 
         pnlMenu3.setBackground(primaryColor);
         pnlMenu3.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor, 0));
@@ -319,7 +322,7 @@ public class UI extends javax.swing.JFrame {
         lblMenu33.setForeground(secundaryColor);
         lblMenu33.setText("Agregar sospechoso");
 
-        lblMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-añadir-usuario-masculino-30-blanco.png"))); // NOI18N
+        lblMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-anadir-usuario-masculino-30-$255-255-255$.png"))); // NOI18N
 
         javax.swing.GroupLayout pnlMenu3Layout = new javax.swing.GroupLayout(pnlMenu3);
         pnlMenu3.setLayout(pnlMenu3Layout);
@@ -342,6 +345,7 @@ public class UI extends javax.swing.JFrame {
         );
 
         lblMenu33.getAccessibleContext().setAccessibleName("0$-$0");
+        lblMenu3.getAccessibleContext().setAccessibleName("-$-$-");
 
         pnlMenu4.setBackground(primaryColor);
         pnlMenu4.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor, 0));
@@ -407,37 +411,37 @@ public class UI extends javax.swing.JFrame {
         pnlMenu2.getAccessibleContext().setAccessibleName("1$-$-");
         pnlMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
         pnlMenu1.getAccessibleContext().setAccessibleName("1$-$-");
         pnlMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
         pnlMenu3.getAccessibleContext().setAccessibleName("1$-$-");
         pnlMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
         pnlMenu4.getAccessibleContext().setAccessibleName("1$-$-");
         pnlMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
 
             }
         });
@@ -629,16 +633,16 @@ public class UI extends javax.swing.JFrame {
 
         jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
-        jButton10.getAccessibleContext().setAccessibleName("1$0$0");
+        jButton10.getAccessibleContext().setAccessibleName("1$-$-");
 
         pnlSearch.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -800,16 +804,16 @@ public class UI extends javax.swing.JFrame {
         jCheckBox1.setFocusable(false);
         jCheckBox2.setFocusable(false);
         jCheckBox3.setFocusable(false);
-        jButton6.getAccessibleContext().setAccessibleName("1$0$0");
+        jButton6.getAccessibleContext().setAccessibleName("1$-$-");
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -834,7 +838,7 @@ public class UI extends javax.swing.JFrame {
         });
         btnConfTheme.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -870,7 +874,7 @@ public class UI extends javax.swing.JFrame {
         });
         btnConfSuspctView.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -1055,28 +1059,29 @@ public class UI extends javax.swing.JFrame {
         pnlConfMainThemes.getAccessibleContext().setAccessibleName("0$1$-");
         pnlConfMainThemes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
         pnlConfMainStadistics.getAccessibleContext().setAccessibleName("0$1$-");
         pnlConfMainStadistics.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
+        pnlConfMainStadistics.getAccessibleContext().setAccessibleDescription("");
         pnlConfMainSuspectView.getAccessibleContext().setAccessibleName("0$1$-");
         pnlConfMainSuspectView.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -1163,13 +1168,13 @@ public class UI extends javax.swing.JFrame {
         jButton3.getAccessibleContext().setAccessibleName("1$0$0");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
         jLabel10.getAccessibleContext().setAccessibleName("0$-$1");
@@ -1653,7 +1658,7 @@ public class UI extends javax.swing.JFrame {
 
         btnConfTheme.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -1661,13 +1666,13 @@ public class UI extends javax.swing.JFrame {
         btnConfTheme.getAccessibleContext().setAccessibleName("1$0$0");
         btnConfStadistics.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
         btnConfStadistics.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -1676,7 +1681,7 @@ public class UI extends javax.swing.JFrame {
         btnConfSuspctView.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 //mouseBttHover(evt);
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -1766,13 +1771,13 @@ public class UI extends javax.swing.JFrame {
         jButton9.getAccessibleContext().setAccessibleName("1$0$0");
         jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 

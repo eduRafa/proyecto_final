@@ -155,7 +155,7 @@
                 </Property>
               </Properties>
               <AccessibilityProperties>
-                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$-$-" postCode="pnlMenu2.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$-$-" postCode="pnlMenu2.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
               </AccessibilityProperties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlMenu2MouseClicked"/>
@@ -203,9 +203,12 @@
                 <Component class="javax.swing.JLabel" name="lblMenu2">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/view/images/icons8-b&#xfa;squeda-30-blanco.png"/>
+                      <Image iconType="3" name="/view/images/icons8-busqueda-30-$255,255,255$.png"/>
                     </Property>
                   </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="-$-$-"/>
+                  </AccessibilityProperties>
                 </Component>
               </SubComponents>
             </Container>
@@ -226,7 +229,7 @@
                 </Property>
               </Properties>
               <AccessibilityProperties>
-                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$-$-" postCode="pnlMenu1.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$-$-" postCode="pnlMenu1.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
               </AccessibilityProperties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlMenu1MouseClicked"/>
@@ -280,6 +283,10 @@
                       <Image iconType="3" name="/view/images/icons8-casa-30-blanco.png"/>
                     </Property>
                   </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="-$-$-"/>
+                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="icons8-busqueda-30-$255,255,255$"/>
+                  </AccessibilityProperties>
                 </Component>
               </SubComponents>
             </Container>
@@ -297,7 +304,7 @@
                 </Property>
               </Properties>
               <AccessibilityProperties>
-                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$-$-" postCode="pnlMenu3.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$-$-" postCode="pnlMenu3.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
               </AccessibilityProperties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlMenu3MouseClicked"/>
@@ -348,9 +355,12 @@
                 <Component class="javax.swing.JLabel" name="lblMenu3">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/view/images/icons8-a&#xf1;adir-usuario-masculino-30-blanco.png"/>
+                      <Image iconType="3" name="/view/images/icons8-anadir-usuario-masculino-30-$255-255-255$.png"/>
                     </Property>
                   </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="-$-$-"/>
+                  </AccessibilityProperties>
                 </Component>
               </SubComponents>
             </Container>
@@ -371,7 +381,7 @@
                 </Property>
               </Properties>
               <AccessibilityProperties>
-                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$-$-" postCode="pnlMenu4.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;                uiUtils.mouseComponentEffect(evt);&#xa;&#xa;    }&#xa;});"/>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$-$-" postCode="pnlMenu4.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;                enteredExited.mouseComponentEffect(evt);&#xa;&#xa;    }&#xa;});"/>
               </AccessibilityProperties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlMenu4MouseClicked"/>
@@ -729,13 +739,13 @@
                     </Property>
                   </Properties>
                   <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$0$0"/>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$-$-"/>
                   </AccessibilityProperties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton10ActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jButton10.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;jButton10.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jButton10.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;jButton10.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -963,7 +973,7 @@
                     </Property>
                   </Properties>
                   <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$0$0" postCode="jButton6.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;jButton6.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$-$-" postCode="jButton6.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;jButton6.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
                   </AccessibilityProperties>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="scrollTblSearchAnswer">
@@ -1101,8 +1111,8 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConfThemeActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnConfTheme.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;btnConfTheme.setVisible(false);"/>
-                    <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="btnConfTheme.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnConfTheme.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;btnConfTheme.setVisible(false);"/>
+                    <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="btnConfTheme.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnConfStadistics">
@@ -1136,7 +1146,7 @@
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnConfStadisticsMouseClicked"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnConfStadistics.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;btnConfStadistics.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;btnConfStadistics.setVisible(false);"/>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnConfStadistics.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;btnConfStadistics.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;btnConfStadistics.setVisible(false);"/>
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnConfSuspctView">
@@ -1171,8 +1181,8 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConfSuspctViewActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnConfSuspctView.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        //mouseBttHover(evt);&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;btnConfSuspctView.setVisible(false);"/>
-                    <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="btnConfSuspctView.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnConfSuspctView.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        //mouseBttHover(evt);&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;btnConfSuspctView.setVisible(false);"/>
+                    <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="btnConfSuspctView.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
                   </AuxValues>
                 </Component>
                 <Container class="javax.swing.JLayeredPane" name="layeredConf">
@@ -1264,7 +1274,7 @@
                             </Property>
                           </Properties>
                           <AccessibilityProperties>
-                            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="0$1$-" postCode="pnlConfMainThemes.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="0$1$-" postCode="pnlConfMainThemes.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
                           </AccessibilityProperties>
                           <Events>
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlConfMainThemesMouseClicked"/>
@@ -1360,7 +1370,8 @@
                             </Property>
                           </Properties>
                           <AccessibilityProperties>
-                            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="0$1$-" postCode="pnlConfMainStadistics.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="0$1$-" postCode="pnlConfMainStadistics.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                            <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
                           </AccessibilityProperties>
                           <Events>
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlConfMainStadisticsMouseClicked"/>
@@ -1455,7 +1466,7 @@
                             </Property>
                           </Properties>
                           <AccessibilityProperties>
-                            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="0$1$-" postCode="pnlConfMainSuspectView.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="0$1$-" postCode="pnlConfMainSuspectView.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
                           </AccessibilityProperties>
                           <Events>
                             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlConfMainSuspectViewMouseClicked"/>
@@ -1645,7 +1656,7 @@
                             <Property name="focusable" type="boolean" value="false"/>
                           </Properties>
                           <AccessibilityProperties>
-                            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$0$0" postCode="jButton3.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;jButton3.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$0$0" postCode="jButton3.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;jButton3.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
                           </AccessibilityProperties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
@@ -2478,7 +2489,7 @@
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
                   <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$0$0" postCode="jButton9.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;jButton9.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        uiUtils.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$0$0" postCode="jButton9.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;jButton9.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
                   </AccessibilityProperties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
