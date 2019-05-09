@@ -26,29 +26,19 @@ public class Query {
         //nombre apellido1 apellido2 Telefono correo direcciones acompañantes matriculas antecedentes hechos image
         String[] phoneNumbers;
         
-        if(attributes[3]!=null){
-            phoneNumbers=attributes[3].split("$");
-        }
-        if(attributes[4]!=null){
-            String[]e_mails=attributes[4].split("$");
-        }
-        if(attributes[5]!=null){
-            String[] addresses=attributes[5].split("$");
-        }
-        if(attributes[6]!=null){
-            String[] companions=attributes[6].split("$");
-        }
-        if(attributes[7]!=null){
-            String[] carRegistrations=attributes[7].split("$");
-        }
-        if(attributes[10]!=null){
-            String[] images=attributes[10].split("$");
-        }
+        phoneNumbers=attributes[3].split("$");
+        String[]e_mails=attributes[4].split("$");
+        String[] addresses=attributes[5].split("$");
+        String[] companions=attributes[6].split("$");
+        String[] carRegistrations=attributes[7].split("$");
+        String[] images=attributes[10].split("$");
+        
         
         
         try {
             Statement s=c.createStatement();
-            rs=s.executeQuery("INSERT ");
+            rs=s.executeQuery("INSERT INTO SUSPECT (nombre,apellido1, apellido2, Record,Facts"
+            + "values");
         } catch (SQLException ex) {
             Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
         }
