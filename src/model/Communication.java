@@ -39,7 +39,7 @@ public class Communication {
 
         try {
             DocumentBuilder doc = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            docParsed = doc.parse(new File("colors.xml"));//debería de ser dinámico
+            docParsed = doc.parse(new File("./colors.xml"));//debería de ser dinámico
         } catch (ParserConfigurationException ex) {
             Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SAXException ex) {
