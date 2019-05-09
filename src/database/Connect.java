@@ -23,6 +23,7 @@ public class Connect {
        	static private final String BBDD_DE="POLICE_STATION"; //Nombre de la BBDD
         static private final String LOGIN_DE="root"; //Login 
         static private final String PASSWORD_DE=""; //Password
+        static private boolean CREATED=false;
 
 	
 	
@@ -39,18 +40,17 @@ public class Connect {
 	{
 		try
 		{
-		Class.forName("com.mysql.cj.jdbc.Driver");
-         // Setup the connection with the DB
-         
-		//conexion nomral
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    // Setup the connection with the DB
+
+                    //miConexion= DriverManager.getConnection("jdbc:mysql://"+HOST_DE+"/"+BBDD_DE+"?user="+LOGIN_DE+"&password="+PASSWORD_DE);
+
+                    //conexión completa para evitar errores de sincronizacion con el servidor
+                    myConnection= DriverManager.getConnection("jdbc:mysql://"+HOST_DE+"/"+BBDD_DE+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&user="+LOGIN_DE+"&password="+PASSWORD_DE);
 		
-		//miConexion= DriverManager.getConnection("jdbc:mysql://"+HOST_DE+"/"+BBDD_DE+"?user="+LOGIN_DE+"&password="+PASSWORD_DE);
-		
-		//conexión completa para evitar errores de sincronizacion con el servidor
-		myConnection= DriverManager.getConnection("jdbc:mysql://"+HOST_DE+"/"+BBDD_DE+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&user="+LOGIN_DE+"&password="+PASSWORD_DE);
-		
-        
-		generateStructure();
+                    if(CREATED==false){
+                        generateStructure();             
+                    }
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
@@ -73,6 +73,16 @@ public class Connect {
 		return state;
 		
 	}
+
+        /*Método: getMyConnection()
+	Tipo: Connection
+	Parámetros: ninguno
+	Devuelve: Connection
+	Funcionalidad: Devuelve la conexion
+        */
+        public static Connection getMyConnection() {
+            return myConnection;
+        }
 	
 	/*Método: closeConnection()
 	Tipo: boolean
@@ -148,7 +158,7 @@ public class Connect {
                     sentence = myConnection.createStatement();
                     sentence.executeUpdate(lineSQL);
                     
-                    lineSQL="CREATE TABLE IF NOT EXISTS ADDRESS"
+                    lineSQL="CREATE TABLE IF NOT EXISTS_ADDRESS"
                     + "(CodeAddress          int zerofill autoincrement PRIMARY KEY,"
                     + "CodeSuspect           int,"
                     + "Address               varchar(100),"
@@ -175,6 +185,7 @@ public class Connect {
                     sentence = myConnection.createStatement();
                     sentence.executeUpdate(lineSQL);
                     
+                    CREATED=true;
                 }catch(SQLException se){
 			generated=false;
 			se.printStackTrace();
