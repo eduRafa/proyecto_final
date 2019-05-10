@@ -10,6 +10,7 @@ import java.awt.Frame;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import javax.swing.JDialog;
+import model.Images;
 
 /**
  *
@@ -20,12 +21,13 @@ public class imageManager extends javax.swing.JDialog {
     private UI parent;
     private int xMousePosition;
     private int yMousePosition;
-    private String[] photos;
+    private Images[] photos;
     private int indexOfSelectedPhoto;
 
     public imageManager(UI parent, boolean modal, String suspectID) {
         super(parent, modal);
         this.parent = parent;
+        
         setPhotos(suspectID);
         initComponents();
         setLocationRelativeTo(null);
@@ -73,6 +75,7 @@ public class imageManager extends javax.swing.JDialog {
         });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(UI.getPrimaryColor()));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -164,7 +167,7 @@ public class imageManager extends javax.swing.JDialog {
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(78, 78, 78)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -204,7 +207,7 @@ public class imageManager extends javax.swing.JDialog {
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -241,12 +244,7 @@ public class imageManager extends javax.swing.JDialog {
     }//GEN-LAST:event_formMouseDragged
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        JDialog d = new JDialog(this, "Abrir", true); //true para que sea modal
-        FileChooserOpen f = new FileChooserOpen(d);
-        d.add(f);
-        d.setSize((int) this.getSize().getWidth(), (int) this.getSize().getHeight());
-        d.setVisible(true);
-        setVisible(false);
+        dialogFileChooser x=new dialogFileChooser(this, true);
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void setPhotos(String suspectID) {

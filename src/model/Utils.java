@@ -19,19 +19,21 @@ public class Utils {
     
     
     
-    public static Image[] decodeImage(ResultSet images) throws SQLException{
+    public static Images[] decodeImage(ResultSet images) throws SQLException{
         Blob photo;
         String desc;
         String suspect;
-        ArrayList<Image> myImages=new ArrayList<>();
+        ArrayList<Images> myImages=new ArrayList<>();
         
         if(images.next()){
             photo=images.getBlob(1);
             desc=images.getString(2);
             suspect=images.getString(3);
-            myImages.add(photo,desc,suspect);
+            Images image=new Images(photo, 0, desc, 0);
+            myImages.add(image);
         }
         
+
         return myImages.toArray();
         
     }

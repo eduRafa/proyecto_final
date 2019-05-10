@@ -21,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import model.Communication;
+import model.Images;
 
 /**
  *
@@ -111,11 +112,11 @@ public class UI extends javax.swing.JFrame {
         return data;*/
     }
     
-    public void setPhotos(String[] newPhotos){
+    public void setPhotos(Images[] newPhotos){
         photos=newPhotos;
     }
     
-    public String[] getPhotos(){
+    public Images[] getPhotos(){
         return photos;
     }
 
@@ -2349,6 +2350,6 @@ public class UI extends javax.swing.JFrame {
     private static Color[] themeColor;
     private static Controller myController;
     private static UI me;
-    private String[] photos;
+    private Images[] photos;
 
 }
