@@ -5,8 +5,8 @@ package model;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import java.util.regex.*;
-
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 /**
  *
  * @author Jurad0
@@ -21,7 +21,7 @@ public Car_Registration() {
 
 public boolean validate (String registration){
     boolean validate=false;
-    Pattern p = Pattern.compile("^.|^@");
+    Pattern p = Pattern.compile("[0-9]{4}[a-zA-Z]{3}$");
     Matcher m = p.matcher(this.registration);
     if (m.find())
         return true;
