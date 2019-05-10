@@ -57,9 +57,9 @@ public class enteredExited {
                     applyForegroundColorEffect(innerPanelComponent, innerPanelComponentValues[2]);
                     innerPanelComponent.getAccessibleContext().setAccessibleName(changeValues(innerPanelComponentValues));
 
-                    if (tmpLabel.getIcon() != null) {
+                    /*if (tmpLabel.getIcon() != null) {
                         setIcon(tmpLabel);
-                    }
+                    }*/
 
                 }
             }
