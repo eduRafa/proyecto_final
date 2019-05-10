@@ -14,10 +14,10 @@ import java.sql.Blob;
 public class Images {
     private Blob Image;
     private int CodeImage;
-    private Blob Description;
+    private String Description;
     private int CodeSuspect;
     
-    public Images(Blob Image, int CodeImage, Blob Description,
+    public Images(Blob Image, int CodeImage, String Description,
             int CodeSuspect){
             super();
             this.Image=Image;
@@ -43,11 +43,11 @@ public class Images {
         this.CodeImage=CodeImage;
     }
     
-    public Blob getDescription(){
+    public String getDescription(){
         return Description;
     }
     
-    public void setDescription(Blob Description){
+    public void setDescription(String Description){
         this.Description=Description;
     }
     
