@@ -118,7 +118,6 @@ public class Connect {
                     +"name                 varchar(20) DEFAULT desconocido,"
                     +"lastname1            varchar(20) DEFAULT desconocido,"
                     +"lastname2            varchar(20) DEFAULT desconocido,"
-                    +"CCompanions          int,"
                     +"Record               blob DEFAULT desconocido,"
                     +"Facts                blob DEFAULT desconocido,"
                     + "FOREIGN KEY (CCompanios) REFERENCES SUSPECT (CodeSuspect)"
@@ -163,7 +162,7 @@ public class Connect {
                     sentence = myConnection.createStatement();
                     sentence.executeUpdate(lineSQL);
                     
-                    lineSQL="CREATE TABLE IF NOT EXISTS_ADDRESS"
+                    lineSQL="CREATE TABLE IF NOT EXISTS ADDRESS"
                     + "(CodeAddress          int zerofill autoincrement PRIMARY KEY,"
                     + "CodeSuspect           int,"
                     + "Address               varchar(100),"
@@ -174,7 +173,8 @@ public class Connect {
                     sentence.executeUpdate(lineSQL);
                     
                     lineSQL="CREATE TABLE IF NOT EXISTS CAR_REGISTRATION"
-                    + "(Resgistration_number int PRIMARY KEY,"
+                    + "(Resgistration_number int,"
+                    + "CodeRegistration      int zerofill autoincrement PRIMARY KEY,"
                     + "CodeSuspect           int,"
                     + "FOREIGN KEY (CodeSuspect) REFERENCES SUSPECT (CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE"
                     + ")";
