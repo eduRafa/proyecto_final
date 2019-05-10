@@ -51,7 +51,12 @@ public class Email {
     }
     
     public void setEmail(String Email){
-        this.Email=Email;
+        if (Email != null) {
+            Matcher matcher = pattern.matcher(Email);
+            if (matcher.matches()) {
+                this.Email=Email;
+            }
+        }
     }
     
 }
