@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 
 
@@ -20,8 +21,8 @@ public class Suspect {
     private String lastname1;
     private String lastname2;
     private int CCompanions;
-    private String Record;
-    private String Facts;
+    private Blob Record;
+    private Blob Facts;
     private ArrayList<Phone> Phone = new ArrayList<Phone>();
     private ArrayList<Email> Email= new ArrayList<Email>();
     private ArrayList<Address> Address= new ArrayList<Address>();
@@ -31,7 +32,7 @@ public class Suspect {
    
     
     public Suspect(int CodeSuspect, String name, String lastname1,
-            String lastname2, int CCompanions, String Record, String Facts,
+            String lastname2, int CCompanions, Blob Record, Blob Facts,
             ArrayList Phone, ArrayList Email, ArrayList Address,
             ArrayList Car_registration){
             super();
@@ -90,19 +91,19 @@ public class Suspect {
         this.CCompanions=CCompanions;
     }
     
-    public String getRecord(){
+    public Blob getRecord(){
         return Record;
     }
     
-    public void setRecord(String Record){
+    public void setRecord(Blob Record){
         this.Record=Record;
     }
     
-    public String getFacts(){
+    public Blob getFacts(){
         return Facts;
     }
     
-    public void setFacts(String Facts){
+    public void setFacts(Blob Facts){
         this.Facts=Facts;
     }
     
