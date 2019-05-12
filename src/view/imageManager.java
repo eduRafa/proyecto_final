@@ -7,9 +7,14 @@ package view;
 
 import controller.Controller;
 import java.awt.Frame;
+import java.awt.Image;
 import java.awt.MouseInfo;
 import java.awt.Point;
+import java.io.File;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import model.Images;
 
 /**
@@ -22,19 +27,53 @@ public class imageManager extends javax.swing.JDialog {
     private int xMousePosition;
     private int yMousePosition;
     private Images[] photos;
+    private int insertedPhotos = 0;
     private int indexOfSelectedPhoto;
+    public static final int NPHOTOS = 5;
+    private int selectedPhoto = 0;
+    private static ImageIcon defaultImage = new ImageIcon("/view/images/icons8-añadir-imagen-100.png");
 
-    public imageManager(UI parent, boolean modal, String suspectID) {
+    public imageManager(UI parent, boolean modal) {
         super(parent, modal);
         this.parent = parent;
-        
-        setPhotos(suspectID);
+        photos = new Images[NPHOTOS];
         initComponents();
         setLocationRelativeTo(null);
     }
 
-    public void putPhoto(){
-        
+    public imageManager(UI parent, boolean modal, String idSuspect) {
+        super(parent, modal);
+        this.parent = parent;
+        photos = new Images[NPHOTOS];
+        initComponents();
+        setLocationRelativeTo(null);
+        setPhotos(idSuspect);
+    }
+
+    /*Encargada de ue aparezcan o no, las flechas, ademas de poer photo y coment*/
+    public void putPhoto() {
+        jLabel1.setIcon(photos[selectedPhoto].getImage());
+    }
+
+    public void putDescription() {
+        String desc = photos[selectedPhoto].getDescription();
+        if (desc != null) {
+            jTextArea1.setText(desc);
+        } else {
+            jTextArea1.setText("");
+        }
+    }
+
+    private void saveDesc() {
+        photos[selectedPhoto].setDescription(jTextArea1.getText());
+    }
+
+    public int getInsertedPhotos() {
+        return insertedPhotos;
+    }
+
+    public Images[] getImages() {
+        return photos;
     }
 
     /**
@@ -53,7 +92,6 @@ public class imageManager extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -80,7 +118,6 @@ public class imageManager extends javax.swing.JDialog {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-eliminar-20-negro.png"))); // NOI18N
-        jButton3.setActionCommand("");
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
         jButton3.setFocusable(false);
@@ -100,7 +137,7 @@ public class imageManager extends javax.swing.JDialog {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 759, Short.MAX_VALUE)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -125,21 +162,31 @@ public class imageManager extends javax.swing.JDialog {
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setFocusable(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-chevron-izquierda-en-círculo-40.png"))); // NOI18N
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
         jButton2.setFocusable(false);
-
-        jButton5.setBackground(UI.getPrimaryColor());
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Añadir imagen");
-        jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(UI.getSecundaryColor()));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton6.setBackground(UI.getPrimaryColor());
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Borrar imagen");
         jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(UI.getSecundaryColor()));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jSeparator1.setForeground(UI.getPrimaryColor());
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -147,6 +194,7 @@ public class imageManager extends javax.swing.JDialog {
         jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(UI.getPrimaryColor()));
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTextArea1.setRows(5);
         jTextArea1.setBorder(null);
         jScrollPane1.setViewportView(jTextArea1);
@@ -157,61 +205,60 @@ public class imageManager extends javax.swing.JDialog {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(376, 376, 376)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(55, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton6)
+                .addGap(473, 473, 473))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(78, 78, 78)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGap(128, 128, 128)
-                                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(49, 49, 49)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(127, 127, 127)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(113, 113, 113)
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(53, 53, 53)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(19, 19, 19))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28))
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(128, 128, 128)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(49, 49, 49)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(127, 127, 127)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(39, 39, 39)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -229,7 +276,8 @@ public class imageManager extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        parent.setPhotos(photos);
+        parent.jLabel30.setText(getInsertedPhotos() + " / "
+                + NPHOTOS);
         super.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -244,14 +292,59 @@ public class imageManager extends javax.swing.JDialog {
     }//GEN-LAST:event_formMouseDragged
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        dialogFileChooser x=new dialogFileChooser(this, true);
+        dialogFileChooser y = new dialogFileChooser(this, true);
     }//GEN-LAST:event_jLabel1MouseClicked
 
-    private void setPhotos(String suspectID) {
-        if (suspectID == null) {
-            photos = parent.getPhotos();
-        } else {
-            //photos=Controller.getPhotos();
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (insertedPhotos > 0) {
+            saveDesc();
+            if (selectedPhoto == photos.length - 1 || selectedPhoto == insertedPhotos - 1) {
+                selectedPhoto = 0;
+            } else {
+                selectedPhoto++;
+            }
+            putDescription();
+            putPhoto();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if (insertedPhotos > 0) {
+            saveDesc();
+            if (selectedPhoto == 0) {
+                selectedPhoto = insertedPhotos - 1;
+            } else {
+                selectedPhoto--;
+            }
+            putDescription();
+            putPhoto();
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        if (insertedPhotos != 0) {
+            photos[selectedPhoto] = null;
+            insertedPhotos--;
+            selectedPhoto--;
+            putPhoto();
+            putDescription();
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void setPhotos(String idSuspect) {
+        //this.photos=Controller.getPhotos(idSuspect);Usado al buscar y seleccionar en sus fortos;
+    }
+
+    public void addPhoto(Image image) {
+        Images aImage = new Images(image);
+        boolean added = false;
+
+        for (int i = 0; i < photos.length && !added; i++) {
+            if (photos[i] == null) {
+                photos[i] = aImage;
+                insertedPhotos++;
+                added = true;
+            }
         }
     }
 
@@ -260,7 +353,6 @@ public class imageManager extends javax.swing.JDialog {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -270,4 +362,5 @@ public class imageManager extends javax.swing.JDialog {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
+
 }

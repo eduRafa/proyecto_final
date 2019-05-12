@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Images;
 
 /**
  *
@@ -95,8 +96,8 @@ public class Query {
     /*
     *@param img: Es un array de las imagenes de las que se quiere guardar la informacion
     */
-    public static boolean addImage(Image[] img){
-        boolean added=false;
+    public static boolean addImage(Images[] img){
+        /*boolean added=false;
         try {
             Statement s=c.createStatement();
             for(int i=0;i<img.length;i++){
@@ -106,8 +107,8 @@ public class Query {
             added=true;
         } catch (SQLException ex) {
             Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return added;
+        }*/
+        return true;
     }
     /*
     *Este metodo permite añadir un sospechoso desde cero, pudiendo recibir campos nulos en aquellos que puedan serlo en la base de datos

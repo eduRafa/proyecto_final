@@ -53,7 +53,7 @@ public class Controller implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         switch (e.getActionCommand()) {
-            case "Anadir sospechoso":
+            case "add":
                 addSuspect();
                 ;
                 break;
@@ -65,8 +65,7 @@ public class Controller implements ActionListener {
     }
 
     private void addSuspect() {
-        //String[][] data=myUI.getAddTableValues();
-        //Query.addSuspect(data);
+        Query.addSuspect(myUI.getAddTableValues());
     }
     
     public static /*String[]*/void getPhotos(String idSuspect) {

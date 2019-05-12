@@ -20,6 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
 import java.util.Arrays;
+import javax.swing.text.JTextComponent;
 
 /**
  *
@@ -45,7 +46,10 @@ public class uiUtils {
             if (comp.getAccessibleContext().getAccessibleName() != null && comp.
                     getAccessibleContext().getAccessibleName().contains("$")) {
                 String[] value = comp.getAccessibleContext().getAccessibleName().split("\\$");
-                if (comp instanceof JButton) {
+                if( comp instanceof JTextComponent){
+                    JTextComponent tmp=(JTextComponent) comp;
+                    tmp.setBorder(javax.swing.BorderFactory.createLineBorder(col));
+                }else if(comp instanceof JButton) {
                     JButton tmpButton = (JButton) comp;
                     applyBackgroundColor(comp, value[0], col);
                     applyButtonBorderColor(tmpButton, value[1], col);

@@ -208,6 +208,7 @@
                   </Properties>
                   <AccessibilityProperties>
                     <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="-$-$-"/>
+                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="icons8-busqueda-30-$255,255,255$.png"/>
                   </AccessibilityProperties>
                 </Component>
               </SubComponents>
@@ -230,6 +231,7 @@
               </Properties>
               <AccessibilityProperties>
                 <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$-$-" postCode="pnlMenu1.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
               </AccessibilityProperties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlMenu1MouseClicked"/>
@@ -280,12 +282,12 @@
                 <Component class="javax.swing.JLabel" name="lblMenu1">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/view/images/icons8-casa-30-blanco.png"/>
+                      <Image iconType="3" name="/view/images/icons8-casa-30-$255,255,255$.png"/>
                     </Property>
                   </Properties>
                   <AccessibilityProperties>
                     <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="-$-$-"/>
-                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="icons8-busqueda-30-$255,255,255$"/>
+                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="icons8-casa-30-$255,255,255$.png"/>
                   </AccessibilityProperties>
                 </Component>
               </SubComponents>
@@ -432,9 +434,13 @@
                 <Component class="javax.swing.JLabel" name="lblMenu4">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/view/images/icons8-servicios-30-blanco.png"/>
+                      <Image iconType="3" name="/view/images/icons8-servicios-filled-30-$255,255,255$.png"/>
                     </Property>
                   </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="-$-$-"/>
+                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="icons8-servicios-filled-30-$255,255,255$.png"/>
+                  </AccessibilityProperties>
                 </Component>
               </SubComponents>
             </Container>
@@ -1347,6 +1353,9 @@
                                   <Image iconType="3" name="/view/images/icons8-brocha-64.png"/>
                                 </Property>
                               </Properties>
+                              <AccessibilityProperties>
+                                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="-$-$-"/>
+                              </AccessibilityProperties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -1446,6 +1455,9 @@
                                   <Image iconType="3" name="/view/images/icons8-gr&#xe1;fico-de-barras-64.png"/>
                                 </Property>
                               </Properties>
+                              <AccessibilityProperties>
+                                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="-$-$-"/>
+                              </AccessibilityProperties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -1536,9 +1548,13 @@
                             <Component class="javax.swing.JLabel" name="lblConfMainSuspectViewIcon">
                               <Properties>
                                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/view/images/icons8-visible-filled-64.png"/>
+                                  <Image iconType="3" name="/view/images/icons8-visible-filled-64-$255,190,113$.png"/>
                                 </Property>
                               </Properties>
+                              <AccessibilityProperties>
+                                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="-$-$-"/>
+                                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="icons8-visible-filled-64-$255,190,113$.png"/>
+                              </AccessibilityProperties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -2410,17 +2426,19 @@
                                   <EmptySpace pref="132" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jLabel30" min="-2" pref="28" max="-2" attributes="0"/>
+                                      </Group>
                                       <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jScrollPane4" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jScrollPane3" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jScrollPane6" alignment="0" pref="187" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane6" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jButton1" alignment="0" min="-2" pref="187" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -2460,25 +2478,24 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" pref="42" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jScrollPane2" min="-2" pref="48" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                                  <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jButton1" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                                      <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabel28" max="32767" attributes="0"/>
+                                      <Component id="jLabel30" pref="14" max="32767" attributes="0"/>
                                   </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jButton1" min="-2" pref="34" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="68" max="32767" attributes="0"/>
@@ -2501,7 +2518,7 @@
                       <Image iconType="3" name="/view/images/icons8-m&#xe1;s-25.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="A&#xf1;adir sospechoso"/>
-                    <Property name="actionCommand" type="java.lang.String" value="Anadir sospechoso"/>
+                    <Property name="actionCommand" type="java.lang.String" value="add"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                         <LineBorder>
@@ -2533,9 +2550,15 @@
                       </Border>
                     </Property>
                   </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="$"/>
+                  </AccessibilityProperties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="addSuspectFields[0]=jTextField1;"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel5">
                   <Properties>
@@ -2552,6 +2575,12 @@
                       </Border>
                     </Property>
                   </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="$"/>
+                  </AccessibilityProperties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="addSuspectFields[1]=jTextField2;"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel6">
                   <Properties>
@@ -2568,6 +2597,12 @@
                       </Border>
                     </Property>
                   </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="$"/>
+                  </AccessibilityProperties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="addSuspectFields[2]=jTextField3;"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel7">
                   <Properties>
@@ -2598,6 +2633,12 @@
                           <Border info="null"/>
                         </Property>
                       </Properties>
+                      <AccessibilityProperties>
+                        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="$"/>
+                      </AccessibilityProperties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="addSuspectFields[3]=jTextArea1;"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -2630,6 +2671,12 @@
                           <Border info="null"/>
                         </Property>
                       </Properties>
+                      <AccessibilityProperties>
+                        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="$"/>
+                      </AccessibilityProperties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="addSuspectFields[4]=jTextArea2;"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -2662,6 +2709,12 @@
                           <Border info="null"/>
                         </Property>
                       </Properties>
+                      <AccessibilityProperties>
+                        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="$"/>
+                      </AccessibilityProperties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="addSuspectFields[5]=jTextArea3;"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -2694,6 +2747,12 @@
                           <Border info="null"/>
                         </Property>
                       </Properties>
+                      <AccessibilityProperties>
+                        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="$"/>
+                      </AccessibilityProperties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="addSuspectFields[6]=jTextArea4;"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -2726,6 +2785,12 @@
                           <Border info="null"/>
                         </Property>
                       </Properties>
+                      <AccessibilityProperties>
+                        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="$"/>
+                      </AccessibilityProperties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="addSuspectFields[7]=jTextArea5;"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -2756,10 +2821,10 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel29">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="X fotos a&#xf1;adidas"/>
-                  </Properties>
+                <Component class="javax.swing.JLabel" name="jLabel30">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>

@@ -53,14 +53,13 @@ public class enteredExited {
                 if (innerPanelComponent instanceof JLabel && innerPanelComponent.getAccessibleContext().getAccessibleName().contains("$")) {////aqui
                     JLabel tmpLabel = (JLabel) innerPanelComponent;
 
-                    String[] innerPanelComponentValues = innerPanelComponent.getAccessibleContext().getAccessibleName().split("\\$");
-                    applyForegroundColorEffect(innerPanelComponent, innerPanelComponentValues[2]);
-                    innerPanelComponent.getAccessibleContext().setAccessibleName(changeValues(innerPanelComponentValues));
-
-                    /*if (tmpLabel.getIcon() != null) {
+                    if (tmpLabel.getIcon() != null) {
                         setIcon(tmpLabel);
-                    }*/
-
+                    } else {
+                        String[] innerPanelComponentValues = innerPanelComponent.getAccessibleContext().getAccessibleName().split("\\$");
+                        applyForegroundColorEffect(innerPanelComponent, innerPanelComponentValues[2]);
+                        innerPanelComponent.getAccessibleContext().setAccessibleName(changeValues(innerPanelComponentValues));
+                    }
                 }
             }
         }
@@ -134,22 +133,32 @@ public class enteredExited {
     }
 
     private static void setIcon(JLabel tmpLabel) {
-        /*System.out.println(tmpLabel.getIcon().toString());
-        String oldPath = tmpLabel.getAccessibleContext().getAccessibleDescription();
-        String oldColor[] = oldPath.split("\\$");
 
-        //System.out.println(oldColor[1]);
-        Icon x = null;
-        String newPath = null;
-        if (rgbFormatted(UI.getPrimaryColor()).equals(oldColor[1])) {
-            newPath = oldPath.replaceAll("\\$\\d{3},\\d{3},\\d{3}\\$", "\\$" + rgbFormatted(UI.getSecundaryColor()) + "\\$");
-            tmpLabel.setIcon(new ImageIcon("/view/images/icons8-brocha-30-lila.png"));
-            tmpLabel.getAccessibleContext().setAccessibleDescription(newPath);
-        } else if (rgbFormatted(UI.getSecundaryColor()).equals(oldColor[1])) {
-            newPath = oldPath.replaceAll("\\$\\d{3},\\d{3},\\d{3}\\$", "\\$" + rgbFormatted(UI.getPrimaryColor()) + "\\$");
-            tmpLabel.setIcon(new ImageIcon("/view/images/icons8-brocha-30-lila.png"));
-            tmpLabel.getAccessibleContext().setAccessibleDescription(newPath);
-        }*/
+        String oldPath = tmpLabel.getAccessibleContext().getAccessibleDescription();
+        System.out.println(oldPath);
+        if (oldPath != null && oldPath.contains("$")) {
+            String oldColor[] = oldPath.split("\\$");
+
+            Icon x = null;
+            String newPath = null;
+            if (rgbFormatted(UI.getPrimaryColor()).equals(oldColor[1])) {
+                System.out.println(newPath);
+                newPath = oldPath.replaceAll("\\$\\d{3},\\d{3},\\d{3}\\$", "\\$" + rgbFormatted(UI.getSecundaryColor()) + "\\$");
+                System.out.println(newPath);
+                Image myImage = Toolkit.getDefaultToolkit().getImage(ClassLoader.
+                        getSystemResource("view/images/" + newPath));
+                tmpLabel.setIcon(new ImageIcon(myImage));//falla
+                tmpLabel.getAccessibleContext().setAccessibleDescription(newPath);
+            } else if (rgbFormatted(UI.getSecundaryColor()).equals(oldColor[1])) {
+                newPath = oldPath.replaceAll("\\$\\d{3},\\d{3},\\d{3}\\$", "\\$" + rgbFormatted(UI.getPrimaryColor()) + "\\$");
+                System.out.println(newPath);
+
+                Image myImage = Toolkit.getDefaultToolkit().getImage(ClassLoader.
+                        getSystemResource("view/images/" + newPath));
+                tmpLabel.setIcon(new ImageIcon(myImage));//falla
+                tmpLabel.getAccessibleContext().setAccessibleDescription(newPath);
+            }
+        }
     }
 
     private static String rgbFormatted(Color rgb) {
