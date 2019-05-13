@@ -94,7 +94,7 @@ public class Query {
                         for(int i=0;i<al.size();i++){
                             Images img=(Images) al.get(i);
                             s.executeUpdate("INSERT into Images (CodeSuspect,image,description)"
-                            + "values ('"+code+"','"+img.getImageEncoded()+"')");
+                            + "values ('"+code+"','"+img.getImageEncoded()+"','"+img.getDescription()+"')");
                         }
                 }
                 added=true;
@@ -146,9 +146,9 @@ public class Query {
             correct=addAtrivute(last,suspect.getPhone());
             correct=addAtrivute(last,suspect.getEmail());
             correct=addAtrivute(last,suspect.getAddress());
-            correct=addAtrivute(last,suspect.getCCompanions());
+            correct=addAtrivute(last,suspect.getSuspect());
             correct=addAtrivute(last,suspect.getCar_Resgistration());
-            correct=addAtrivute(last,suspect.getI);
+            correct=addAtrivute(last,suspect.getImages());
             Connect.closeConnection();
          
         } catch (SQLException ex) {
