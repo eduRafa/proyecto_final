@@ -79,6 +79,10 @@ public class Images {
         this.codeSuspect = CodeSuspect;
     }
 
+    public Blob getImageEncoded() {
+        return imageEncoded;
+    }
+
     public void encondeImage(ImageIcon imageToEnconde) throws SQLException {
         BufferedImage image = new BufferedImage(imageToEnconde.getIconWidth(),
                 imageToEnconde.getIconHeight(), BufferedImage.TYPE_INT_RGB);
