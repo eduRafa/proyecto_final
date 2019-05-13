@@ -113,11 +113,19 @@ public class Query {
                 }
             }
         }
-        if(sus.getSuspect()!=null){
-            for(int i=0;i<sus.getSuspect().size();i++){
-                if(sus.getSuspect().get(i)!=null){
+        if(sus.getPhone()!=null){
+            for(int i=0;i<sus.getPhone().size();i++){
+                if(sus.getPhone().get(i)!=null){
                     Phone phone=(Phone) sus.getSuspect().get(i);
-                    updateAttribute("PhoneNumber",phone.getCodePhone().to,sus.getPhone().get(i).toString(),"PHONE","CodePhone");
+                    updateAttribute("PhoneNumber",phone.getCodePhone().toString(),phone.getPhoneNumber().toString(),"PHONE","CodePhone");
+                }
+            }
+        }
+        if(sus.getEmail()!=null){
+            for(int i=0;i<sus.getSuspect().size();i++){
+                if(sus.getEmail().get(i)!=null){
+                    Email email=(Email) sus.getAddress().get(i);
+                    updateAttribute("Email", email.getCodeEmail().toString(), email.getEmail(), "E_MAIL", "CodeE_mail");
                 }
             }
         }
