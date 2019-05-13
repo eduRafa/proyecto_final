@@ -34,12 +34,15 @@ import org.xml.sax.SAXException;
  */
 public class Communication {
 
-    static Document getDocumentXML() {
+    public static final String COLORFILE = "./colors.xml";
+    public static final String CONNECTIONFILE = "./connection.xml";
+
+    static Document getDocumentXML(String fileName) {
         Document docParsed = null;
 
         try {
             DocumentBuilder doc = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            docParsed = doc.parse(new File("./colors.xml"));//debería de ser dinámico
+            docParsed = doc.parse(new File(fileName));//debería de ser dinámico
         } catch (ParserConfigurationException ex) {
             Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SAXException ex) {
@@ -53,7 +56,7 @@ public class Communication {
     public static void setPrimaryColor(Color c) {
         if (c != null) {
             boolean changed = false;
-            Document doc = getDocumentXML();
+            Document doc = getDocumentXML(COLORFILE);
             NodeList object = doc.getDocumentElement().getChildNodes();
 
             for (int i = 0; i < object.getLength(); i++) {
@@ -63,17 +66,15 @@ public class Communication {
                         tempNode.setTextContent(String.valueOf(c.getRed()) + ","
                                 + String.valueOf(c.getGreen()) + "," + (String.valueOf(
                                 c.getBlue())));
-                        saveDocument(doc);
+                        saveDocument(doc, COLORFILE);
                     }
                 }
             }
         }
     }
 
-    static void saveDocument(Document doc) {
-        File color = new File("colors.xml");/*Deberia de ser dinámico(Pasar por
-        parametro la ruta o en este caso el nombre del archivo ya que se 
-        encunentra en la raiz)*/
+    static void saveDocument(Document doc, String fileName) {
+        File color = new File(fileName);
 
         try {
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
@@ -124,8 +125,8 @@ public class Communication {
     }
 
     public static Color getPrimaryColor() {
-        Color pnlColor = null;
-        Document doc = getDocumentXML();
+        Color c = null;
+        Document doc = getDocumentXML(COLORFILE);
         NodeList object = doc.getDocumentElement().getChildNodes();
 
         for (int i = 0; i < object.getLength(); i++) {
@@ -137,10 +138,47 @@ public class Communication {
                     for (int z = 0; z < rgbString.length; z++) {
                         rgb[z] = Integer.valueOf(rgbString[z]);
                     }
-                    pnlColor = new Color(rgb[0], rgb[1], rgb[2]);
+                    c = new Color(rgb[0], rgb[1], rgb[2]);
                 }
             }
         }
-        return pnlColor;
+        return c;
     }
+
+    public static String[] getDatabaseAccess() {
+        String[] dbValues = null;
+        Document doc = getDocumentXML(CONNECTIONFILE);
+        NodeList object = doc.getDocumentElement().getChildNodes();
+
+        for (int i = 0; i < object.getLength(); i++) {
+            dbValues = new String[4];
+            Node tempNode = object.item(i);
+            if (tempNode.getNodeType() == Node.ELEMENT_NODE) {
+                if (tempNode.getNodeName().equals("host")) {
+                    NodeList x = tempNode.getChildNodes();
+                    for (int j = 0; j < x.getLength(); j++) {
+                        dbValues[0] = x.item(j).getTextContent();
+                    }
+                } else if (tempNode.getNodeName().equals("database")) {
+                    NodeList x = tempNode.getChildNodes();
+                    for (int j = 0; j < x.getLength(); j++) {
+                        dbValues[1] = x.item(j).getTextContent();
+                    }
+                } else if (tempNode.getNodeName().equals("user")) {
+                    NodeList x = tempNode.getChildNodes();
+                    for (int j = 0; j < x.getLength(); j++) {
+                        dbValues[2] = x.item(j).getTextContent();
+                    }
+                } else if (tempNode.getNodeName().equals("password")) {
+                    NodeList x = tempNode.getChildNodes();
+                    for (int j = 0; j < x.getLength(); j++) {
+                        dbValues[3] = x.item(j).getTextContent();
+                    }
+                }
+            }
+        }
+
+        return dbValues;
+    }
+
 }

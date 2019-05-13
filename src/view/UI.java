@@ -109,6 +109,10 @@ public class UI extends javax.swing.JFrame {
 
         return values;
     }
+    
+     public imageManager getImageManager(){
+        return myImageManager;
+    }
 
     public void setPhotos(Images[] newPhotos) {
         photos = newPhotos;
