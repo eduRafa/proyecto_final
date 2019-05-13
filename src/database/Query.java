@@ -110,7 +110,7 @@ public class Query {
                 c=Connect.getMyConnection();   
                 boolean find=false;
                 String type=null;
-                for(int j=0;j<al.size()&&find==false;j++){
+                for(int j=0;j<al.size()&&!find;j++){
                     if(al.get(j)!=null){
                         type=al.get(j).getClass().getSimpleName();
                         find=true;
@@ -118,7 +118,8 @@ public class Query {
                 }
                 
                 Statement s=c.createStatement();
-                switch(type){
+                if(type!=null){
+                    switch(type){
                     case "Phone":
                         for(int i=0;i<al.size();i++){
                             Phone ph=(Phone) al.get(i);
@@ -161,7 +162,9 @@ public class Query {
                             + "values ('"+code+"','"+img.getImageEncoded()+"','"+img.getDescription()+"')");
                         }
                         //getbinarystream
+                    }
                 }
+                                
                 added=true;
                 Connect.closeConnection();
             } catch (SQLException ex) {
@@ -195,7 +198,7 @@ public class Query {
             correct=addAtrivute(last,suspect.getAddress());
             correct=addAtrivute(last,suspect.getSuspect());
             correct=addAtrivute(last,suspect.getCar_Resgistration());
-            correct=addAtrivute(last,suspect.getImages());
+            correct=addAtrivute(last, (ArrayList<Object>) suspect.getImages());
             Connect.closeConnection();
          
         } catch (SQLException ex) {
