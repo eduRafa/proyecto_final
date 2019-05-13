@@ -44,7 +44,7 @@ public class Connect {
                     // Setup the connection with the DB
 
                     //miConexion= DriverManager.getConnection("jdbc:mysql://"+HOST_DE+"/"+BBDD_DE+"?user="+LOGIN_DE+"&password="+PASSWORD_DE);
-
+                    
                     //conexión completa para evitar errores de sincronizacion con el servidor
                     myConnection= DriverManager.getConnection("jdbc:mysql://"+HOST_DE+"/"+BBDD_DE+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&user="+LOGIN_DE+"&password="+PASSWORD_DE);
 		
