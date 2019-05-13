@@ -116,7 +116,8 @@ public class Query {
         if(sus.getSuspect()!=null){
             for(int i=0;i<sus.getSuspect().size();i++){
                 if(sus.getSuspect().get(i)!=null){
-                    updateAttribute("PhoneNumber",sus.getPhone().get(i)getCodePhone().toString,sus.getPhone().get(i).toString(),"PHONE","CodePhone");
+                    Phone phone=(Phone) sus.getSuspect().get(i);
+                    updateAttribute("PhoneNumber",phone.getCodePhone().to,sus.getPhone().get(i).toString(),"PHONE","CodePhone");
                 }
             }
         }
