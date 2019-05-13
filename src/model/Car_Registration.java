@@ -15,16 +15,19 @@ public class Car_Registration {
     public String registration;
     
     
-public Car_Registration() {
+public Car_Registration(String registration) {
+    this.registration=registration;
     
 }
 
 public boolean validate (String registration){
     boolean validate=false;
-    Pattern p = Pattern.compile("^.|^@");
+    Pattern p = Pattern.compile("^[0-9]{4}[a-zA-Z]{3}$");
     Matcher m = p.matcher(this.registration);
     if (m.find())
-        return true;
+       validate=true;
+        return validate;
+       
 }
     
     
