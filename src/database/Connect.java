@@ -114,15 +114,14 @@ public class Connect {
 		Statement sentence;
                 try{
                     lineSQL="CREATE TABLE IF NOT EXISTS SUSPECT"
-                    +"(CodeSuspect         int zerofill autoincrement PRIMARY KEY,"
-                    +"name                 varchar(20) DEFAULT desconocido,"
-                    +"lastname1            varchar(20) DEFAULT desconocido,"
-                    +"lastname2            varchar(20) DEFAULT desconocido,"
-                    +"Record               blob DEFAULT desconocido,"
-                    +"Facts                blob DEFAULT desconocido,"
-                    + "FOREIGN KEY (CCompanios) REFERENCES SUSPECT (CodeSuspect)"
+                    +"CodeSuspect         int unsigned zerofill PRIMARY KEY auto_increment,"
+                    +"name                 varchar(20) DEFAULT 'desconocido',"
+                    +"lastname1            varchar(20) DEFAULT 'desconocido',"
+                    +"lastname2            varchar(20) DEFAULT 'desconocido',"
+                    +"Record               blob DEFAULT,"
+                    +"Facts                blob DEFAULT,"
                     + "ON DELETE CASCADE ON UPDATE CASCADE"
-                    + ")";
+                    + ")ENGINE=INNODB";
                     
                     //conectamos la sentencia a la base de datos
                     sentence = myConnection.createStatement();
@@ -130,12 +129,12 @@ public class Connect {
                     sentence.executeUpdate(lineSQL);
                     
                     lineSQL="CREATE TABLE IF NOT EXISTS COMPANIONS"
-                    + "(CodeSuspect1        int,"
-                    + "CodeSuspect2         int,"
+                    + "(CodeSuspect1        int unsigned,"
+                    + "CodeSuspect2         int unsigned,"
                     + "PRIMARY KEY (CodeSuspect1,CodeSuspect2),"
                     + "FOREIGN KEY (CodeSuspect1) REFERENCES SUSPECT(CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE,"
                     + "FOREIGN KEY (CodeSuspect2) REFERENCES SUSPECT(CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE"
-                    + ")";
+                    + ")ENGINE=INNODB";
                     
                             
                     sentence = myConnection.createStatement();
@@ -143,52 +142,52 @@ public class Connect {
                     sentence.executeUpdate(lineSQL);
                     
                     lineSQL="CREATE TABLE IF NOT EXISTS PHONE"
-                    + "(CodeSuspect          int ,"
-                    + "CodePhone             int zerofill autoincrement PRIMARY KEY,"
+                    + "(CodeSuspect          int unsigned,"
+                    + "CodePhone             int zerofill auto_increment PRIMARY KEY,"
                     + "PhoneNumber           int DEFAULT 00000000,"
                     + "FOREIGN KEY (CodeSuspect) references SUSPECT(CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE"
-                    + ")";
+                    + ")ENGINE=INNODB";
                     
                     sentence = myConnection.createStatement();
                     sentence.executeUpdate(lineSQL);
                     
-                    lineSQL="CREATE TABLE IF NOT EXISTS E-MAIL"
-                    + "(CodeE-mail          int zerofill autoincrement PRIMARY KEY,"
-                    + "CodeSuspect          int,"
-                    + "Email                varchar(20) DEFAULT desconocido,"
+                    lineSQL="CREATE TABLE IF NOT EXISTS E_MAIL"
+                    + "(CodeE-mail          int zerofill auto_increment PRIMARY KEY,"
+                    + "CodeSuspect          int unsigned,"
+                    + "Email                varchar(20) DEFAULT 'desconocido',"
                     + "FOREIGN KEY (CodeSuspect) REFERENCES SUSPECT (CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE"
-                    + ")";
+                    + ")ENGINE=INNODB";
                     
                     sentence = myConnection.createStatement();
                     sentence.executeUpdate(lineSQL);
                     
                     lineSQL="CREATE TABLE IF NOT EXISTS ADDRESS"
-                    + "(CodeAddress          int zerofill autoincrement PRIMARY KEY,"
-                    + "CodeSuspect           int,"
-                    + "Address               varchar(100),"
+                    + "(CodeAddress          int zerofill auto_increment PRIMARY KEY,"
+                    + "CodeSuspect           int unsigned,"
+                    + "Address               varchar(100) DEFAULT 'desconocido',"
                     + "FOREIGN KEY (CodeSuspect) REFERENCES SUSPECT (CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE"
-                    + ")";
+                    + ")ENGINE=INNODB";
                     
                     sentence = myConnection.createStatement();
                     sentence.executeUpdate(lineSQL);
                     
                     lineSQL="CREATE TABLE IF NOT EXISTS CAR_REGISTRATION"
-                    + "(Resgistration_number int,"
-                    + "CodeRegistration      int zerofill autoincrement PRIMARY KEY,"
-                    + "CodeSuspect           int,"
+                    + "(Resgistration_number varchar (11) DEFAULT 'desconocido',"
+                    + "CodeRegistration      int zerofill auto_increment PRIMARY KEY,"
+                    + "CodeSuspect           int unsigned,"
                     + "FOREIGN KEY (CodeSuspect) REFERENCES SUSPECT (CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE"
-                    + ")";
+                    + ")ENGINE=INNODB";
                     
                     sentence = myConnection.createStatement();
                     sentence.executeUpdate(lineSQL);
                     
                     lineSQL="CREATE TABLE IF NOT EXISTS IMAGES"
                     + "(Image                blob,"
-                    + "CodeImage             int zerofill autoincrement PRIMARY KEY,"
+                    + "CodeImage             int zerofill auto_increment PRIMARY KEY,"
                     + "Description           blob"
-                    + "CodeSuspect           int,"
+                    + "CodeSuspect           int unsigned,"
                     + "FOREIGN KEY (CodeSuspect) REFERENCES SUSPECT (CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE"
-                    + ")";
+                    + ")ENGINE=INNODB";
                     
                     sentence = myConnection.createStatement();
                     sentence.executeUpdate(lineSQL);

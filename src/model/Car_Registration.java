@@ -23,7 +23,8 @@ public boolean validate (String registration){
     boolean validate=false;
     Pattern p = Pattern.compile("[0-9]{4}[a-zA-Z]{3}$");
     Matcher m = p.matcher(this.registration);
-    if (m.find())
+    if (m.find()){}
+    
         return true;
 }
     

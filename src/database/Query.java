@@ -120,6 +120,8 @@ public class Query {
         boolean correct=false;
         
         try {
+            Connect.startConnection();
+            c=Connect.getMyConnection();
             Statement s=c.createStatement();
             s.executeUpdate("INSERT INTO SUSPECT (nombre,apellido1, apellido2, Record,Facts)"
             + "values ('"+attributes[0]+"','"+attributes[1]+"','"+attributes[2]+"','"+attributes[8]+"','"+attributes[9]+"')");
@@ -131,9 +133,11 @@ public class Query {
             correct=addAtrivute(last,"companion",attributes[6]);
             correct=addAtrivute(last,"carRegistration",attributes[7]);
             correct=addAtrivute(last,"image",attributes[10]);
-            
+            Connect.closeConnection();
          
         } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
             Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
         }
         return correct;
@@ -148,7 +152,7 @@ public class Query {
             Statement s=c.createStatement();
             rs=s.executeQuery("Select sus.name,sus.lastname1,sus.lastname2,sus.Record,sus.Facts,"
                             + "p.PhoneNumber, em.Email,ad.Address,cr.Resgistration_number"
-                            + "from Suspect sus, PHONE p, E-Mail em,ADDRESS ad,CAR_REGISTRATION cr");
+                            + "from Suspect sus, PHONE p, E_Mail em,ADDRESS ad,CAR_REGISTRATION cr");
         } catch (SQLException ex) {
             Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -185,32 +189,32 @@ public class Query {
                 case "lastname2":
                     rs =s.executeQuery("select sus.name,sus.lastname1,sus.lastname2,sus.Record,sus.Facts,"
                             + "p.PhoneNumber, em.Email,ad.Address,cr.Resgistration_number"
-                            + "from Suspect sus, PHONE p, E-Mail em,ADDRESS ad,CAR_REGISTRATION cr"
+                            + "from Suspect sus, PHONE p, E_Mail em,ADDRESS ad,CAR_REGISTRATION cr"
                             + "where sus."+key+"="+value);
                     break;
                 case "PhoneNumber":
                     
                     rs =s.executeQuery("select sus.name,sus.lastname1,sus.lastname2,sus.Record,sus.Facts,"
                             + "p.PhoneNumber, em.Email,ad.Address,cr.Resgistration_number"
-                            + "from Suspect sus, PHONE p, E-Mail em,ADDRESS ad,CAR_REGISTRATION cr"
+                            + "from Suspect sus, PHONE p, E_Mail em,ADDRESS ad,CAR_REGISTRATION cr"
                             + "where sus.CodeSuspect=(select CodeSuspect from PHONE where "+key+"="+value+")");
                     break;
                 case "Email":
                     rs=s.executeQuery("select sus.name,sus.lastname1,sus.lastname2,sus.Record,sus.Facts,"
                             + "p.PhoneNumber, em.Email,ad.Address,cr.Resgistration_number"
-                            + "from Suspect sus, PHONE p, E-Mail em,ADDRESS ad,CAR_REGISTRATION cr"
+                            + "from Suspect sus, PHONE p, E_Mail em,ADDRESS ad,CAR_REGISTRATION cr"
                             + "where sus.CodeSuspect=(select CodeSuspect from EXISTS_ADDRESS where "+key+"="+value+")");
                     break;
                 case "Resgistration_number":
                     rs=s.executeQuery("select sus.name,sus.lastname1,sus.lastname2,sus.Record,sus.Facts,"
                             + "p.PhoneNumber, em.Email,ad.Address,cr.Resgistration_number"
-                            + "from Suspect sus, PHONE p, E-Mail em,ADDRESS ad,CAR_REGISTRATION cr"
+                            + "from Suspect sus, PHONE p, E_Mail em,ADDRESS ad,CAR_REGISTRATION cr"
                             + "where sus.CodeSuspect=(select CodeSuspect from CAR_REGISTRATION where "+key+"="+value+")");
                     break;
                 case "CodeSuspect":
                     rs=s.executeQuery("select sus.name,sus.lastname1,sus.lastname2,sus.Record,sus.Facts,"
                             + "p.PhoneNumber, em.Email,ad.Address,cr.Resgistration_number"
-                            + "from Suspect sus, PHONE p, E-Mail em,ADDRESS ad,CAR_REGISTRATION cr"
+                            + "from Suspect sus, PHONE p, E_Mail em,ADDRESS ad,CAR_REGISTRATION cr"
                             + "where sus.CodeSuspect="+value);
                     break;
             }
