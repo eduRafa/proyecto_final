@@ -5,6 +5,7 @@
  */
 package view;
 
+import java.util.Vector;
 import controller.Controller;
 import java.awt.Color;
 import java.awt.Component;
@@ -16,8 +17,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableModel;
+import javax.swing.text.JTextComponent;
 import model.Communication;
+import model.Images;
 
 /**
  *
@@ -29,7 +34,7 @@ public class UI extends javax.swing.JFrame {
      * Creates new form UI
      */
     private UI() {
-        me=this;
+        me = this;
         myController = Controller.getInstance();
         myController.setUi(me);
         primaryColor = myController.getPrimaryColor();
@@ -37,13 +42,14 @@ public class UI extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         hideLayouts();
+        myImageManager = new imageManager(me, true);
         pnlMain.setVisible(true);
     }
-    
-    public static UI getInstance() throws Exception{
-        if(me==null){
+
+    public static UI getInstance() throws Exception {
+        if (me == null) {
             return new UI();
-        }else{
+        } else {
             throw new Exception("Interfaz ya instanciada");
         }
     }
@@ -80,7 +86,7 @@ public class UI extends javax.swing.JFrame {
         themeColor[1] = new Color(133, 234, 130);
         themeColor[2] = new Color(158, 180, 230);
         themeColor[3] = new Color(222, 169, 218);
-        themeColor[4] = new Color(225, 157, 156);
+        themeColor[4] = new Color(220, 140, 142);
         themeColor[5] = new Color(248, 239, 92);
     }
 
@@ -90,6 +96,26 @@ public class UI extends javax.swing.JFrame {
 
     public static Color getSecundaryColor() {
         return secundaryColor;
+    }
+
+    public String[] getAddTableValues() {
+        String values[] = new String[9];
+        for (int i = 0; i < addSuspectFields.length; i++) {
+            if (addSuspectFields[i] != null) {
+                values[i] = addSuspectFields[i].getText();
+            }
+        }
+        values[8] = null;//deberían de ir las fotos
+
+        return values;
+    }
+
+    public void setPhotos(Images[] newPhotos) {
+        photos = newPhotos;
+    }
+
+    public Images[] getPhotos() {
+        return photos;
     }
 
     /**
@@ -204,10 +230,31 @@ public class UI extends javax.swing.JFrame {
         jToggleButton6 = new javax.swing.JToggleButton();
         jPanel12 = new javax.swing.JPanel();
         pnlAdd = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
         jButton9 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jLabel26 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
+        jLabel27 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextArea5 = new javax.swing.JTextArea();
+        jLabel28 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel30 = new javax.swing.JLabel();
 
         jButton4.setText("jButton4");
 
@@ -244,7 +291,7 @@ public class UI extends javax.swing.JFrame {
         lblMenu22.setForeground(secundaryColor);
         lblMenu22.setText("Búsqueda");
 
-        lblMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-búsqueda-30-blanco.png"))); // NOI18N
+        lblMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-busqueda-30-$255,255,255$.png"))); // NOI18N
 
         javax.swing.GroupLayout pnlMenu2Layout = new javax.swing.GroupLayout(pnlMenu2);
         pnlMenu2.setLayout(pnlMenu2Layout);
@@ -267,6 +314,8 @@ public class UI extends javax.swing.JFrame {
         );
 
         lblMenu22.getAccessibleContext().setAccessibleName("0$-$0");
+        lblMenu2.getAccessibleContext().setAccessibleName("-$-$-");
+        lblMenu2.getAccessibleContext().setAccessibleDescription("icons8-busqueda-30-$255,255,255$.png");
 
         pnlMenu1.setBackground(primaryColor);
         pnlMenu1.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor, 0));
@@ -282,7 +331,7 @@ public class UI extends javax.swing.JFrame {
         lblMenu11.setForeground(secundaryColor);
         lblMenu11.setText("Menu Principal");
 
-        lblMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-casa-30-blanco.png"))); // NOI18N
+        lblMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-casa-30-$255,255,255$.png"))); // NOI18N
 
         javax.swing.GroupLayout pnlMenu1Layout = new javax.swing.GroupLayout(pnlMenu1);
         pnlMenu1.setLayout(pnlMenu1Layout);
@@ -305,6 +354,8 @@ public class UI extends javax.swing.JFrame {
         );
 
         lblMenu11.getAccessibleContext().setAccessibleName("0$-$0");
+        lblMenu1.getAccessibleContext().setAccessibleName("-$-$-");
+        lblMenu1.getAccessibleContext().setAccessibleDescription("icons8-casa-30-$255,255,255$.png");
 
         pnlMenu3.setBackground(primaryColor);
         pnlMenu3.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor, 0));
@@ -319,7 +370,7 @@ public class UI extends javax.swing.JFrame {
         lblMenu33.setForeground(secundaryColor);
         lblMenu33.setText("Agregar sospechoso");
 
-        lblMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-añadir-usuario-masculino-30-blanco.png"))); // NOI18N
+        lblMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-anadir-usuario-masculino-30-$255-255-255$.png"))); // NOI18N
 
         javax.swing.GroupLayout pnlMenu3Layout = new javax.swing.GroupLayout(pnlMenu3);
         pnlMenu3.setLayout(pnlMenu3Layout);
@@ -342,6 +393,7 @@ public class UI extends javax.swing.JFrame {
         );
 
         lblMenu33.getAccessibleContext().setAccessibleName("0$-$0");
+        lblMenu3.getAccessibleContext().setAccessibleName("-$-$-");
 
         pnlMenu4.setBackground(primaryColor);
         pnlMenu4.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor, 0));
@@ -357,7 +409,7 @@ public class UI extends javax.swing.JFrame {
         lblMenu44.setForeground(secundaryColor);
         lblMenu44.setText("Configuración");
 
-        lblMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-servicios-30-blanco.png"))); // NOI18N
+        lblMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-servicios-filled-30-$255,255,255$.png"))); // NOI18N
 
         javax.swing.GroupLayout pnlMenu4Layout = new javax.swing.GroupLayout(pnlMenu4);
         pnlMenu4.setLayout(pnlMenu4Layout);
@@ -380,6 +432,8 @@ public class UI extends javax.swing.JFrame {
         );
 
         lblMenu44.getAccessibleContext().setAccessibleName("0$-$0");
+        lblMenu4.getAccessibleContext().setAccessibleName("-$-$-");
+        lblMenu4.getAccessibleContext().setAccessibleDescription("icons8-servicios-filled-30-$255,255,255$.png");
 
         javax.swing.GroupLayout pnlMenuLayout = new javax.swing.GroupLayout(pnlMenu);
         pnlMenu.setLayout(pnlMenuLayout);
@@ -407,37 +461,38 @@ public class UI extends javax.swing.JFrame {
         pnlMenu2.getAccessibleContext().setAccessibleName("1$-$-");
         pnlMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
         pnlMenu1.getAccessibleContext().setAccessibleName("1$-$-");
         pnlMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
+        pnlMenu1.getAccessibleContext().setAccessibleDescription("");
         pnlMenu3.getAccessibleContext().setAccessibleName("1$-$-");
         pnlMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
         pnlMenu4.getAccessibleContext().setAccessibleName("1$-$-");
         pnlMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
 
             }
         });
@@ -629,16 +684,16 @@ public class UI extends javax.swing.JFrame {
 
         jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
-        jButton10.getAccessibleContext().setAccessibleName("1$0$0");
+        jButton10.getAccessibleContext().setAccessibleName("1$-$-");
 
         pnlSearch.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -667,10 +722,10 @@ public class UI extends javax.swing.JFrame {
 
         tblSearchSearch.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Apellido 1", "Apellido 2", "Teléfonos", "Correo", "Direcciones", "Acompañantes", "Matrículas", "Antecedentes", "Hechos", "Fotos"
+                "Nombre", "Apellido 1", "Apellido 2", "Teléfonos", "Correo", "Direcciones", "Acompañantes", "Matrículas"
             }
         ));
         tblSearchSearch.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
@@ -800,16 +855,16 @@ public class UI extends javax.swing.JFrame {
         jCheckBox1.setFocusable(false);
         jCheckBox2.setFocusable(false);
         jCheckBox3.setFocusable(false);
-        jButton6.getAccessibleContext().setAccessibleName("1$0$0");
+        jButton6.getAccessibleContext().setAccessibleName("1$-$-");
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -834,7 +889,7 @@ public class UI extends javax.swing.JFrame {
         });
         btnConfTheme.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -870,7 +925,7 @@ public class UI extends javax.swing.JFrame {
         });
         btnConfSuspctView.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -925,6 +980,7 @@ public class UI extends javax.swing.JFrame {
 
         lblConfMainThemesTitle.getAccessibleContext().setAccessibleName("-$-$1");
         lblConfMainThemesDesc.getAccessibleContext().setAccessibleName("-$-$1");
+        lblConfMainThemesIcon.getAccessibleContext().setAccessibleName("-$-$-");
 
         pnlConfMainStadistics.setBackground(secundaryColor);
         pnlConfMainStadistics.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
@@ -977,6 +1033,7 @@ public class UI extends javax.swing.JFrame {
 
         lbllConfMainStadisticsTitle.getAccessibleContext().setAccessibleName("-$-$1");
         lbllConfMainStadisticsDesc.getAccessibleContext().setAccessibleName("-$-$1");
+        lbllConfMainStadisticsIcon.getAccessibleContext().setAccessibleName("-$-$-");
 
         pnlConfMainSuspectView.setBackground(secundaryColor);
         pnlConfMainSuspectView.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
@@ -994,7 +1051,7 @@ public class UI extends javax.swing.JFrame {
         lblConfMainSuspectViewDesc.setForeground(primaryColor);
         lblConfMainSuspectViewDesc.setText("<html> \t \t<p>Cambia la forma en la que ves los sospechosos, introduciendo o eliminando sus campos. \t</p> </html> ");
 
-        lblConfMainSuspectViewIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-visible-filled-64.png"))); // NOI18N
+        lblConfMainSuspectViewIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-visible-filled-64-$255,190,113$.png"))); // NOI18N
 
         javax.swing.GroupLayout pnlConfMainSuspectViewLayout = new javax.swing.GroupLayout(pnlConfMainSuspectView);
         pnlConfMainSuspectView.setLayout(pnlConfMainSuspectViewLayout);
@@ -1027,6 +1084,8 @@ public class UI extends javax.swing.JFrame {
 
         lblConfMainSuspectViewTitle.getAccessibleContext().setAccessibleName("-$-$1");
         lblConfMainSuspectViewDesc.getAccessibleContext().setAccessibleName("-$-$1");
+        lblConfMainSuspectViewIcon.getAccessibleContext().setAccessibleName("-$-$-");
+        lblConfMainSuspectViewIcon.getAccessibleContext().setAccessibleDescription("icons8-visible-filled-64-$255,190,113$.png");
 
         javax.swing.GroupLayout pnlConfMainLayout = new javax.swing.GroupLayout(pnlConfMain);
         pnlConfMain.setLayout(pnlConfMainLayout);
@@ -1055,28 +1114,29 @@ public class UI extends javax.swing.JFrame {
         pnlConfMainThemes.getAccessibleContext().setAccessibleName("0$1$-");
         pnlConfMainThemes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
         pnlConfMainStadistics.getAccessibleContext().setAccessibleName("0$1$-");
         pnlConfMainStadistics.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
+        pnlConfMainStadistics.getAccessibleContext().setAccessibleDescription("");
         pnlConfMainSuspectView.getAccessibleContext().setAccessibleName("0$1$-");
         pnlConfMainSuspectView.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -1163,13 +1223,13 @@ public class UI extends javax.swing.JFrame {
         jButton3.getAccessibleContext().setAccessibleName("1$0$0");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
         jLabel10.getAccessibleContext().setAccessibleName("0$-$1");
@@ -1653,7 +1713,7 @@ public class UI extends javax.swing.JFrame {
 
         btnConfTheme.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -1661,13 +1721,13 @@ public class UI extends javax.swing.JFrame {
         btnConfTheme.getAccessibleContext().setAccessibleName("1$0$0");
         btnConfStadistics.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
         btnConfStadistics.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -1676,7 +1736,7 @@ public class UI extends javax.swing.JFrame {
         btnConfSuspctView.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 //mouseBttHover(evt);
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -1685,43 +1745,11 @@ public class UI extends javax.swing.JFrame {
 
         pnlAdd.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Nombre", null},
-                {"Apellido 1", null},
-                {"Apellido 2", null},
-                {"Teléfonos", null},
-                {"Correo", null},
-                {"Direcciones", null},
-                {"Acompañantes", null},
-                {"Matrículas", null},
-                {"Fotos", null}
-            },
-            new String [] {
-                "Campo", "Valor"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable5.setSelectionBackground(primaryColor);
-        jTable5.getTableHeader().setResizingAllowed(false);
-        jTable5.getTableHeader().setReorderingAllowed(false);
-        jScrollPane5.setViewportView(jTable5);
-        jTable5.getTableHeader().setBackground(primaryColor);
-        jTable5.getTableHeader().setForeground(secundaryColor);
-        jTable5.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
-        jTable5.getAccessibleContext().setAccessibleName("1$1$0");
-
         jButton9.setBackground(primaryColor);
         jButton9.setForeground(secundaryColor);
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-más-25.png"))); // NOI18N
         jButton9.setText("Añadir sospechoso");
+        jButton9.setActionCommand("add");
         jButton9.setBorder(javax.swing.BorderFactory.createLineBorder(secundaryColor));
         jButton9.setFocusable(false);
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -1730,51 +1758,204 @@ public class UI extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("jLabel4");
+        jLabel4.setText("Nombre");
+
+        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Apellido 1");
+
+        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
+
+        jLabel6.setText("Apellido 2");
+
+        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
+
+        jLabel7.setText("Teléfonos (Varios)");
+
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setBorder(null);
+        jScrollPane1.setViewportView(jTextArea1);
+        addSuspectFields[3]=jTextArea1;
+        jTextArea1.getAccessibleContext().setAccessibleName("$");
+
+        jLabel8.setText("Correo (Varios)");
+
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jTextArea2.setBorder(null);
+        jScrollPane2.setViewportView(jTextArea2);
+        addSuspectFields[4]=jTextArea2;
+        jTextArea2.getAccessibleContext().setAccessibleName("$");
+
+        jLabel9.setText("Direcciones (Varios)");
+
+        jScrollPane3.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jTextArea3.setBorder(null);
+        jScrollPane3.setViewportView(jTextArea3);
+        addSuspectFields[5]=jTextArea3;
+        jTextArea3.getAccessibleContext().setAccessibleName("$");
+
+        jLabel26.setText("Acompañantes (Varios)");
+
+        jScrollPane4.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
+
+        jTextArea4.setColumns(20);
+        jTextArea4.setRows(5);
+        jTextArea4.setBorder(null);
+        jScrollPane4.setViewportView(jTextArea4);
+        addSuspectFields[6]=jTextArea4;
+        jTextArea4.getAccessibleContext().setAccessibleName("$");
+
+        jLabel27.setText("Matrículas (Varios)");
+
+        jScrollPane6.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
+
+        jTextArea5.setColumns(20);
+        jTextArea5.setRows(5);
+        jTextArea5.setBorder(null);
+        jScrollPane6.setViewportView(jTextArea5);
+        addSuspectFields[7]=jTextArea5;
+        jTextArea5.getAccessibleContext().setAccessibleName("$");
+
+        jLabel28.setText("Fotos");
+
+        jButton1.setBackground(primaryColor);
+        jButton1.setForeground(secundaryColor);
+        jButton1.setText("Abrir gestor de imágenes");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(secundaryColor));
+        jButton1.setFocusable(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlAddLayout = new javax.swing.GroupLayout(pnlAdd);
         pnlAdd.setLayout(pnlAddLayout);
         pnlAddLayout.setHorizontalGroup(
             pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAddLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
+                .addGap(102, 102, 102)
                 .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlAddLayout.createSequentialGroup()
-                        .addComponent(jButton9)
+                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnlAddLayout.createSequentialGroup()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
-                        .addComponent(jLabel4)
-                        .addGap(139, 139, 139))))
+                        .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6)
+                            .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                        .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel9)
+                            .addGroup(pnlAddLayout.createSequentialGroup()
+                                .addComponent(jLabel28)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel26)
+                            .addComponent(jLabel27)
+                            .addComponent(jScrollPane4)
+                            .addComponent(jScrollPane3)
+                            .addComponent(jScrollPane6)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(153, 153, 153))))
         );
         pnlAddLayout.setVerticalGroup(
             pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlAddLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlAddLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel26)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlAddLayout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addGap(8, 8, 8)
                 .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlAddLayout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(jLabel4))
-                    .addGroup(pnlAddLayout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, 14, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        jButton9.getAccessibleContext().setAccessibleName("1$0$0");
+        jButton9.getAccessibleContext().setAccessibleName("1$-$-");
         jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                uiUtils.mouseComponentEffect(evt);
+                enteredExited.mouseComponentEffect(evt);
             }
         });
+
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myController.actionPerformed(evt);
+            }
+        });
+        addSuspectFields[0]=jTextField1;
+        jTextField1.getAccessibleContext().setAccessibleName("$");
+        addSuspectFields[1]=jTextField2;
+        jTextField2.getAccessibleContext().setAccessibleName("$");
+        addSuspectFields[2]=jTextField3;
+        jTextField3.getAccessibleContext().setAccessibleName("$");
 
         layeredConfMain.setLayer(pnlMain, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredConfMain.setLayer(pnlSearch, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1827,7 +2008,7 @@ public class UI extends javax.swing.JFrame {
                 .addComponent(pnlFormDecorated, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(layeredConfMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -1962,10 +2143,6 @@ public class UI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
-
     private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox4ActionPerformed
@@ -2007,6 +2184,18 @@ public class UI extends javax.swing.JFrame {
     private void btnConfThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfThemeActionPerformed
 
     }//GEN-LAST:event_btnConfThemeActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        //getAddSuspectValues();
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        myImageManager.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void start() {
         /* Set the Nimbus look and feel */
@@ -2050,6 +2239,7 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JButton btnConfTheme;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -2081,8 +2271,17 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -2095,10 +2294,21 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable5;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTextArea jTextArea5;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
@@ -2160,5 +2370,7 @@ public class UI extends javax.swing.JFrame {
     private static Color[] themeColor;
     private static Controller myController;
     private static UI me;
-
+    private Images[] photos;
+    private static imageManager myImageManager;
+    private static JTextComponent[] addSuspectFields= new JTextComponent[9];
 }

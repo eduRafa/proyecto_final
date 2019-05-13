@@ -173,7 +173,8 @@ public class Connect {
                     sentence.executeUpdate(lineSQL);
                     
                     lineSQL="CREATE TABLE IF NOT EXISTS CAR_REGISTRATION"
-                    + "(Resgistration_number int PRIMARY KEY,"
+                    + "(Resgistration_number int,"
+                    + "CodeRegistration      int zerofill autoincrement PRIMARY KEY,"
                     + "CodeSuspect           int,"
                     + "FOREIGN KEY (CodeSuspect) REFERENCES SUSPECT (CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE"
                     + ")";

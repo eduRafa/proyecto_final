@@ -5,13 +5,13 @@
  */
 package database;
 
-import model.Image;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Images;
 
 /**
  *
@@ -48,7 +48,7 @@ public class Query {
     *@param type: Es un String que es el tipo de atributo que se desea añadir
     *@param attribute: Es un string con el/los atributos que se dean añadir 
     */
-    public static boolean addAtribute(String code,String type, String attribute){
+    public static boolean addAtrivute(String code,String type, String attribute){
         boolean added=false;
         if(attribute!=null){
             try {
@@ -96,8 +96,8 @@ public class Query {
     /*
     *@param img: Es un array de las imagenes de las que se quiere guardar la informacion
     */
-    public static boolean addImage(Image[] img){
-        boolean added=false;
+    public static boolean addImage(Images[] img){
+        /*boolean added=false;
         try {
             Statement s=c.createStatement();
             for(int i=0;i<img.length;i++){
@@ -107,8 +107,8 @@ public class Query {
             added=true;
         } catch (SQLException ex) {
             Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return added;
+        }*/
+        return true;
     }
     /*
     *Este metodo permite añadir un sospechoso desde cero, pudiendo recibir campos nulos en aquellos que puedan serlo en la base de datos
@@ -116,7 +116,7 @@ public class Query {
     ademas debe de estar guardado en el orden (nombre,primer apellido, segundo apellido,numero(s) de telefono,direcion(es) de correo elctronico,
     direcion(es),compañero(s),matricula(s),imagen(s)
     */
-    public static boolean addSuspect(Object[] attributes){
+    public static boolean addSuspect(String[] attributes){
         boolean correct=false;
         
         try {
@@ -125,12 +125,12 @@ public class Query {
             + "values ('"+attributes[0]+"','"+attributes[1]+"','"+attributes[2]+"','"+attributes[8]+"','"+attributes[9]+"')");
             
             String last=findLast();
-            correct=addAtribute(last,"phoneNumber",((String)attributes[3]));
-            correct=addAtribute(last,"e_mail",((String)attributes[4]));
-            correct=addAtribute(last,"address",((String)attributes[5]));
-            correct=addAtribute(last,"companion",((String)attributes[6]));
-            correct=addAtribute(last,"carRegistration",((String)attributes[7]));
-            correct=addImage((Image)attributes[10]);
+            correct=addAtrivute(last,"phoneNumber",attributes[3]);
+            correct=addAtrivute(last,"e_mail",attributes[4]);
+            correct=addAtrivute(last,"address",attributes[5]);
+            correct=addAtrivute(last,"companion",attributes[6]);
+            correct=addAtrivute(last,"carRegistration",attributes[7]);
+            correct=addAtrivute(last,"image",attributes[10]);
             
          
         } catch (SQLException ex) {
