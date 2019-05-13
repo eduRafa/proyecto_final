@@ -80,10 +80,11 @@ public class Query {
                 String type=null;
                 for(int j=0;j<al.size()&&find==false;j++){
                     if(al.get(j)!=null){
-                        type=al.get(j).getClass().toString();
+                        type=al.get(j).getClass().getSimpleName();
                         find=true;
                     }
                 }
+                
                 Statement s=c.createStatement();
                 switch(type){
                     case "Phone":
