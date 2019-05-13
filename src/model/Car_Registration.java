@@ -12,7 +12,7 @@ import java.util.regex.Matcher;
  * @author Jurad0
  */
 public class Car_Registration {  
-    public String registration;
+    private String registration;
     
     
 public Car_Registration(String registration) {
@@ -29,6 +29,14 @@ public boolean validate (String registration){
         return validate;
        
 }
+
+ public String getRegistration(){
+        return registration;
+    }
+    
+    public void setRegistration(String registration){
+        this.registration=registration;
+    }
     
     
 
