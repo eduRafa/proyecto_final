@@ -51,19 +51,51 @@ public class Query {
     *Este metodo borrar un sospechoso
     *@param sus: Es el sospecgoso que se desea eliminar
     */
-    private static boolean deleteSuspect(Suspect sus){
+    public static boolean deleteSuspect(Suspect sus){
         boolean deleted=false;
         try {
             Connect.startConnection();
             c=Connect.getMyConnection();
-            
-            
-            
+            Statement s=c.createStatement();
+            s.executeQuery("Delete from Suspect where CodeSuspect="+sus.getCodeSuspect());      
             Connect.closeConnection();
         } catch (Exception ex) {
             Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
         }
         return deleted;
+    }
+    
+    private static boolean updateAtrivute(String type,String code,String value,
+            String table){
+        try {
+            Connect.startConnection();
+            c=Connect.getMyConnection();
+            Statement s=c.createStatement();
+            s.executeQuery("Update "+table+" set ");
+            
+            Connect.closeConnection();
+        } catch (Exception ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return true;
+    }
+    
+    public static boolean Update(Suspect sus){
+        boolean updated=false;
+        try {
+            Connect.startConnection();
+            c=Connect.getMyConnection();
+            Statement s=c.createStatement();
+            if(sus.getName()!=null){
+                
+            }
+            s.execute("");
+            
+            Connect.closeConnection();
+        } catch (Exception ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return updated;
     }
     /*
     *Este metodo se encarga de almacenar en la base de datos una informacion dada de un atributo dado para un sospechosos en concreto
@@ -128,6 +160,7 @@ public class Query {
                             s.executeUpdate("INSERT into Images (CodeSuspect,image,description)"
                             + "values ('"+code+"','"+img.getImageEncoded()+"','"+img.getDescription()+"')");
                         }
+                        //getbinarystream
                 }
                 added=true;
                 Connect.closeConnection();
