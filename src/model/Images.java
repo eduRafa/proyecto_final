@@ -13,6 +13,8 @@ import java.io.ByteArrayOutputStream;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.Base64;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.sql.rowset.serial.SerialBlob;
 import javax.swing.ImageIcon;
@@ -44,7 +46,12 @@ public class Images {
     }
 
     public void transformImage(Image image) {
-        this.image = new ImageIcon(image);
+        try {
+            this.image = new ImageIcon(image);
+            imageEncoded = encondeImage(this.image);
+        } catch (SQLException ex) {
+            Logger.getLogger(Images.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public ImageIcon getImage() {
@@ -83,7 +90,7 @@ public class Images {
         return imageEncoded;
     }
 
-    public void encondeImage(ImageIcon imageToEnconde) throws SQLException {
+    public Blob encondeImage(ImageIcon imageToEnconde) throws SQLException {
         BufferedImage image = new BufferedImage(imageToEnconde.getIconWidth(),
                 imageToEnconde.getIconHeight(), BufferedImage.TYPE_INT_RGB);
 
@@ -104,7 +111,7 @@ public class Images {
         byte[] imageInByte = b.toByteArray();
 
         // Return the Base64 encoded String
-        imageEncoded = new SerialBlob(Base64.getEncoder().encode(imageInByte));
+        return imageEncoded = new SerialBlob(Base64.getEncoder().encode(imageInByte));
     }
 
     private void decodeImage() {

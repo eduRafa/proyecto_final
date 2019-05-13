@@ -55,8 +55,7 @@ public class Controller implements ActionListener {
 
         switch (e.getActionCommand()) {
             case "add":
-                //Query.addSuspect(myUI.getAddTableValues());
-                ;
+                Query.addSuspect(myUI.getAddSuspect());
                 break;
             case "remove":
                 ;

@@ -59,7 +59,6 @@ public class imageManager extends javax.swing.JDialog {
 
         for (int i = 0; i < photos.length; i++) {
             photos[i] = new Images(myImage);
-            photos[i].setDescription("");
         }
     }
 
@@ -361,16 +360,19 @@ public class imageManager extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    public Images[] getPhotos() {
+    public ArrayList<Images> getPhotos() {
         ArrayList<Images> insertedImages = new ArrayList<>();
 
         for (int i = 0; i < photos.length; i++) {
-            if (photos[i].getImage().getImage() == myImage) {
+            if (photos[i].getImage().getImage() != myImage) {
+                if(i==selectedPhoto-1){
+                    photos[i].setDescription(jTextArea1.getText());
+                }
                 insertedImages.add(photos[i]);
             }
         }
 
-        return insertedImages.toArray(new Images[insertedImages.size()]);
+        return insertedImages;
     }
 
     private void setPhotos(String idSuspect) {
