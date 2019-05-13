@@ -135,23 +135,23 @@ public class enteredExited {
     private static void setIcon(JLabel tmpLabel) {
 
         String oldPath = tmpLabel.getAccessibleContext().getAccessibleDescription();
-        System.out.println(oldPath);
+        //System.out.println(oldPath);
         if (oldPath != null && oldPath.contains("$")) {
             String oldColor[] = oldPath.split("\\$");
 
             Icon x = null;
             String newPath = null;
             if (rgbFormatted(UI.getPrimaryColor()).equals(oldColor[1])) {
-                System.out.println(newPath);
+                //System.out.println(newPath);
                 newPath = oldPath.replaceAll("\\$\\d{3},\\d{3},\\d{3}\\$", "\\$" + rgbFormatted(UI.getSecundaryColor()) + "\\$");
-                System.out.println(newPath);
+                //System.out.println(newPath);
                 Image myImage = Toolkit.getDefaultToolkit().getImage(ClassLoader.
                         getSystemResource("view/images/" + newPath));
                 tmpLabel.setIcon(new ImageIcon(myImage));
                 tmpLabel.getAccessibleContext().setAccessibleDescription(newPath);
             } else if (rgbFormatted(UI.getSecundaryColor()).equals(oldColor[1])) {
                 newPath = oldPath.replaceAll("\\$\\d{3},\\d{3},\\d{3}\\$", "\\$" + rgbFormatted(UI.getPrimaryColor()) + "\\$");
-                System.out.println(newPath);
+                //System.out.println(newPath);
 
                 Image myImage = Toolkit.getDefaultToolkit().getImage(ClassLoader.
                         getSystemResource("view/images/" + newPath));

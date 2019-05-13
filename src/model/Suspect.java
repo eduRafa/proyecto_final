@@ -16,33 +16,31 @@ import java.util.ArrayList;
  */
 public class Suspect {
     
-    private int CodeSuspect;
+    private Integer CodeSuspect;
     private String name;
     private String lastname1;
     private String lastname2;
-    private int CCompanions;
     private Blob Record;
     private Blob Facts;
-    private ArrayList<Phone> Phone = new ArrayList<Phone>();
-    private ArrayList<Email> Email= new ArrayList<Email>();
-    private ArrayList<Address> Address= new ArrayList<Address>();
+    private ArrayList<Phone> Phone = new ArrayList<>();
+    private ArrayList<Email> Email= new ArrayList<>();
+    private ArrayList<Address> Address= new ArrayList<>();
     private ArrayList<Car_Registration> Car_registration=
-            new ArrayList<Car_Registration>();
-    private ArrayList<Images> Images= new ArrayList<Images>();
-    private ArrayList<Suspect> Suspect= new ArrayList<Suspect>();
+            new ArrayList<>();
+    private ArrayList<Images> Images= new ArrayList<>();
+    private ArrayList<Suspect> Suspect= new ArrayList<>();
     
    
     
-    public Suspect(int CodeSuspect, String name, String lastname1,
-            String lastname2, int CCompanions, Blob Record, Blob Facts,
+    public Suspect(Integer CodeSuspect, String name, String lastname1,
+            String lastname2, ArrayList Suspect, Blob Record, Blob Facts,
             ArrayList Phone, ArrayList Email, ArrayList Address,
-            ArrayList Car_registration, ArrayList Images, ArrayList Suspect){
+            ArrayList Car_registration, ArrayList Images){
             super();
             this.CodeSuspect=CodeSuspect;
             this.name=name;
             this.lastname1=lastname1;
             this.lastname2=lastname2;
-            this.CCompanions=CCompanions;
             this.Record=Record;
             this.Facts=Facts;
             this.Phone=Phone;
@@ -56,11 +54,11 @@ public class Suspect {
             
     }
     
-    public int getCodeSuspect(){
+    public Integer getCodeSuspect(){
         return CodeSuspect;
     }
     
-    public void setCodeSuspect(int CodeSuspect){
+    public void setCodeSuspect(Integer CodeSuspect){
         this.CodeSuspect=CodeSuspect;
     }
     
@@ -86,14 +84,6 @@ public class Suspect {
     
     public void setLastname2(String lastname2){
         this.lastname2=lastname2;
-    }
-    
-    public int getCCompanions(){
-        return CCompanions;
-    }
-    
-    public void setCCompanions(int CCompanions){
-        this.CCompanions=CCompanions;
     }
     
     public Blob getRecord(){
@@ -144,7 +134,7 @@ public class Suspect {
         this.Car_registration=Car_registration;
     }
    
-      public ArrayList getImages(){
+      public ArrayList<?> getImages(){
         return Images;
     }
     

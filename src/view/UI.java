@@ -100,16 +100,20 @@ public class UI extends javax.swing.JFrame {
         return secundaryColor;
     }
 
-    public void getAddTableValues() {
-        /*String values[] = new String[10];
+    public Suspect getAddSuspect() {
+        String values[] = new String[10];
         for (int i = 0; i < addSuspectFields.length; i++) {
             if (addSuspectFields[i] != null) {
                 values[i] = addSuspectFields[i].getText();
+            }else{
+                values[i] = null;
             }
         }
-        values[9] = null;//deberían de ir las fotos
-        Suspect mySuspect=new Suspect(null, values[0], values[1], values[2], null,
-                values[4], values[5], values[6], values[7], values[8], values[0]);*/
+        
+        Suspect mySuspect=new Suspect(null, values[0], values[1], values[2], null/*companions*/, 
+                null, null,  null /*phone*/   , null/*email*/, null/*address*/, null/*car_regi*/, myImageManager.getPhotos());
+        
+        return mySuspect;
 
     }
 
@@ -2080,6 +2084,12 @@ public class UI extends javax.swing.JFrame {
                 enteredExited.mouseComponentEffect(evt);
             }
         });
+
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myController.actionPerformed(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 compCallingMouseClicked(evt, jTextArea1);
@@ -2360,7 +2370,6 @@ public class UI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConfThemeActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        getAddTableValues();
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
