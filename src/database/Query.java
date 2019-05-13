@@ -64,36 +64,62 @@ public class Query {
         }
         return deleted;
     }
-    
-    private static boolean updateAtrivute(String type,String code,String value,
-            String table){
-        try {
-            Connect.startConnection();
-            c=Connect.getMyConnection();
-            Statement s=c.createStatement();
-            s.executeQuery("Update "+table+" set ");
-            
-            Connect.closeConnection();
-        } catch (Exception ex) {
-            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return true;
-    }
-    
-    public static boolean Update(Suspect sus){
+    /*
+    Este metodo se ocupa de actualizar toda la infomracion de las tablas de sospecoso con los nuevos datos 
+    @param type: Es el tipo de cato que se desea actualizar
+    @param code: Es el codigo de sospechoso del sospechoso del que se desea actualizar la informacion
+    @param value: Es el valor de la nueva informacion 
+    */
+    private static boolean updateAttribute(String type,String code,String value,
+    String table){
         boolean updated=false;
         try {
             Connect.startConnection();
             c=Connect.getMyConnection();
             Statement s=c.createStatement();
-            if(sus.getName()!=null){
-                
-            }
-            s.execute("");
-            
+            s.executeQuery("Update "+table+" set "+type+"='"+value+"' where "
+                    + "CodeSuspect='"+code+"'");
+            updated=true;
             Connect.closeConnection();
         } catch (Exception ex) {
             Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return updated;
+    }
+    /*
+    Este metodo actualiza la infomracion de un sospechoso
+    *@param sus: Es un sospechoso  con la nueva informacion que se desea introducir
+    */
+    public static boolean Update(Suspect sus){
+        boolean updated=false;
+        if(sus.getName()!=null){
+            updateAttribute("Name",sus.getCodeSuspect().toString(),sus.getName(),"Suspect");
+        }
+        if(sus.getLastname1()!=null){
+            updateAttribute("Lastname1",sus.getCodeSuspect().toString(),sus.getLastname1(),"Suspect");
+        }
+        if(sus.getLastname2()!=null){
+            updateAttribute("Lastname2",sus.getCodeSuspect().toString(),sus.getLastname2(),"Suspect");
+        }
+        if(sus.getRecord()!=null){
+            updateAttribute("Record",sus.getCodeSuspect().toString(),sus.getRecord().toString(),"Suspect");
+        }
+        if(sus.getFacts()!=null){
+            updateAttribute("Facts",sus.getCodeSuspect().toString(),sus.getFacts().toString(),"Suspect");
+        }
+        if(sus.getSuspect()!=null){
+            for(int i=0;i<sus.getPhone().size();i++){
+                if(sus.getSuspect().get(i)!=null){
+                    updateAttribute("PhoneNumber",sus.getCodeSuspect().toString(),sus.getPhone().get(i).toString(),"PHONE");
+                }
+            }
+        }
+        if(sus.getSuspect()!=null){
+            for(int i=0;i<sus.getSuspect().size();i++){
+                if(sus.getSuspect().get(i)!=null){
+                    updateAttribute("CodeSuspect2",sus.getCodeSuspect().toString(),sus.getSuspect().get(i).toString(),"COMPANIONS");
+                }
+            }
         }
         return updated;
     }

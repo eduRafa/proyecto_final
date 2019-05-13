@@ -128,7 +128,7 @@ public class Connect {
                     sentence.executeUpdate(lineSQL);
                     
                     lineSQL="CREATE TABLE IF NOT EXISTS COMPANIONS"
-                    + "(CodeSuspect1        int unsigned,"
+                    + "(CodeSuspect        int unsigned,"
                     + "CodeSuspect2         int unsigned,"
                     + "PRIMARY KEY (CodeSuspect1,CodeSuspect2),"
                     + "FOREIGN KEY (CodeSuspect1) REFERENCES SUSPECT(CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE,"
