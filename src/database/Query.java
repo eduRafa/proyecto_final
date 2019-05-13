@@ -32,17 +32,39 @@ public class Query {
     private static String findLast(){
         String last=null;
         try {
+            Connect.startConnection();
+            c=Connect.getMyConnection();
             Statement s=c.createStatement();
             rs=s.executeQuery("SELECT CodeSuspect from SUSPECT");
             if(rs.last()){
                 last=rs.getString(1);
             }
+            Connect.closeConnection();
         } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
             Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
         }
         return last;
     }
-    
+    /*
+    *Este metodo borrar un sospechoso
+    *@param sus: Es el sospecgoso que se desea eliminar
+    */
+    private static boolean deleteSuspect(Suspect sus){
+        boolean deleted=false;
+        try {
+            Connect.startConnection();
+            c=Connect.getMyConnection();
+            
+            
+            
+            Connect.closeConnection();
+        } catch (Exception ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return deleted;
+    }
     /*
     *Este metodo se encarga de almacenar en la base de datos una informacion dada de un atributo dado para un sospechosos en concreto
     *@param code: Es el codigo del sospechosos al que se le desean añadir los atributos
@@ -52,7 +74,16 @@ public class Query {
         boolean added=false;
         if(al!=null){
             try {
-                String type=al.get(0).getClass().toString();
+                Connect.startConnection();
+                c=Connect.getMyConnection();   
+                boolean find=false;
+                String type=null;
+                for(int j=0;j<al.size()&&find==false;j++){
+                    if(al.get(j)!=null){
+                        type=al.get(j).getClass().toString();
+                        find=true;
+                    }
+                }
                 Statement s=c.createStatement();
                 switch(type){
                     case "Phone":
@@ -98,29 +129,16 @@ public class Query {
                         }
                 }
                 added=true;
+                Connect.closeConnection();
             } catch (SQLException ex) {
+                Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
                 Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return added;
     }
-    /*
-    *@param img: Es un array de las imagenes de las que se quiere guardar la informacion
-    */
-    public static boolean addImage(Images[] img){
-        /*boolean added=false;
-        try {
-            Statement s=c.createStatement();
-            for(int i=0;i<img.length;i++){
-                s.executeUpdate("INSERT into IMAGES (CodeSuspect,Image,Description)"
-                + "values ('"+img[i].getCode+"','"+img[i].getImage+"'.'"+img[i].getDescription+"')");
-            }
-            added=true;
-        } catch (SQLException ex) {
-            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        return true;
-    }
+  
     /*
     *Este metodo permite añadir un sospechoso desde cero, pudiendo recibir campos nulos en aquellos que puedan serlo en la base de datos
     *@param attributes: Es un array con los atributos del sospechosos, puede tener campos null que seran guardados asi en la base de datos, 
@@ -134,14 +152,9 @@ public class Query {
             Connect.startConnection();
             c=Connect.getMyConnection();
             Statement s=c.createStatement();
-            String[] attributes=new String[11];
-            attributes[0]="Carlos";
-            attributes[1]="Martinez";
-            attributes[2]="Villamandos";
-            attributes[3]="897987987";
             s.executeUpdate("INSERT INTO SUSPECT (name,lastname1, lastname2, Record,Facts)"
             + "values ('"+suspect.getName()+"','"+suspect.getLastname1()+"','"+suspect.getLastname2()+"','"+suspect.getRecord()+"','"+suspect.getFacts()+"')");
-            
+
             String last=findLast();
             correct=addAtrivute(last,suspect.getPhone());
             correct=addAtrivute(last,suspect.getEmail());
@@ -165,11 +178,16 @@ public class Query {
     */
     public static ResultSet showAll(){
         try {
+            Connect.startConnection();
+            c=Connect.getMyConnection();
             Statement s=c.createStatement();
             rs=s.executeQuery("Select sus.name,sus.lastname1,sus.lastname2,sus.Record,sus.Facts,"
                             + "p.PhoneNumber, em.Email,ad.Address,cr.Resgistration_number"
                             + "from Suspect sus, PHONE p, E_Mail em,ADDRESS ad,CAR_REGISTRATION cr");
+            Connect.closeConnection();
         } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
             Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rs;
@@ -179,12 +197,17 @@ public class Query {
     *@param code: El codigo de sospechoso del que se desean las fotos
     *@return rs: es el resulset el cual contiene las fotografias del sospechosos junto a su descripcion
     */
-    public static ResultSet showImg(String code){
+    public static ResultSet showImg(Suspect sus){
         try {
+            Connect.startConnection();
+            c=Connect.getMyConnection();   
             Statement s=c.createStatement();
             rs=s.executeQuery("SELECT Image, Description FROM IMAGES"
-                    + "where CodeSuspect="+code);
+                    + "where CodeSuspect="+sus.getCodeSuspect());
+            Connect.closeConnection();
         } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
             Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rs;
@@ -198,8 +221,11 @@ public class Query {
     */
     public static ResultSet searchBy(String key,String value){
         try {
+            Connect.startConnection();
+            c=Connect.getMyConnection();
             Statement s=c.createStatement();
             switch(key){
+                
                 case "name":
                 case "lastname1":
                 case "lastname2":
@@ -234,7 +260,10 @@ public class Query {
                             + "where sus.CodeSuspect="+value);
                     break;
             }
+            Connect.closeConnection();
         } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
             Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rs;
