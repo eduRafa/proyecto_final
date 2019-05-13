@@ -114,13 +114,12 @@ public class Connect {
 		Statement sentence;
                 try{
                     lineSQL="CREATE TABLE IF NOT EXISTS SUSPECT"
-                    +"CodeSuspect         int unsigned zerofill PRIMARY KEY auto_increment,"
+                    +"(CodeSuspect         int unsigned zerofill PRIMARY KEY auto_increment,"
                     +"name                 varchar(20) DEFAULT 'desconocido',"
                     +"lastname1            varchar(20) DEFAULT 'desconocido',"
                     +"lastname2            varchar(20) DEFAULT 'desconocido',"
-                    +"Record               blob DEFAULT,"
-                    +"Facts                blob DEFAULT,"
-                    + "ON DELETE CASCADE ON UPDATE CASCADE"
+                    +"Record               blob ,"
+                    +"Facts                blob"
                     + ")ENGINE=INNODB";
                     
                     //conectamos la sentencia a la base de datos
@@ -152,7 +151,7 @@ public class Connect {
                     sentence.executeUpdate(lineSQL);
                     
                     lineSQL="CREATE TABLE IF NOT EXISTS E_MAIL"
-                    + "(CodeE-mail          int zerofill auto_increment PRIMARY KEY,"
+                    + "(CodeE_mail          int zerofill auto_increment PRIMARY KEY,"
                     + "CodeSuspect          int unsigned,"
                     + "Email                varchar(20) DEFAULT 'desconocido',"
                     + "FOREIGN KEY (CodeSuspect) REFERENCES SUSPECT (CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE"
@@ -184,7 +183,7 @@ public class Connect {
                     lineSQL="CREATE TABLE IF NOT EXISTS IMAGES"
                     + "(Image                blob,"
                     + "CodeImage             int zerofill auto_increment PRIMARY KEY,"
-                    + "Description           blob"
+                    + "Description           blob,"
                     + "CodeSuspect           int unsigned,"
                     + "FOREIGN KEY (CodeSuspect) REFERENCES SUSPECT (CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE"
                     + ")ENGINE=INNODB";
