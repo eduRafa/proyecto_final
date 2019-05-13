@@ -55,7 +55,7 @@ public class Controller implements ActionListener {
 
         switch (e.getActionCommand()) {
             case "add":
-                addSuspect();
+                //Query.addSuspect(myUI.getAddTableValues());
                 ;
                 break;
             case "remove":
@@ -63,10 +63,6 @@ public class Controller implements ActionListener {
                 break;
 
         }
-    }
-
-    private void addSuspect() {
-        Query.addSuspect(myUI.getAddTableValues());
     }
 
     public static /*String[]*/ void getPhotos(String idSuspect) {

@@ -147,7 +147,7 @@ public class enteredExited {
                 System.out.println(newPath);
                 Image myImage = Toolkit.getDefaultToolkit().getImage(ClassLoader.
                         getSystemResource("view/images/" + newPath));
-                tmpLabel.setIcon(new ImageIcon(myImage));//falla
+                tmpLabel.setIcon(new ImageIcon(myImage));
                 tmpLabel.getAccessibleContext().setAccessibleDescription(newPath);
             } else if (rgbFormatted(UI.getSecundaryColor()).equals(oldColor[1])) {
                 newPath = oldPath.replaceAll("\\$\\d{3},\\d{3},\\d{3}\\$", "\\$" + rgbFormatted(UI.getPrimaryColor()) + "\\$");
@@ -155,7 +155,7 @@ public class enteredExited {
 
                 Image myImage = Toolkit.getDefaultToolkit().getImage(ClassLoader.
                         getSystemResource("view/images/" + newPath));
-                tmpLabel.setIcon(new ImageIcon(myImage));//falla
+                tmpLabel.setIcon(new ImageIcon(myImage));
                 tmpLabel.getAccessibleContext().setAccessibleDescription(newPath);
             }
         }

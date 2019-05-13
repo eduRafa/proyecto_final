@@ -8,6 +8,7 @@ package view;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.Frame;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
@@ -46,10 +47,10 @@ public class uiUtils {
             if (comp.getAccessibleContext().getAccessibleName() != null && comp.
                     getAccessibleContext().getAccessibleName().contains("$")) {
                 String[] value = comp.getAccessibleContext().getAccessibleName().split("\\$");
-                if( comp instanceof JTextComponent){
-                    JTextComponent tmp=(JTextComponent) comp;
+                if (comp instanceof JTextComponent) {
+                    JTextComponent tmp = (JTextComponent) comp;
                     tmp.setBorder(javax.swing.BorderFactory.createLineBorder(col));
-                }else if(comp instanceof JButton) {
+                } else if (comp instanceof JButton) {
                     JButton tmpButton = (JButton) comp;
                     applyBackgroundColor(comp, value[0], col);
                     applyButtonBorderColor(tmpButton, value[1], col);
