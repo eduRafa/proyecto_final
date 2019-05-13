@@ -29,13 +29,14 @@ public class Suspect {
     private ArrayList<Car_Registration> Car_registration=
             new ArrayList<Car_Registration>();
     private ArrayList<Images> Images= new ArrayList<Images>();
+    private ArrayList<Suspect> Suspect= new ArrayList<Suspect>();
     
    
     
     public Suspect(int CodeSuspect, String name, String lastname1,
             String lastname2, int CCompanions, Blob Record, Blob Facts,
             ArrayList Phone, ArrayList Email, ArrayList Address,
-            ArrayList Car_registration, ArrayList Images){
+            ArrayList Car_registration, ArrayList Images, ArrayList Suspect){
             super();
             this.CodeSuspect=CodeSuspect;
             this.name=name;
@@ -49,6 +50,7 @@ public class Suspect {
             this.Address=Address;
             this.Car_registration=Car_registration;
             this.Images=Images;
+            this.Suspect=Suspect;
             
            
             
@@ -148,6 +150,14 @@ public class Suspect {
     
     public void setImages(ArrayList Images){
         this.Images=Images;
+    }
+    
+      public ArrayList getSuspect(){
+        return Suspect;
+    }
+    
+    public void setSuspect(ArrayList Suspect){
+        this.Suspect=Suspect;
     }
     
 }
