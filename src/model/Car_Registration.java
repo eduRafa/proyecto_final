@@ -20,6 +20,8 @@ public Car_Registration(String registration) {
     
 }
 
+<<<<<<< HEAD
+=======
 public boolean validate (String registration){
     boolean validate=false;    
     Pattern p = Pattern.compile("^[0-9]{4}[a-zA-Z]{3}$");
@@ -28,8 +30,9 @@ public boolean validate (String registration){
     
         return true;
 }
+>>>>>>> f526a2cd25aea849a915f210a056e774f727b507
 
- public String getRegistration(){
+public String getRegistration(){
         return registration;
     }
     
