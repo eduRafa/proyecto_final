@@ -116,14 +116,19 @@ public class Query {
     ademas debe de estar guardado en el orden (nombre,primer apellido, segundo apellido,numero(s) de telefono,direcion(es) de correo elctronico,
     direcion(es),compañero(s),matricula(s),imagen(s)
     */
-    public static boolean addSuspect(String[] attributes){
+    public static boolean addSuspect(){
         boolean correct=false;
         
         try {
             Connect.startConnection();
             c=Connect.getMyConnection();
             Statement s=c.createStatement();
-            s.executeUpdate("INSERT INTO SUSPECT (nombre,apellido1, apellido2, Record,Facts)"
+            String[] attributes=new String[11];
+            attributes[0]="Carlos";
+            attributes[1]="Martinez";
+            attributes[2]="Villamandos";
+            attributes[3]="897987987";
+            s.executeUpdate("INSERT INTO SUSPECT (name,lastname1, lastname2, Record,Facts)"
             + "values ('"+attributes[0]+"','"+attributes[1]+"','"+attributes[2]+"','"+attributes[8]+"','"+attributes[9]+"')");
             
             String last=findLast();
