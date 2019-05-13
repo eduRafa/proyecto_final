@@ -71,14 +71,13 @@ public class Query {
     @param value: Es el valor de la nueva informacion 
     */
     private static boolean updateAttribute(String type,String code,String value,
-    String table){
+    String table, String key){
         boolean updated=false;
         try {
             Connect.startConnection();
             c=Connect.getMyConnection();
             Statement s=c.createStatement();
-            s.executeQuery("Update "+table+" set "+type+"='"+value+"' where "
-                    + "CodeSuspect='"+code+"'");
+            s.executeQuery("Update "+table+" set "+type+"='"+value+"' where "+key+"='"+code+"'");
             updated=true;
             Connect.closeConnection();
         } catch (Exception ex) {
@@ -93,31 +92,31 @@ public class Query {
     public static boolean Update(Suspect sus){
         boolean updated=false;
         if(sus.getName()!=null){
-            updateAttribute("Name",sus.getCodeSuspect().toString(),sus.getName(),"Suspect");
+            updateAttribute("Name",sus.getCodeSuspect().toString(),sus.getName(),"Suspect","CodeSuspect");
         }
         if(sus.getLastname1()!=null){
-            updateAttribute("Lastname1",sus.getCodeSuspect().toString(),sus.getLastname1(),"Suspect");
+            updateAttribute("Lastname1",sus.getCodeSuspect().toString(),sus.getLastname1(),"Suspect","CodeSuspect");
         }
         if(sus.getLastname2()!=null){
-            updateAttribute("Lastname2",sus.getCodeSuspect().toString(),sus.getLastname2(),"Suspect");
+            updateAttribute("Lastname2",sus.getCodeSuspect().toString(),sus.getLastname2(),"Suspect","CodeSuspect");
         }
         if(sus.getRecord()!=null){
-            updateAttribute("Record",sus.getCodeSuspect().toString(),sus.getRecord().toString(),"Suspect");
+            updateAttribute("Record",sus.getCodeSuspect().toString(),sus.getRecord().toString(),"Suspect","CodeSuspect");
         }
         if(sus.getFacts()!=null){
-            updateAttribute("Facts",sus.getCodeSuspect().toString(),sus.getFacts().toString(),"Suspect");
+            updateAttribute("Facts",sus.getCodeSuspect().toString(),sus.getFacts().toString(),"Suspect","CodeSuspect");
         }
         if(sus.getSuspect()!=null){
-            for(int i=0;i<sus.getPhone().size();i++){
+            for(int i=0;i<sus.getSuspect().size();i++){
                 if(sus.getSuspect().get(i)!=null){
-                    updateAttribute("PhoneNumber",sus.getCodeSuspect().toString(),sus.getPhone().get(i).toString(),"PHONE");
+                    updateAttribute("CodeSuspect2",sus.getCodeSuspect().toString(),sus.getSuspect().get(i).toString(),"COMPANIONS","CodeSuspect");
                 }
             }
         }
         if(sus.getSuspect()!=null){
             for(int i=0;i<sus.getSuspect().size();i++){
                 if(sus.getSuspect().get(i)!=null){
-                    updateAttribute("CodeSuspect2",sus.getCodeSuspect().toString(),sus.getSuspect().get(i).toString(),"COMPANIONS");
+                    updateAttribute("PhoneNumber",sus.getPhone().get(i)getCodePhone().toString,sus.getPhone().get(i).toString(),"PHONE","CodePhone");
                 }
             }
         }
@@ -170,7 +169,7 @@ public class Query {
                     case "Suspect":
                         for(int i=0;i<al.size();i++){
                             Suspect su=(Suspect) al.get(i);
-                            s.executeUpdate("INSERT into COMPANIONS (CodeSuspect1,CodeSuspect2)"
+                            s.executeUpdate("INSERT into COMPANIONS (CodeSuspect,CodeSuspect2)"
                             + "values ('"+code+"','"+su.getCodeSuspect()+"')");
                         }
                         break;
