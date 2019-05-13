@@ -5,13 +5,14 @@
  */
 package database;
 
+import java.util.ArrayList;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Images;
+import model.*;
 
 /**
  *
@@ -45,46 +46,56 @@ public class Query {
     /*
     *Este metodo se encarga de almacenar en la base de datos una informacion dada de un atributo dado para un sospechosos en concreto
     *@param code: Es el codigo del sospechosos al que se le desean añadir los atributos
-    *@param type: Es un String que es el tipo de atributo que se desea añadir
-    *@param attribute: Es un string con el/los atributos que se dean añadir 
+    *@param al:Es el arraylist con los valores que se desean añadir
     */
-    public static boolean addAtrivute(String code,String type, String attribute){
+    public static boolean addAtrivute(String code,ArrayList<Object> al){
         boolean added=false;
-        if(attribute!=null){
+        if(al!=null){
             try {
-                String[] attibutes= attribute.split("$");
+                String type=al.get(0).getClass().toString();
                 Statement s=c.createStatement();
                 switch(type){
-                    case "phoneNumber":
-                        for(int i=0;i<attibutes.length;i++){
+                    case "Phone":
+                        for(int i=0;i<al.size();i++){
+                            Phone ph=(Phone) al.get(i);
                             s.executeUpdate("INSERT into PHONE (CodeSuspect,PhoneNumber)"
-                            + "values ('"+code+"','"+attibutes[i]+"')");
+                            + "values ('"+code+"','"+ph.getPhoneNumber()+"')");
                         }
                         break;
-                    case "e_mail":
-                        for(int i=0;i<attibutes.length;i++){
+                    case "Email":
+                        for(int i=0;i<al.size();i++){
+                            Email em=(Email) al.get(i);
                             s.executeUpdate("INSERT into E-MAIL (CodeSuspect,Email)"
-                            + "values ('"+code+"','"+attibutes[i]+"')");
+                            + "values ('"+code+"','"+em.getEmail()+"')");
                         }
                         break;
-                    case "address":
-                        for(int i=0;i<attibutes.length;i++){
+                    case "Address":
+                        for(int i=0;i<al.size();i++){
+                            Address ad=(Address) al.get(i);
                             s.executeUpdate("INSERT into ADDRESS (CodeSuspect,Address)"
-                            + "values ('"+code+"','"+attibutes[i]+"')");
+                            + "values ('"+code+"','"+ad.getAddress()+"')");
                         }
                         break;
-                    case "companion":
-                        for(int i=0;i<attibutes.length;i++){
+                    case "Suspect":
+                        for(int i=0;i<al.size();i++){
+                            Suspect su=(Suspect) al.get(i);
                             s.executeUpdate("INSERT into COMPANIONS (CodeSuspect1,CodeSuspect2)"
-                            + "values ('"+code+"','"+attibutes[i]+"')");
+                            + "values ('"+code+"','"+su.getCodeSuspect()+"')");
                         }
                         break;
-                    case "carRegistration":
-                        for(int i=0;i<attibutes.length;i++){
+                    case "Car_Registration":
+                        for(int i=0;i<al.size();i++){
+                            Car_Registration cr=(Car_Registration) al.get(i);
                             s.executeUpdate("INSERT into CAR_REGISTRATION (CodeSuspect,Resgistration_number)"
-                            + "values ('"+code+"','"+attibutes[i]+"')");
+                            + "values ('"+code+"','"+cr.getRegistration()+"')");
                         }
                         break;
+                    case "Images":
+                        for(int i=0;i<al.size();i++){
+                            Images img=(Images) al.get(i);
+                            s.executeUpdate("INSERT into Images (CodeSuspect,image,description)"
+                            + "values ('"+code+"','"+img.getImageEncoded()+"','"+img.getDescription()+"')");
+                        }
                 }
                 added=true;
             } catch (SQLException ex) {
@@ -116,23 +127,28 @@ public class Query {
     ademas debe de estar guardado en el orden (nombre,primer apellido, segundo apellido,numero(s) de telefono,direcion(es) de correo elctronico,
     direcion(es),compañero(s),matricula(s),imagen(s)
     */
-    public static boolean addSuspect(String[] attributes){
+    public static boolean addSuspect(Suspect suspect){
         boolean correct=false;
         
         try {
             Connect.startConnection();
             c=Connect.getMyConnection();
             Statement s=c.createStatement();
-            s.executeUpdate("INSERT INTO SUSPECT (nombre,apellido1, apellido2, Record,Facts)"
-            + "values ('"+attributes[0]+"','"+attributes[1]+"','"+attributes[2]+"','"+attributes[8]+"','"+attributes[9]+"')");
+            String[] attributes=new String[11];
+            attributes[0]="Carlos";
+            attributes[1]="Martinez";
+            attributes[2]="Villamandos";
+            attributes[3]="897987987";
+            s.executeUpdate("INSERT INTO SUSPECT (name,lastname1, lastname2, Record,Facts)"
+            + "values ('"+suspect.getName()+"','"+suspect.getLastname1()+"','"+suspect.getLastname2()+"','"+suspect.getRecord()+"','"+suspect.getFacts()+"')");
             
             String last=findLast();
-            correct=addAtrivute(last,"phoneNumber",attributes[3]);
-            correct=addAtrivute(last,"e_mail",attributes[4]);
-            correct=addAtrivute(last,"address",attributes[5]);
-            correct=addAtrivute(last,"companion",attributes[6]);
-            correct=addAtrivute(last,"carRegistration",attributes[7]);
-            correct=addAtrivute(last,"image",attributes[10]);
+            correct=addAtrivute(last,suspect.getPhone());
+            correct=addAtrivute(last,suspect.getEmail());
+            correct=addAtrivute(last,suspect.getAddress());
+            correct=addAtrivute(last,suspect.getSuspect());
+            correct=addAtrivute(last,suspect.getCar_Resgistration());
+            correct=addAtrivute(last,suspect.getImages());
             Connect.closeConnection();
          
         } catch (SQLException ex) {
