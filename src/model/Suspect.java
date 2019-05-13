@@ -5,6 +5,11 @@
  */
 package model;
 
+import java.sql.Blob;
+import java.util.ArrayList;
+
+
+
 /**
  *
  * @author Antonio Jose Adamuz Sereno
@@ -16,11 +21,20 @@ public class Suspect {
     private String lastname1;
     private String lastname2;
     private int CCompanions;
-    private String Record;
-    private String Facts;
+    private Blob Record;
+    private Blob Facts;
+    private ArrayList<Phone> Phone = new ArrayList<Phone>();
+    private ArrayList<Email> Email= new ArrayList<Email>();
+    private ArrayList<Address> Address= new ArrayList<Address>();
+    private ArrayList<Car_Registration> Car_registration=
+            new ArrayList<Car_Registration>();
+    
+   
     
     public Suspect(int CodeSuspect, String name, String lastname1,
-            String lastname2, int CCompanions, String Record, String Facts){
+            String lastname2, int CCompanions, Blob Record, Blob Facts,
+            ArrayList Phone, ArrayList Email, ArrayList Address,
+            ArrayList Car_registration){
             super();
             this.CodeSuspect=CodeSuspect;
             this.name=name;
@@ -29,6 +43,12 @@ public class Suspect {
             this.CCompanions=CCompanions;
             this.Record=Record;
             this.Facts=Facts;
+            this.Phone=Phone;
+            this.Email=Email;
+            this.Address=Address;
+            this.Car_registration=Car_registration;
+           
+            
     }
     
     public int getCodeSuspect(){
@@ -71,16 +91,54 @@ public class Suspect {
         this.CCompanions=CCompanions;
     }
     
-    public String getRecord(){
+    public Blob getRecord(){
         return Record;
     }
     
-    public void setRecord(String Record){
+    public void setRecord(Blob Record){
         this.Record=Record;
     }
     
+    public Blob getFacts(){
+        return Facts;
+    }
     
+    public void setFacts(Blob Facts){
+        this.Facts=Facts;
+    }
     
+    public ArrayList getPhone(){
+        return Phone;
+    }
+    
+    public void setPhone(ArrayList Phone){
+        this.Phone=Phone;
+    }
+    
+    public ArrayList getEmail(){
+        return Email;
+    } 
+    
+    public void setEmail(ArrayList Email){
+        this.Email=Email;
+    }
+    
+    public ArrayList getAddress(){
+        return Address;
+    }
+    
+    public void setAddress(ArrayList Address){
+        this.Address=Address;
+    }
+    
+    public ArrayList getCar_Resgistration(){
+        return Car_registration;
+    }
+    
+    public void setCar_Registration(ArrayList Car_registration){
+        this.Car_registration=Car_registration;
+    }
+   
     
     
 }

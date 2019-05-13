@@ -5,6 +5,7 @@
  */
 package controller;
 
+import database.Query;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +17,7 @@ import view.uiUtils;
  *
  * @author rafa0
  */
-public class Controller implements ActionListener{
+public class Controller implements ActionListener {
 
     private static UI myUI;
     private static Controller me;
@@ -38,20 +39,37 @@ public class Controller implements ActionListener{
         myUI = ui;
         myUI.setController(me);
     }
-    
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        
-    }
-    
-    public Color getPrimaryColor(){
+
+    public Color getPrimaryColor() {
         return Communication.getPrimaryColor();
     }
-    
-    public void setPrimaryColor(Color c){
+
+    public void setPrimaryColor(Color c) {
         Communication.setPrimaryColor(c);
         uiUtils.printAllComponents(myUI, c);
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        switch (e.getActionCommand()) {
+            case "add":
+                addSuspect();
+                ;
+                break;
+            case "remove":
+                ;
+                break;
+
+        }
+    }
+
+    private void addSuspect() {
+        Query.addSuspect(myUI.getAddTableValues());
+    }
     
+    public static /*String[]*/void getPhotos(String idSuspect) {
+        //Query.getPhotos(idSuspect);
+    }
+
 }

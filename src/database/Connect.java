@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -115,13 +115,14 @@ public class Connect {
                 try{
                     lineSQL="CREATE TABLE IF NOT EXISTS SUSPECT"
                     +"(CodeSuspect         int zerofill autoincrement PRIMARY KEY,"
-                    +"name                 varchar(20),"
-                    +"lastname1            varchar(20),"
-                    +"lastname2            varchar(20),"
-                    +"CCompanions          int,"
-                    +"Record               blob,"
-                    +"Facts                blob,"
-                    + "FOREIGN KEY (CCompanios) REFERENCES SUSPECT (CodeSuspect)";
+                    +"name                 varchar(20) DEFAULT desconocido,"
+                    +"lastname1            varchar(20) DEFAULT desconocido,"
+                    +"lastname2            varchar(20) DEFAULT desconocido,"
+                    +"Record               blob DEFAULT desconocido,"
+                    +"Facts                blob DEFAULT desconocido,"
+                    + "FOREIGN KEY (CCompanios) REFERENCES SUSPECT (CodeSuspect)"
+                    + "ON DELETE CASCADE ON UPDATE CASCADE"
+                    + ")";
                     
                     //conectamos la sentencia a la base de datos
                     sentence = myConnection.createStatement();
@@ -132,8 +133,9 @@ public class Connect {
                     + "(CodeSuspect1        int,"
                     + "CodeSuspect2         int,"
                     + "PRIMARY KEY (CodeSuspect1,CodeSuspect2),"
-                    + "FOREIGN KEY (CodeSuspect1) REFERENCES SUSPECT(CodeSuspect),"
-                    + "FOREIGN KEY (CodeSuspect2) REFERENCES SUSPECT(CodeSuspect))";
+                    + "FOREIGN KEY (CodeSuspect1) REFERENCES SUSPECT(CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE,"
+                    + "FOREIGN KEY (CodeSuspect2) REFERENCES SUSPECT(CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE"
+                    + ")";
                     
                             
                     sentence = myConnection.createStatement();
@@ -141,10 +143,11 @@ public class Connect {
                     sentence.executeUpdate(lineSQL);
                     
                     lineSQL="CREATE TABLE IF NOT EXISTS PHONE"
-                    + "(CodeSuspect          int,"
+                    + "(CodeSuspect          int ,"
                     + "CodePhone             int zerofill autoincrement PRIMARY KEY,"
-                    + "PhoneNumber           int,"
-                    + "FOREIGN KEY (CodeSuspect) references SUSPECT(CodeSuspect))";
+                    + "PhoneNumber           int DEFAULT 00000000,"
+                    + "FOREIGN KEY (CodeSuspect) references SUSPECT(CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE"
+                    + ")";
                     
                     sentence = myConnection.createStatement();
                     sentence.executeUpdate(lineSQL);
@@ -152,25 +155,29 @@ public class Connect {
                     lineSQL="CREATE TABLE IF NOT EXISTS E-MAIL"
                     + "(CodeE-mail          int zerofill autoincrement PRIMARY KEY,"
                     + "CodeSuspect          int,"
-                    + "Email                varchar(20),"
-                    + "FOREIGN KEY (CodeSuspect) REFERENCES SUSPECT (CodeSuspect))";
+                    + "Email                varchar(20) DEFAULT desconocido,"
+                    + "FOREIGN KEY (CodeSuspect) REFERENCES SUSPECT (CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE"
+                    + ")";
                     
                     sentence = myConnection.createStatement();
                     sentence.executeUpdate(lineSQL);
                     
-                    lineSQL="CREATE TABLE IF NOT EXISTS_ADDRESS"
+                    lineSQL="CREATE TABLE IF NOT EXISTS ADDRESS"
                     + "(CodeAddress          int zerofill autoincrement PRIMARY KEY,"
                     + "CodeSuspect           int,"
                     + "Address               varchar(100),"
-                    + "FOREIGN KEY (CodeSuspect) REFERENCES SUSPECT (CodeSuspect))";
+                    + "FOREIGN KEY (CodeSuspect) REFERENCES SUSPECT (CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE"
+                    + ")";
                     
                     sentence = myConnection.createStatement();
                     sentence.executeUpdate(lineSQL);
                     
                     lineSQL="CREATE TABLE IF NOT EXISTS CAR_REGISTRATION"
-                    + "(Resgistration_number int PRIMARY KEY,"
+                    + "(Resgistration_number int,"
+                    + "CodeRegistration      int zerofill autoincrement PRIMARY KEY,"
                     + "CodeSuspect           int,"
-                    + "FOREIGN KEY (CodeSuspect) REFERENCES SUSPECT (CodeSuspect))";
+                    + "FOREIGN KEY (CodeSuspect) REFERENCES SUSPECT (CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE"
+                    + ")";
                     
                     sentence = myConnection.createStatement();
                     sentence.executeUpdate(lineSQL);
@@ -180,7 +187,8 @@ public class Connect {
                     + "CodeImage             int zerofill autoincrement PRIMARY KEY,"
                     + "Description           blob"
                     + "CodeSuspect           int,"
-                    + "FOREIGN KEY (CodeSuspect) REFERENCES SUSPECT (CodeSuspect))";
+                    + "FOREIGN KEY (CodeSuspect) REFERENCES SUSPECT (CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE"
+                    + ")";
                     
                     sentence = myConnection.createStatement();
                     sentence.executeUpdate(lineSQL);
