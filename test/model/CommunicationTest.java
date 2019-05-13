@@ -40,25 +40,10 @@ public class CommunicationTest {
     }
 
     @Test
-    public void testGetDocumentXML() {
-        System.out.println("getDocumentXML");
-        Document expResult = null;
-        Document result = Communication.getDocumentXML();
-        assertEquals(expResult, result);
-    }
-
-    @Test
     public void testSetPrimaryColor() {
         System.out.println("setPrimaryColor");
         Color c = null;
         Communication.setPrimaryColor(c);
-    }
-
-    @Test
-    public void testSaveDocument() {
-        System.out.println("saveDocument");
-        Document doc = null;
-        Communication.saveDocument(doc);
     }
 
     @Test

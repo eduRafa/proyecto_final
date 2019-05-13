@@ -47,6 +47,7 @@ public class Controller implements ActionListener {
     public void setPrimaryColor(Color c) {
         Communication.setPrimaryColor(c);
         uiUtils.printAllComponents(myUI, c);
+        uiUtils.printAllComponents(myUI.getImageManager(), c);
     }
 
     @Override
@@ -67,8 +68,8 @@ public class Controller implements ActionListener {
     private void addSuspect() {
         Query.addSuspect(myUI.getAddTableValues());
     }
-    
-    public static /*String[]*/void getPhotos(String idSuspect) {
+
+    public static /*String[]*/ void getPhotos(String idSuspect) {
         //Query.getPhotos(idSuspect);
     }
 
