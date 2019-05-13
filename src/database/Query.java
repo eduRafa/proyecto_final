@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Images;
+import model.Suspect;
 
 /**
  *
@@ -116,7 +117,7 @@ public class Query {
     ademas debe de estar guardado en el orden (nombre,primer apellido, segundo apellido,numero(s) de telefono,direcion(es) de correo elctronico,
     direcion(es),compañero(s),matricula(s),imagen(s)
     */
-    public static boolean addSuspect(){
+    public static boolean addSuspect(Suspect suspect){
         boolean correct=false;
         
         try {
@@ -129,14 +130,14 @@ public class Query {
             attributes[2]="Villamandos";
             attributes[3]="897987987";
             s.executeUpdate("INSERT INTO SUSPECT (name,lastname1, lastname2, Record,Facts)"
-            + "values ('"+attributes[0]+"','"+attributes[1]+"','"+attributes[2]+"','"+attributes[8]+"','"+attributes[9]+"')");
+            + "values ('"+suspect.getName()+"','"+suspect.getLastname1()+"','"+suspect.getLastname2()+"','"+suspect.getRecord()+"','"+suspect.getFacts()+"')");
             
             String last=findLast();
-            correct=addAtrivute(last,"phoneNumber",attributes[3]);
-            correct=addAtrivute(last,"e_mail",attributes[4]);
-            correct=addAtrivute(last,"address",attributes[5]);
-            correct=addAtrivute(last,"companion",attributes[6]);
-            correct=addAtrivute(last,"carRegistration",attributes[7]);
+            correct=addAtrivute(last,"phoneNumber",suspect.getPhone());
+            correct=addAtrivute(last,"e_mail",suspect.getEmail());
+            correct=addAtrivute(last,"address",suspect.getAddress());
+            correct=addAtrivute(last,"companion",suspect.getCCompanions());
+            correct=addAtrivute(last,"carRegistration",suspect.getCar_Resgistration());
             correct=addAtrivute(last,"image",attributes[10]);
             Connect.closeConnection();
          

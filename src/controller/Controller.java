@@ -65,7 +65,7 @@ public class Controller implements ActionListener {
     }
 
     private void addSuspect() {
-        Query.addSuspect();
+        Query.addSuspect(myUI.getAddTableValues());
     }
     
     public static /*String[]*/void getPhotos(String idSuspect) {
