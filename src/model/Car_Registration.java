@@ -21,12 +21,8 @@ public Car_Registration(String registration) {
 }
 
 public boolean validate (String registration){
-    boolean validate=false;
-<<<<<<< HEAD
+    boolean validate=false;    
     Pattern p = Pattern.compile("^[0-9]{4}[a-zA-Z]{3}$");
-=======
-    Pattern p = Pattern.compile("[0-9]{4}[a-zA-Z]{3}$");
->>>>>>> 2fb12bb2416184de0df26c2f2dc752a3c4d28b9c
     Matcher m = p.matcher(this.registration);
     if (m.find())
        validate=true;
