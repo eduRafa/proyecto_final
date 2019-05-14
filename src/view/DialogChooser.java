@@ -19,12 +19,12 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  *
  * @author rafa0
  */
-public class DialogFileChooser extends javax.swing.JDialog {
+public class DialogChooser extends javax.swing.JDialog {
 
     /**
      * Creates new form dialogFileChooser
      */
-    public DialogFileChooser(ImageManager parent, boolean modal) {
+    public DialogChooser(ImagesManager parent, boolean modal) {
         super(parent, modal);
         this.parent = parent;
         initComponents();
@@ -96,14 +96,14 @@ public class DialogFileChooser extends javax.swing.JDialog {
             try {
                 image = ImageIO.read(fichero);
             } catch (IOException ex) {
-                Logger.getLogger(DialogFileChooser.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(DialogChooser.class.getName()).log(Level.SEVERE, null, ex);
             }
             parent.addPhoto(image);
             parent.putPhoto();
         }
     }//GEN-LAST:event_jFileChooser1ActionPerformed
 
-    private ImageManager parent;
+    private ImagesManager parent;
     private int result;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFileChooser jFileChooser1;

@@ -218,7 +218,7 @@ public class Query {
                         for(int i=0;i<al.size();i++){
                             Images img=(Images) al.get(i);
                             s.executeUpdate("INSERT into Images (CodeSuspect,image,description)"
-                            + "values ('"+code+"','"+img.getImageEncoded()+"','"+img.getDescription()+"')");
+                            + "values ('"+code+"','"+img.getImageEncoded().getBinaryStream()+"','"+img.getDescription()+"')");
                         }
                         //getbinarystream
                     }

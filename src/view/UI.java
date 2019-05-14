@@ -46,8 +46,8 @@ public class UI extends javax.swing.JFrame {
         primaryColor = myController.getPrimaryColor();
         setThemeColors();
         initComponents();
-        setMainTable(Query.showAll());
-        myImageManager = new ImageManager(me, true);
+        //setMainTable(Query.showAll());
+        myImageManager = new ImagesManager(me, true);
         setLocationRelativeTo(null);
         hideLayouts();
         pnlMain.setVisible(true);
@@ -126,7 +126,7 @@ public class UI extends javax.swing.JFrame {
         return mySuspect;
     }
 
-    public ImageManager getImageManager() {
+    public ImagesManager getImageManager() {
         return myImageManager;
     }
 
@@ -281,9 +281,6 @@ public class UI extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
@@ -606,6 +603,7 @@ public class UI extends javax.swing.JFrame {
 
         scrollTblMain.setBorder(null);
         scrollTblMain.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        scrollTblMain.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         tblMain.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -640,7 +638,7 @@ public class UI extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Apellido 1", "Apellido 2", "Teléfonos", "Correos", "Direcciones", "Acompañantes", "Matrículas"
+                "Nombre", "Apellido 1", "Apellido 2", "Teléfonos", "Correos", "Direcciones", "Acompañantes", "Matriculas"
             }
         ));
         tblMain.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
@@ -654,11 +652,11 @@ public class UI extends javax.swing.JFrame {
         tblMain.getTableHeader().setBackground(primaryColor);
         tblMain.getTableHeader().setForeground(secundaryColor);
         tblMain.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
-        tblMain.getAccessibleContext().setAccessibleName("1$1$1");
+        tblMain.getAccessibleContext().setAccessibleName("");
         TableColumnModel tblMainColumnModel = tblMain.getColumnModel();
 
         for (int i = 0; i < tblMainColumnModel.getColumnCount(); i++) {
-            tblMainColumnModel.getColumn(i).setMinWidth(200);
+            tblMainColumnModel.getColumn(i).setMinWidth(50);
         }
 
         jCheckBox4.setBackground(secundaryColor);
@@ -699,23 +697,24 @@ public class UI extends javax.swing.JFrame {
             pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scrollTblMain, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlMainLayout.createSequentialGroup()
-                        .addComponent(jCheckBox4)
-                        .addGap(12, 12, 12)
-                        .addComponent(jCheckBox5)
-                        .addGap(12, 12, 12)
-                        .addComponent(jCheckBox6)
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton10)))
-                .addGap(60, 60, 60))
+                .addComponent(jCheckBox4)
+                .addGap(12, 12, 12)
+                .addComponent(jCheckBox5)
+                .addGap(12, 12, 12)
+                .addComponent(jCheckBox6)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton10)
+                .addGap(77, 77, 77))
+            .addGroup(pnlMainLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(scrollTblMain)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlMainLayout.setVerticalGroup(
             pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -775,10 +774,10 @@ public class UI extends javax.swing.JFrame {
 
         tblSearchSearch.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Apellido 1", "Apellido 2", "Acompañantes", "Teléfono", "E-mail", "Direcciones", "Matrículas", "Foto"
+                "Nombre", "Apellido 1", "Apellido 2", "Acompañantes", "Teléfono", "E-mail", "Direcciones", "Matrículas"
             }
         ));
         tblSearchSearch.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
@@ -1232,7 +1231,6 @@ public class UI extends javax.swing.JFrame {
         jButton3.setBackground(primaryColor);
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton3.setForeground(secundaryColor);
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/icons8-más-25.png"))); // NOI18N
         jButton3.setText("Insertar campo");
         jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(secundaryColor));
         jButton3.setFocusable(false);
@@ -1837,30 +1835,14 @@ public class UI extends javax.swing.JFrame {
             }
         });
 
+        jLabel30.setText("0/5");
+        jLabel30.setToolTipText("");
+
         jLabel29.setText("Antecedentes (Varios)");
 
         jLabel31.setText("Direcciones (Varios)");
 
         jLabel32.setText("Matriculas (Varios)");
-
-        jButton2.setBackground(primaryColor);
-        jButton2.setForeground(secundaryColor);
-        jButton2.setText("...");
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(secundaryColor));
-        jButton2.setFocusable(false);
-
-        jButton5.setBackground(primaryColor);
-        jButton5.setForeground(secundaryColor);
-        jButton5.setText("...");
-        jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(secundaryColor));
-        jButton5.setFocusable(false);
-
-        jButton7.setBackground(primaryColor);
-        jButton7.setForeground(secundaryColor
-        );
-        jButton7.setText("...");
-        jButton7.setBorder(javax.swing.BorderFactory.createLineBorder(secundaryColor));
-        jButton7.setFocusable(false);
 
         jButton8.setBackground(primaryColor);
         jButton8.setForeground(secundaryColor);
@@ -1900,83 +1882,113 @@ public class UI extends javax.swing.JFrame {
         jButton15.setBorder(javax.swing.BorderFactory.createLineBorder(secundaryColor));
         jButton15.setFocusable(false);
 
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTextArea1.setRows(5);
+        jTextArea1.setBorder(null);
         jScrollPane1.setViewportView(jTextArea1);
         addSuspectFields[0]=jTextArea1;
 
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTextArea2.setRows(5);
+        jTextArea2.setBorder(null);
         jScrollPane2.setViewportView(jTextArea2);
         addSuspectFields[1]=jTextArea2;
 
+        jScrollPane3.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
         jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         jTextArea3.setColumns(20);
+        jTextArea3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTextArea3.setRows(5);
+        jTextArea3.setBorder(null);
         jScrollPane3.setViewportView(jTextArea3);
 
+        jScrollPane4.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
         jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane4.setToolTipText("");
         jScrollPane4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         jTextArea4.setColumns(20);
+        jTextArea4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTextArea4.setRows(5);
+        jTextArea4.setBorder(null);
         jScrollPane4.setViewportView(jTextArea4);
         addSuspectFields[2]=jTextArea4;
 
+        jScrollPane5.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
         jScrollPane5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane5.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         jTextArea5.setColumns(20);
+        jTextArea5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTextArea5.setRows(5);
+        jTextArea5.setBorder(null);
         jScrollPane5.setViewportView(jTextArea5);
         addSuspectFields[4]=jTextArea5;
 
+        jScrollPane6.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
         jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane6.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         jTextArea6.setColumns(20);
+        jTextArea6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTextArea6.setRows(5);
+        jTextArea6.setBorder(null);
         jScrollPane6.setViewportView(jTextArea6);
         addSuspectFields[5]=jTextArea6;
 
+        jScrollPane7.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
         jScrollPane7.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane7.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         jTextArea7.setColumns(20);
+        jTextArea7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTextArea7.setRows(5);
+        jTextArea7.setBorder(null);
         jScrollPane7.setViewportView(jTextArea7);
         addSuspectFields[7]=jTextArea7;
 
+        jScrollPane8.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
         jScrollPane8.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane8.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         jTextArea8.setColumns(20);
+        jTextArea8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTextArea8.setRows(5);
+        jTextArea8.setBorder(null);
         jScrollPane8.setViewportView(jTextArea8);
         addSuspectFields[6]=jTextArea8;
 
+        jScrollPane9.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
         jScrollPane9.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane9.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         jTextArea9.setColumns(20);
+        jTextArea9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTextArea9.setRows(5);
+        jTextArea9.setBorder(null);
         jScrollPane9.setViewportView(jTextArea9);
         addSuspectFields[9]=jTextArea9;
 
+        jScrollPane10.setBorder(javax.swing.BorderFactory.createLineBorder(primaryColor));
         jScrollPane10.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane10.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         jTextArea10.setColumns(20);
+        jTextArea10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTextArea10.setRows(5);
+        jTextArea10.setBorder(null);
         jScrollPane10.setViewportView(jTextArea10);
         addSuspectFields[8]=jTextArea10;
 
@@ -2000,22 +2012,18 @@ public class UI extends javax.swing.JFrame {
                             .addComponent(jLabel29)
                             .addComponent(jLabel6)
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                                .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel9))
                 .addGap(132, 132, 132)
@@ -2027,10 +2035,10 @@ public class UI extends javax.swing.JFrame {
                             .addComponent(jScrollPane7)
                             .addComponent(jScrollPane9)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddLayout.createSequentialGroup()
-                                .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
+                                .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(126, 126, 126))
+                                .addGap(151, 151, 151))
                             .addGroup(pnlAddLayout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2047,7 +2055,7 @@ public class UI extends javax.swing.JFrame {
                         .addGap(72, 72, 72))
                     .addGroup(pnlAddLayout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(118, Short.MAX_VALUE))))
+                        .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2063,11 +2071,9 @@ public class UI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlAddLayout.createSequentialGroup()
-                        .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 9, Short.MAX_VALUE))
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -2076,21 +2082,17 @@ public class UI extends javax.swing.JFrame {
                     .addGroup(pnlAddLayout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel26)
                         .addGap(10, 10, 10)
                         .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton16))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddLayout.createSequentialGroup()
@@ -2119,9 +2121,9 @@ public class UI extends javax.swing.JFrame {
                             .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel28))
+                        .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(9, 9, 9)
@@ -2163,57 +2165,6 @@ public class UI extends javax.swing.JFrame {
             }
         });
         jButton1.getAccessibleContext().setAccessibleName("1$0$0");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                compCallingMouseClicked(evt, jTextArea1);
-            }
-        });
-        jButton2.getAccessibleContext().setAccessibleName("1$0$0");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                view.EnteredExited.mouseComponentEffect(evt);
-            }
-        });
-
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                view.EnteredExited.mouseComponentEffect(evt);
-            }
-        });
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                compCallingMouseClicked(evt, jTextArea2);
-            }
-        });
-        jButton5.getAccessibleContext().setAccessibleName("1$0$0");
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                view.EnteredExited.mouseComponentEffect(evt);
-            }
-        });
-
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                view.EnteredExited.mouseComponentEffect(evt);
-            }
-        });
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                compCallingMouseClicked(evt, jTextArea4);
-            }
-        });
-        jButton7.getAccessibleContext().setAccessibleName("1$0$0");
-        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                view.EnteredExited.mouseComponentEffect(evt);
-            }
-        });
-
-        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                view.EnteredExited.mouseComponentEffect(evt);
-            }
-        });
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 compCallingMouseClicked(evt, jTextArea5);
@@ -2349,7 +2300,7 @@ public class UI extends javax.swing.JFrame {
             .addGroup(layeredConfMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(pnlSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layeredConfMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(pnlAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layeredConfMainLayout.setVerticalGroup(
             layeredConfMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2365,7 +2316,7 @@ public class UI extends javax.swing.JFrame {
             .addGroup(layeredConfMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layeredConfMainLayout.createSequentialGroup()
                     .addComponent(pnlAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 19, Short.MAX_VALUE)))
+                    .addGap(0, 23, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout pnl1BackgroundLayout = new javax.swing.GroupLayout(pnl1Background);
@@ -2395,7 +2346,9 @@ public class UI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl1Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnl1Background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2617,11 +2570,8 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox1;
@@ -2759,6 +2709,6 @@ public class UI extends javax.swing.JFrame {
     private static Controller myController;
     private static UI me;
     private Images[] photos;
-    private static ImageManager myImageManager;
+    private static ImagesManager myImageManager;
     private static JTextComponent[] addSuspectFields = new JTextComponent[10];
 }
