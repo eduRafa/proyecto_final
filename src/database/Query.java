@@ -94,57 +94,65 @@ public class Query {
     */
     public static boolean Update(Suspect sus){
         boolean updated=false;
-        
-            if(sus.getName()!=null){
-                updated=updateAttribute("Name",sus.getCodeSuspect().toString(),sus.getName(),"Suspect","CodeSuspect");
-            }
-            if(sus.getLastname1()!=null){
-                updated=updateAttribute("Lastname1",sus.getCodeSuspect().toString(),sus.getLastname1(),"Suspect","CodeSuspect");
-            }
-            if(sus.getLastname2()!=null){
-                updated=updateAttribute("Lastname2",sus.getCodeSuspect().toString(),sus.getLastname2(),"Suspect","CodeSuspect");
-            }
-            if(sus.getRecord()!=null){
-                updated=updateAttribute("Record",sus.getCodeSuspect().toString(),sus.getRecord().toString(),"Suspect","CodeSuspect");
-            }
-            if(sus.getFacts()!=null){
-                updated=updateAttribute("Facts",sus.getCodeSuspect().toString(),sus.getFacts().toString(),"Suspect","CodeSuspect");
-            }
-            if(sus.getSuspect()!=null){
-                for(int i=0;i<sus.getSuspect().size();i++){
-                    if(sus.getSuspect().get(i)!=null){
-                        updated=updateAttribute("CodeSuspect2",sus.getCodeSuspect().toString(),sus.getSuspect().get(i).toString(),"COMPANIONS","CodeSuspect");
+        ResultSet preUpdate=Query.searchBy("CodeSuspect",sus.getCodeSuspect().toString());
+        try {
+            if(rs.last()){
+                if(sus!=null){
+                    
+                    if(sus.getName()!=rs.getString(1)){
+                        updated=updateAttribute("Name",sus.getCodeSuspect().toString(),sus.getName(),"Suspect","CodeSuspect");
+                    }
+                    if(sus.getLastname1()!=rs.getString(2)){
+                        updated=updateAttribute("Lastname1",sus.getCodeSuspect().toString(),sus.getLastname1(),"Suspect","CodeSuspect");
+                    }
+                    if(sus.getLastname2()!=rs.getString(3)){
+                        updated=updateAttribute("Lastname2",sus.getCodeSuspect().toString(),sus.getLastname2(),"Suspect","CodeSuspect");
+                    }
+                    if(sus.getRecord()!=rs.getBlob(4)){
+                        updated=updateAttribute("Record",sus.getCodeSuspect().toString(),sus.getRecord().toString(),"Suspect","CodeSuspect");
+                    }
+                    if(sus.getFacts()!=rs.getBlob(5)){
+                        updated=updateAttribute("Facts",sus.getCodeSuspect().toString(),sus.getFacts().toString(),"Suspect","CodeSuspect");
+                    }
+                    if(sus.getSuspect()!=null){
+                        for(int i=0;i<sus.getSuspect().size();i++){
+                            if(sus.getSuspect().get(i)!=null){
+                                updated=updateAttribute("CodeSuspect2",sus.getCodeSuspect().toString(),sus.getSuspect().get(i).toString(),"COMPANIONS","CodeSuspect");
+                            }
+                        }
+                    }
+                    if(sus.getPhone()!=null){
+                        for(int i=0;i<sus.getPhone().size();i++){
+                            if(sus.getPhone().get(i)!=null){
+                                Phone phone=(Phone) sus.getSuspect().get(i);
+                                updated=updateAttribute("PhoneNumber",phone.getCodePhone().toString(),phone.getPhoneNumber().toString(),"PHONE","CodePhone");
+                            }
+                        }
+                    }
+                    if(sus.getEmail()!=null){
+                        for(int i=0;i<sus.getSuspect().size();i++){
+                            if(sus.getEmail().get(i)!=null){
+                                Email email=(Email) sus.getAddress().get(i);
+                                updated=updateAttribute("Email", email.getCodeEmail().toString(), email.getEmail(), "E_MAIL", "CodeE_mail");
+                            }
+                        }
+                    }
+                    if(sus.getAddress()!=null){
+                        for(int i=0;i<sus.getAddress().size();i++){
+                            if(sus.getAddress().get(i)!=null){
+                                Address address=(Address) sus.getAddress().get(i);
+                                updated=updateAttribute("Address", address.getCodeAddress().toString(), address.getAddress(), "ADDRESS", "CodeAddress");
+                            }
+                        }
+                    }
+                    if(sus.getCar_Resgistration()!=null){
+                        
                     }
                 }
             }
-            if(sus.getPhone()!=null){
-                for(int i=0;i<sus.getPhone().size();i++){
-                    if(sus.getPhone().get(i)!=null){
-                        Phone phone=(Phone) sus.getSuspect().get(i);
-                       // updated=updateAttribute("PhoneNumber",phone.getCodePhone().toString(),phone.getPhoneNumber().toString(),"PHONE","CodePhone");
-                    }
-                }
-            }
-            if(sus.getEmail()!=null){
-                for(int i=0;i<sus.getSuspect().size();i++){
-                    if(sus.getEmail().get(i)!=null){
-                        Email email=(Email) sus.getAddress().get(i);
-                        //updated=updateAttribute("Email", email.getCodeEmail().toString(), email.getEmail(), "E_MAIL", "CodeE_mail");
-                    }
-                }
-            }
-            if(sus.getAddress()!=null){
-                for(int i=0;i<sus.getAddress().size();i++){
-                    if(sus.getAddress().get(i)!=null){
-                        Address address=(Address) sus.getAddress().get(i);
-                        //updated=updateAttribute("Address", address.getCodeAddress().toString(), address.getAddress(), "ADDRESS", "CodeAddress");
-                    }
-                }
-            }
-            if(sus.getCar_Resgistration()!=null){
-
-            }
-        
+        } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         return updated;
     }

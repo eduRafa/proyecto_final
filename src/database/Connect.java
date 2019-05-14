@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import model.Communication;
 /**
  *
  * @author amgal
@@ -41,12 +42,13 @@ public class Connect {
 		try
 		{
                     Class.forName("com.mysql.cj.jdbc.Driver");
+                    String[] parameters=Communication.getDatabaseAccess();
                     // Setup the connection with the DB
 
                     //miConexion= DriverManager.getConnection("jdbc:mysql://"+HOST_DE+"/"+BBDD_DE+"?user="+LOGIN_DE+"&password="+PASSWORD_DE);
                     
                     //conexión completa para evitar errores de sincronizacion con el servidor
-                    myConnection= DriverManager.getConnection("jdbc:mysql://"+HOST_DE+"/"+BBDD_DE+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&user="+LOGIN_DE+"&password="+PASSWORD_DE);
+                    myConnection= DriverManager.getConnection("jdbc:mysql://"+parameters[0]+"/"+parameters[1]+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&user="+parameters[2]+"&password="+parameters[3]);
 		
                     if(CREATED==false){
                         generateStructure();             
