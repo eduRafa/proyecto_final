@@ -36,7 +36,6 @@ public class Suspect {
             String lastname2, ArrayList Suspect, Blob Record, Blob Facts,
             ArrayList Phone, ArrayList Email, ArrayList Address,
             ArrayList Car_registration, ArrayList Images){
-            super();
             this.CodeSuspect=CodeSuspect;
             this.name=name;
             this.lastname1=lastname1;

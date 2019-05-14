@@ -15,12 +15,12 @@ public class Email {
     String emailPattern = "^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@" +
       "[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$";
     Pattern pattern = Pattern.compile(emailPattern);
-    private int CodeEmail;
-    private int CodeSuspect;
+    private Integer CodeEmail;
+    private Integer CodeSuspect;
     private String Email;
     
-    public Email(int CodeEmail, int CodeSuspect, String Email){
-        super();
+    public Email(Integer CodeEmail, Integer CodeSuspect, String Email){
+        
         this.CodeEmail=CodeEmail;
         this.CodeSuspect=CodeSuspect;
         if (Email != null) {
@@ -30,19 +30,19 @@ public class Email {
             }
         }
     }
-     public int getCodeEmail(){
+     public Integer getCodeEmail(){
         return CodeEmail;
     }
     
-    public void setCodeEmail(int CodeEmail){
+    public void setCodeEmail(Integer CodeEmail){
         this.CodeEmail=CodeEmail;
     }
     
-     public int getCodeSuspect(){
+     public Integer getCodeSuspect(){
         return CodeSuspect;
     }
     
-    public void setCodeSuspect(int CodeSuspect){
+    public void setCodeSuspect(Integer CodeSuspect){
         this.CodeSuspect=CodeSuspect;
     }
     
