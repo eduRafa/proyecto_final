@@ -10,31 +10,31 @@ package model;
  * @author Antonio Jose Adamuz Sereno
  */
 public class Address {
-    private int CodeAddress;
-    private int CodeSuspect;
+    private Integer CodeAddress;
+    private Integer CodeSuspect;
     private String Address;
     
-    public Address(int CodeAddress, int CodeSuspect, String Address){
-        super();
+    public Address(Integer CodeAddress, Integer CodeSuspect, String Address){
+        
         this.CodeAddress=CodeAddress;
         this.CodeSuspect=CodeSuspect;
         this.Address=Address;
         
     }
     
-    public int getCodeAddress(){
+    public Integer getCodeAddress(){
         return CodeAddress;
     }
     
-    public void setCodeAddress(int CodeAddress){
+    public void setCodeAddress(Integer CodeAddress){
         this.CodeAddress=CodeAddress;
     }
     
-    public int getCodeSuspect(){
+    public Integer getCodeSuspect(){
         return CodeSuspect;
     }
     
-    public void setCodeSuspect(int CodeSuspect){
+    public void setCodeSuspect(Integer CodeSuspect){
         this.CodeSuspect=CodeSuspect;
     }
     
