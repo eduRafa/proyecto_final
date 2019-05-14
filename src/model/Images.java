@@ -49,7 +49,6 @@ public class Images {
         try {
             this.image = new ImageIcon(image);
             imageEncoded = encondeImage(this.image);
-            
         } catch (SQLException ex) {
             Logger.getLogger(Images.class.getName()).log(Level.SEVERE, null, ex);
         }

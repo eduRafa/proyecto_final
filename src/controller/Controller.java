@@ -13,7 +13,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Communication;
-import view.RepaintComponents;
 import view.UI;
 import view.UiUtils;
 
@@ -50,8 +49,8 @@ public class Controller implements ActionListener {
 
     public void setPrimaryColor(Color c) {
         Communication.setPrimaryColor(c);
-        RepaintComponents.printAllComponents(myUI, c);
-        RepaintComponents.printAllComponents(myUI.getImageManager(), c);
+        UiUtils.printAllComponents(myUI, c);
+        UiUtils.printAllComponents(myUI.getImageManager(), c);
     }
 
     @Override
