@@ -8,19 +8,14 @@ package view;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
-import java.awt.Frame;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.util.ArrayList;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import java.util.Arrays;
+import static javafx.scene.input.KeyCode.T;
+import javax.lang.model.type.ArrayType;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSeparator;
 import javax.swing.JTable;
-import java.util.Arrays;
 import javax.swing.text.JTextComponent;
 
 /**
@@ -154,4 +149,12 @@ public class uiUtils {
                 break;
         }
     }
+
+    public static ArrayList<?> transformTextToArrayList(String allTheValues){
+        String[] eachValue=allTheValues.split(".+\\n");
+        ArrayList<String> myValues;
+        myValues =new ArrayList<String>(Arrays.asList(eachValue));
+        return myValues;
+    }
+    
 }

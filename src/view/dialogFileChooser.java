@@ -26,12 +26,12 @@ public class dialogFileChooser extends javax.swing.JDialog {
      */
     public dialogFileChooser(imageManager parent, boolean modal) {
         super(parent, modal);
-        this.parent=parent;
+        this.parent = parent;
         initComponents();
         setLocationRelativeTo(null);
-        int result = jFileChooser1.showOpenDialog(this);
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & GIF", "jpg", "png");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG - JPEG - PNG", "jpg", "jpeg", "png");
         jFileChooser1.setFileFilter(filter);
+        int result = jFileChooser1.showOpenDialog(this);
     }
 
     /**
@@ -89,8 +89,8 @@ public class dialogFileChooser extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jFileChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser1ActionPerformed
-        Image image=null;
-        
+        Image image = null;
+
         if (result == JFileChooser.APPROVE_OPTION) {
             File fichero = jFileChooser1.getSelectedFile();
             try {

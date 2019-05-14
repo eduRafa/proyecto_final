@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-  <NonVisualComponents>
-    <Component class="javax.swing.JButton" name="jButton4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jButton4"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
-    </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup2">
-    </Component>
-  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="iconImage" type="java.awt.Image" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -2401,9 +2390,8 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
@@ -2419,50 +2407,62 @@
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jButton11" pref="0" max="32767" attributes="0"/>
-                                          <Component id="jButton8" pref="0" max="32767" attributes="0"/>
+                                          <Component id="jButton11" max="32767" attributes="0"/>
+                                          <Component id="jButton8" max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jButton2" min="-2" pref="28" max="-2" attributes="0"/>
                                               <Component id="jButton7" min="-2" pref="28" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Component id="jButton9" min="-2" pref="144" max="-2" attributes="0"/>
                                       <Component id="jButton5" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
                                       <Component id="jButton16" min="-2" pref="28" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel28" max="32767" attributes="0"/>
-                                                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel30" min="-2" pref="28" max="-2" attributes="0"/>
-                                                  <EmptySpace min="126" pref="126" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="jButton1" min="-2" pref="187" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Component id="jScrollPane10" pref="197" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane10" max="32767" attributes="0"/>
                                       <Component id="jScrollPane8" max="32767" attributes="0"/>
-                                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel31" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jScrollPane7" max="32767" attributes="0"/>
                                       <Component id="jScrollPane9" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="jLabel28" max="32767" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jLabel30" min="-2" pref="28" max="-2" attributes="0"/>
+                                          <EmptySpace min="126" pref="126" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel31" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
+                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="jButton14" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jButton13" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jButton12" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="jButton15" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="jButton1" min="-2" pref="187" max="-2" attributes="0"/>
+                                  <EmptySpace pref="118" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jButton14" alignment="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="jButton13" alignment="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="jButton12" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="jButton15" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jButton9" min="-2" pref="144" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="285" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2476,46 +2476,52 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jButton2" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
-                                  <Component id="jButton12" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jButton2" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
+                                      <Component id="jButton12" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="9" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jScrollPane1" min="-2" pref="16" max="-2" attributes="0"/>
-                              <Component id="jScrollPane8" min="-2" pref="16" max="-2" attributes="0"/>
+                              <Component id="jScrollPane8" alignment="1" pref="23" max="32767" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" min="-2" pref="23" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace type="separate" max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="jButton5" min="-2" pref="14" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane2" min="-2" pref="16" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane2" min="-2" pref="23" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jButton7" min="-2" pref="14" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane4" min="-2" pref="16" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane4" min="-2" pref="23" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jScrollPane3" min="-2" pref="16" max="-2" attributes="0"/>
-                                              <Component id="jButton16" min="-2" pref="14" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jButton16" min="-2" pref="14" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane3" min="-2" pref="23" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
                                           <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jButton8" min="-2" pref="14" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jScrollPane5" min="-2" pref="16" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane5" alignment="1" min="-2" pref="16" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="32767" attributes="0"/>
                                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -2530,32 +2536,30 @@
                                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jButton14" min="-2" pref="14" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane10" min="-2" pref="16" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane10" min="-2" pref="23" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="jButton15" min="-2" pref="14" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel30" min="-2" pref="14" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jButton1" min="-2" pref="34" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jScrollPane9" min="-2" pref="16" max="-2" attributes="0"/>
+                                      <Component id="jButton15" min="-2" pref="14" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane9" min="-2" pref="25" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jLabel30" min="-2" pref="14" max="-2" attributes="0"/>
+                                      <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jButton1" min="-2" pref="34" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="9" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jButton11" alignment="0" min="-2" pref="14" max="-2" attributes="0"/>
                               <Component id="jScrollPane6" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="58" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                           <Component id="jButton9" min="-2" pref="34" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -2647,9 +2651,15 @@
                     </Property>
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$0$0"/>
+                  </AccessibilityProperties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jButton1.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;jButton1.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel30">
                   <AuxValues>
@@ -2658,17 +2668,17 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel29">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Antecedentes"/>
+                    <Property name="text" type="java.lang.String" value="Antecedentes (Varios)"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel31">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Direcciones"/>
+                    <Property name="text" type="java.lang.String" value="Direcciones (Varios)"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel32">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Matriculas"/>
+                    <Property name="text" type="java.lang.String" value="Matriculas (Varios)"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton2">
@@ -2680,9 +2690,18 @@
                       <Connection code="secundaryColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="..."/>
-                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder>
+                          <Connection PropertyName="color" code="secundaryColor" type="code"/>
+                        </LineBorder>
+                      </Border>
+                    </Property>
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$0$0" postCode="jButton2.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;jButton2.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                  </AccessibilityProperties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jButton2.addActionListener(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        compCallingMouseClicked(evt, jTextArea1);&#xa;    }&#xa;});"/>
                   </AuxValues>
@@ -2696,9 +2715,18 @@
                       <Connection code="secundaryColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="..."/>
-                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder>
+                          <Connection PropertyName="color" code="secundaryColor" type="code"/>
+                        </LineBorder>
+                      </Border>
+                    </Property>
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$0$0" postCode="jButton5.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;jButton5.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                  </AccessibilityProperties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jButton5.addActionListener(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        compCallingMouseClicked(evt, jTextArea2);&#xa;    }&#xa;});"/>
                   </AuxValues>
@@ -2712,9 +2740,18 @@
                       <Connection code="secundaryColor&#xa;    " type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="..."/>
-                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder>
+                          <Connection PropertyName="color" code="secundaryColor" type="code"/>
+                        </LineBorder>
+                      </Border>
+                    </Property>
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$0$0" postCode="jButton7.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;jButton7.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                  </AccessibilityProperties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jButton7.addActionListener(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        compCallingMouseClicked(evt, jTextArea4);&#xa;    }&#xa;});"/>
                   </AuxValues>
@@ -2729,9 +2766,18 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="..."/>
                     <Property name="actionCommand" type="java.lang.String" value=""/>
-                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder>
+                          <Connection PropertyName="color" code="secundaryColor" type="code"/>
+                        </LineBorder>
+                      </Border>
+                    </Property>
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$0$0" postCode="jButton8.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;jButton8.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                  </AccessibilityProperties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jButton8.addActionListener(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        compCallingMouseClicked(evt, jTextArea5);&#xa;    }&#xa;});"/>
                   </AuxValues>
@@ -2745,9 +2791,18 @@
                       <Connection code="secundaryColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="..."/>
-                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder>
+                          <Connection PropertyName="color" code="secundaryColor" type="code"/>
+                        </LineBorder>
+                      </Border>
+                    </Property>
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$0$0" postCode="jButton11.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;jButton11.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                  </AccessibilityProperties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jButton11.addActionListener(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        compCallingMouseClicked(evt, jTextArea6);&#xa;    }&#xa;});"/>
                   </AuxValues>
@@ -2761,9 +2816,18 @@
                       <Connection code="secundaryColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="..."/>
-                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder>
+                          <Connection PropertyName="color" code="secundaryColor" type="code"/>
+                        </LineBorder>
+                      </Border>
+                    </Property>
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$0$0" postCode="jButton12.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;jButton12.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                  </AccessibilityProperties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jButton12.addActionListener(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        compCallingMouseClicked(evt, jTextArea8);&#xa;    }&#xa;});"/>
                   </AuxValues>
@@ -2777,9 +2841,18 @@
                       <Connection code="secundaryColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="..."/>
-                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder>
+                          <Connection PropertyName="color" code="secundaryColor" type="code"/>
+                        </LineBorder>
+                      </Border>
+                    </Property>
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$0$0" postCode="jButton13.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;jButton13.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                  </AccessibilityProperties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jButton13.addActionListener(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        compCallingMouseClicked(evt, jTextArea7);&#xa;    }&#xa;});"/>
                   </AuxValues>
@@ -2793,9 +2866,18 @@
                       <Connection code="secundaryColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="..."/>
-                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder>
+                          <Connection PropertyName="color" code="secundaryColor" type="code"/>
+                        </LineBorder>
+                      </Border>
+                    </Property>
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$0$0" postCode="jButton14.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;jButton14.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                  </AccessibilityProperties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jButton14.addActionListener(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        compCallingMouseClicked(evt, jTextArea10);&#xa;    }&#xa;});"/>
                   </AuxValues>
@@ -2809,14 +2891,27 @@
                       <Connection code="secundaryColor" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="..."/>
-                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder>
+                          <Connection PropertyName="color" code="secundaryColor" type="code"/>
+                        </LineBorder>
+                      </Border>
+                    </Property>
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$0$0" postCode="jButton15.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;jButton15.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                  </AccessibilityProperties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jButton15.addActionListener(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        compCallingMouseClicked(evt, jTextArea9);&#xa;    }&#xa;});"/>
                   </AuxValues>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+                  <Properties>
+                    <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                    <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -2835,6 +2930,10 @@
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                  <Properties>
+                    <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                    <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -2853,6 +2952,10 @@
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+                  <Properties>
+                    <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                    <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -2868,6 +2971,11 @@
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+                  <Properties>
+                    <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                    <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -2886,6 +2994,10 @@
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane5">
+                  <Properties>
+                    <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                    <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -2904,6 +3016,10 @@
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane6">
+                  <Properties>
+                    <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                    <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -2922,6 +3038,10 @@
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane7">
+                  <Properties>
+                    <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                    <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -2940,6 +3060,10 @@
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane8">
+                  <Properties>
+                    <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                    <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -2958,6 +3082,10 @@
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane9">
+                  <Properties>
+                    <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                    <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -2976,6 +3104,10 @@
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane10">
+                  <Properties>
+                    <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                    <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -3002,11 +3134,20 @@
                       <Connection code="secundaryColor&#xa;    " type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="..."/>
-                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder>
+                          <Connection PropertyName="color" code="secundaryColor" type="code"/>
+                        </LineBorder>
+                      </Border>
+                    </Property>
                     <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="1$0$0" postCode="jButton16.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseExited(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});&#xa;&#xa;jButton16.addMouseListener(new java.awt.event.MouseAdapter() {&#xa;    public void mouseEntered(java.awt.event.MouseEvent evt) {&#xa;        enteredExited.mouseComponentEffect(evt);&#xa;    }&#xa;});"/>
+                  </AccessibilityProperties>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jButton7.addActionListener(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        compCallingMouseClicked(evt, jTextArea3);&#xa;    }&#xa;});"/>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jButton16.addActionListener(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        compCallingMouseClicked(evt, jTextArea3);&#xa;    }&#xa;});"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
