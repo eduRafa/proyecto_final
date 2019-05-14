@@ -14,7 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Communication;
 import view.UI;
-import view.uiUtils;
+import view.UiUtils;
 
 /**
  *
@@ -49,8 +49,8 @@ public class Controller implements ActionListener {
 
     public void setPrimaryColor(Color c) {
         Communication.setPrimaryColor(c);
-        uiUtils.printAllComponents(myUI, c);
-        uiUtils.printAllComponents(myUI.getImageManager(), c);
+        UiUtils.printAllComponents(myUI, c);
+        UiUtils.printAllComponents(myUI.getImageManager(), c);
     }
 
     @Override

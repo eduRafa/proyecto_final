@@ -15,6 +15,7 @@ import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.Toolkit;
 import java.sql.Blob;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,7 +46,8 @@ public class UI extends javax.swing.JFrame {
         primaryColor = myController.getPrimaryColor();
         setThemeColors();
         initComponents();
-        myImageManager = new imageManager(me, true);
+        setMainTable(Query.showAll());
+        myImageManager = new ImageManager(me, true);
         setLocationRelativeTo(null);
         hideLayouts();
         pnlMain.setVisible(true);
@@ -117,14 +119,14 @@ public class UI extends javax.swing.JFrame {
 
         Suspect mySuspect = new Suspect(null, values[0], values[1], values[2], null/*companions*/,
                 new SerialBlob(values[4].getBytes()), new SerialBlob(values[5].getBytes()),
-                uiUtils.transformTextToArrayList(values[6]), uiUtils.transformTextToArrayList(values[7]),
-                uiUtils.transformTextToArrayList(values[8]), uiUtils.transformTextToArrayList(values[9]),
+                UiUtils.transformTextToArrayList(values[6]), UiUtils.transformTextToArrayList(values[7]),
+                UiUtils.transformTextToArrayList(values[8]), UiUtils.transformTextToArrayList(values[9]),
                 myImageManager.getPhotos());
 
         return mySuspect;
     }
 
-    public imageManager getImageManager() {
+    public ImageManager getImageManager() {
         return myImageManager;
     }
 
@@ -137,7 +139,23 @@ public class UI extends javax.swing.JFrame {
     }
 
     public void compCallingMouseClicked(java.awt.event.ActionEvent evt, JTextComponent x) {
-        textDialog miTextDialog = new textDialog(this, true, x);
+        TextDialog miTextDialog = new TextDialog(this, true, x);
+    }
+
+    private void setMainTable(ResultSet rs) {
+        DefaultTableModel modelo = (DefaultTableModel)tblMain.getModel();
+        try {
+            while (rs.next()) {
+                Object[] fila = new Object[9];
+                for (int i = 0; i < 3; i++) {
+                    fila[i] = rs.getObject(i + 1);
+                    modelo.addRow(fila);
+                }
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -496,38 +514,38 @@ public class UI extends javax.swing.JFrame {
         pnlMenu2.getAccessibleContext().setAccessibleName("1$-$-");
         pnlMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
         pnlMenu1.getAccessibleContext().setAccessibleName("1$-$-");
         pnlMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
         pnlMenu1.getAccessibleContext().setAccessibleDescription("");
         pnlMenu3.getAccessibleContext().setAccessibleName("1$-$-");
         pnlMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
         pnlMenu4.getAccessibleContext().setAccessibleName("1$-$-");
         pnlMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
 
             }
         });
@@ -719,13 +737,13 @@ public class UI extends javax.swing.JFrame {
 
         jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
         jButton10.getAccessibleContext().setAccessibleName("1$-$-");
@@ -757,10 +775,10 @@ public class UI extends javax.swing.JFrame {
 
         tblSearchSearch.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Apellido 1", "Apellido 2", "Teléfonos", "Correo", "Direcciones", "Acompañantes", "Matrículas"
+                "Nombre", "Apellido 1", "Apellido 2", "Acompañantes", "Teléfono", "E-mail", "Direcciones", "Matrículas", "Foto"
             }
         ));
         tblSearchSearch.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
@@ -893,13 +911,13 @@ public class UI extends javax.swing.JFrame {
         jButton6.getAccessibleContext().setAccessibleName("1$-$-");
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -924,7 +942,7 @@ public class UI extends javax.swing.JFrame {
         });
         btnConfTheme.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -960,7 +978,7 @@ public class UI extends javax.swing.JFrame {
         });
         btnConfSuspctView.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -1149,29 +1167,29 @@ public class UI extends javax.swing.JFrame {
         pnlConfMainThemes.getAccessibleContext().setAccessibleName("0$1$-");
         pnlConfMainThemes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
         pnlConfMainStadistics.getAccessibleContext().setAccessibleName("0$1$-");
         pnlConfMainStadistics.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
         pnlConfMainStadistics.getAccessibleContext().setAccessibleDescription("");
         pnlConfMainSuspectView.getAccessibleContext().setAccessibleName("0$1$-");
         pnlConfMainSuspectView.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -1258,13 +1276,13 @@ public class UI extends javax.swing.JFrame {
         jButton3.getAccessibleContext().setAccessibleName("1$0$0");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
         jLabel10.getAccessibleContext().setAccessibleName("0$-$1");
@@ -1748,7 +1766,7 @@ public class UI extends javax.swing.JFrame {
 
         btnConfTheme.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -1756,13 +1774,13 @@ public class UI extends javax.swing.JFrame {
         btnConfTheme.getAccessibleContext().setAccessibleName("1$0$0");
         btnConfStadistics.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
         btnConfStadistics.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -1771,7 +1789,7 @@ public class UI extends javax.swing.JFrame {
         btnConfSuspctView.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 //mouseBttHover(evt);
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -2118,13 +2136,13 @@ public class UI extends javax.swing.JFrame {
         jButton9.getAccessibleContext().setAccessibleName("1$0$0");
         jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -2135,13 +2153,13 @@ public class UI extends javax.swing.JFrame {
         });
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
         jButton1.getAccessibleContext().setAccessibleName("1$0$0");
@@ -2153,13 +2171,13 @@ public class UI extends javax.swing.JFrame {
         jButton2.getAccessibleContext().setAccessibleName("1$0$0");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -2170,13 +2188,13 @@ public class UI extends javax.swing.JFrame {
         jButton5.getAccessibleContext().setAccessibleName("1$0$0");
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -2187,13 +2205,13 @@ public class UI extends javax.swing.JFrame {
         jButton7.getAccessibleContext().setAccessibleName("1$0$0");
         jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -2204,13 +2222,13 @@ public class UI extends javax.swing.JFrame {
         jButton8.getAccessibleContext().setAccessibleName("1$0$0");
         jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -2221,13 +2239,13 @@ public class UI extends javax.swing.JFrame {
         jButton11.getAccessibleContext().setAccessibleName("1$0$0");
         jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -2238,13 +2256,13 @@ public class UI extends javax.swing.JFrame {
         jButton12.getAccessibleContext().setAccessibleName("1$0$0");
         jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -2255,13 +2273,13 @@ public class UI extends javax.swing.JFrame {
         jButton13.getAccessibleContext().setAccessibleName("1$0$0");
         jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -2272,13 +2290,13 @@ public class UI extends javax.swing.JFrame {
         jButton14.getAccessibleContext().setAccessibleName("1$0$0");
         jButton14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
         jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -2289,13 +2307,13 @@ public class UI extends javax.swing.JFrame {
         jButton15.getAccessibleContext().setAccessibleName("1$0$0");
         jButton15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -2306,13 +2324,13 @@ public class UI extends javax.swing.JFrame {
         jButton16.getAccessibleContext().setAccessibleName("1$0$0");
         jButton16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
         jButton16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                enteredExited.mouseComponentEffect(evt);
+                view.EnteredExited.mouseComponentEffect(evt);
             }
         });
 
@@ -2741,6 +2759,6 @@ public class UI extends javax.swing.JFrame {
     private static Controller myController;
     private static UI me;
     private Images[] photos;
-    private static imageManager myImageManager;
+    private static ImageManager myImageManager;
     private static JTextComponent[] addSuspectFields = new JTextComponent[10];
 }
