@@ -244,6 +244,7 @@ public class Query {
     public static boolean addSuspect(Suspect suspect){
         boolean correct=false;
         
+        
         try {
             Connect.startConnection();
             c=Connect.getMyConnection();
