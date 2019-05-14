@@ -46,7 +46,7 @@ public class UI extends javax.swing.JFrame {
         primaryColor = myController.getPrimaryColor();
         setThemeColors();
         initComponents();
-        //setMainTable(Query.showAll());
+        setMainTable(Query.showAll());
         myImageManager = new ImageManager(me, true);
         setLocationRelativeTo(null);
         hideLayouts();
@@ -143,7 +143,7 @@ public class UI extends javax.swing.JFrame {
     }
 
     private void setMainTable(ResultSet rs) {
-        DefaultTableModel modelo = (DefaultTableModel) tblMain.getModel();
+        DefaultTableModel modelo = (DefaultTableModel)tblMain.getModel();
         try {
             while (rs.next()) {
                 Object[] fila = new Object[9];
@@ -1804,6 +1804,11 @@ public class UI extends javax.swing.JFrame {
         jButton9.setActionCommand("add");
         jButton9.setBorder(javax.swing.BorderFactory.createLineBorder(secundaryColor));
         jButton9.setFocusable(false);
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Nombre");
 
@@ -2042,7 +2047,7 @@ public class UI extends javax.swing.JFrame {
                         .addGap(72, 72, 72))
                     .addGroup(pnlAddLayout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(118, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2061,8 +2066,8 @@ public class UI extends javax.swing.JFrame {
                         .addGroup(pnlAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(0, 9, Short.MAX_VALUE))
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -2556,6 +2561,9 @@ public class UI extends javax.swing.JFrame {
     private void btnConfThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfThemeActionPerformed
 
     }//GEN-LAST:event_btnConfThemeActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         myImageManager.setVisible(true);

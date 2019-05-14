@@ -146,41 +146,33 @@ public class Communication {
     }
 
     public static String[] getDatabaseAccess() {
-        String[] dbValues = new String[4];
+        String[] dbValues = null;
         Document doc = getDocumentXML(CONNECTIONFILE);
         NodeList object = doc.getDocumentElement().getChildNodes();
 
         for (int i = 0; i < object.getLength(); i++) {
+            dbValues = new String[4];
             Node tempNode = object.item(i);
-
-            if (tempNode.getNodeName().equals("host")) {
-                NodeList x = tempNode.getChildNodes();
-
-                for (int j = 0; j < x.getLength(); j++) {
-                    if (x.item(j).getNodeType() == Node.TEXT_NODE) {
+            if (tempNode.getNodeType() == Node.ELEMENT_NODE) {
+                if (tempNode.getNodeName().equals("host")) {
+                    NodeList x = tempNode.getChildNodes();
+                    for (int j = 0; j < x.getLength(); j++) {
                         dbValues[0] = x.item(j).getTextContent();
                     }
-                }
-            } else if (tempNode.getNodeName().equals("database")) {
-                NodeList x = tempNode.getChildNodes();
-                for (int j = 0; j < x.getLength(); j++) {
-                    if (x.item(j).getNodeType() == Node.TEXT_NODE) {
+                } else if (tempNode.getNodeName().equals("database")) {
+                    NodeList x = tempNode.getChildNodes();
+                    for (int j = 0; j < x.getLength(); j++) {
                         dbValues[1] = x.item(j).getTextContent();
                     }
-                }
-            } else if (tempNode.getNodeName().equals("user")) {
-                NodeList x = tempNode.getChildNodes();
-                for (int j = 0; j < x.getLength(); j++) {
-                    if (x.item(j).getNodeType() == Node.TEXT_NODE) {
+                } else if (tempNode.getNodeName().equals("user")) {
+                    NodeList x = tempNode.getChildNodes();
+                    for (int j = 0; j < x.getLength(); j++) {
                         dbValues[2] = x.item(j).getTextContent();
                     }
-                }
-            } else if (tempNode.getNodeName().equals("password")) {
-                NodeList x = tempNode.getChildNodes();
-                for (int j = 0; j < x.getLength(); j++) {
-                    if (x.item(j).getNodeType() == Node.TEXT_NODE) {
+                } else if (tempNode.getNodeName().equals("password")) {
+                    NodeList x = tempNode.getChildNodes();
+                    for (int j = 0; j < x.getLength(); j++) {
                         dbValues[3] = x.item(j).getTextContent();
-
                     }
                 }
             }
@@ -188,4 +180,5 @@ public class Communication {
 
         return dbValues;
     }
+
 }
