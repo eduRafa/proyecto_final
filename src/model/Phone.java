@@ -10,38 +10,38 @@ package model;
  * @author Antonio Jose Adamuz Sereno
  */
 public class Phone {
-    private int CodeSuspect;
-    private int CodePhone;
-    private int PhoneNumber;
+    private Integer CodeSuspect;
+    private Integer CodePhone;
+    private Integer PhoneNumber;
     
-    public Phone(int CodeSuspect, int CodePhone, int PhoneNumber){
+    public Phone(Integer CodeSuspect, Integer CodePhone, Integer PhoneNumber){
         super();
         this.CodeSuspect=CodeSuspect;
         this.CodePhone=CodePhone;
         this.PhoneNumber=PhoneNumber;
     }
     
-    public int getCodeSuspect(){
+    public Integer getCodeSuspect(){
         return CodeSuspect;
     }
     
-    public void setCodeSuspect(int CodeSuspect){
+    public void setCodeSuspect(Integer CodeSuspect){
         this.CodeSuspect=CodeSuspect;
     }
     
-    public int getCodePhone(){
+    public Integer getCodePhone(){
         return CodePhone;
     }
     
-    public void setCodePhone(int CodePhone){
+    public void setCodePhone(Integer CodePhone){
         this.CodePhone=CodePhone;
     }
     
-    public int getPhoneNumber(){
+    public Integer getPhoneNumber(){
         return PhoneNumber;
     }
     
-    public void setPhoneNumber(int PhoneNumber){
+    public void setPhoneNumber(Integer PhoneNumber){
         this.PhoneNumber=PhoneNumber;
     }
 }

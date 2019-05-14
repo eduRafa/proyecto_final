@@ -131,7 +131,7 @@ public class Connect {
                     + "(CodeSuspect        int unsigned,"
                     + "CodeSuspect2         int unsigned,"
                     + "PRIMARY KEY (CodeSuspect,CodeSuspect2),"
-                    + "FOREIGN KEY (CodeSuspect) REFERENCES SUSPECT(CodeSuspects) ON DELETE CASCADE ON UPDATE CASCADE,"
+                    + "FOREIGN KEY (CodeSuspect) REFERENCES SUSPECT(CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE,"
                     + "FOREIGN KEY (CodeSuspect2) REFERENCES SUSPECT(CodeSuspect) ON DELETE CASCADE ON UPDATE CASCADE"
                     + ")ENGINE=INNODB";
                     

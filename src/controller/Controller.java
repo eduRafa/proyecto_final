@@ -9,6 +9,9 @@ import database.Query;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Communication;
 import view.UI;
 import view.uiUtils;
@@ -55,7 +58,13 @@ public class Controller implements ActionListener {
 
         switch (e.getActionCommand()) {
             case "add":
+        {
+            try {
                 Query.addSuspect(myUI.getAddSuspect());
+            } catch (SQLException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case "remove":
                 ;

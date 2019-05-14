@@ -27,14 +27,14 @@ public class Images {
 
     private Blob imageEncoded;
     private ImageIcon image;
-    private int codeImage;
+    private Integer codeImage;
     private String description;
-    private int codeSuspect;
+    private Integer codeSuspect;
 
     /*Constructor para cuando obtengas info de la bd*/
-    public Images(Blob Image, int CodeImage, String Description,
-            int CodeSuspect) {
-        //?super();
+    public Images(Blob Image, Integer CodeImage, String Description,
+            Integer CodeSuspect) {
+        
         this.imageEncoded = Image;
         this.codeImage = CodeImage;
         this.description = Description;
@@ -62,11 +62,11 @@ public class Images {
         transformImage(Image);
     }
 
-    public int getCodeImage() {
+    public Integer getCodeImage() {
         return codeImage;
     }
 
-    public void setCodeImage(int CodeImage) {
+    public void setCodeImage(Integer CodeImage) {
         this.codeSuspect = CodeImage;
     }
 
@@ -78,11 +78,11 @@ public class Images {
         this.description = Description;
     }
 
-    public int getCodeSuspect() {
+    public Integer getCodeSuspect() {
         return codeSuspect;
     }
 
-    public void setCodeSuspect(int CodeSuspect) {
+    public void setCodeSuspect(Integer CodeSuspect) {
         this.codeSuspect = CodeSuspect;
     }
 

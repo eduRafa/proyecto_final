@@ -69,6 +69,8 @@ public class Query {
     @param type: Es el tipo de cato que se desea actualizar
     @param code: Es el codigo de sospechoso del sospechoso del que se desea actualizar la informacion
     @param value: Es el valor de la nueva informacion 
+    @param table: Es el nombre de la tabla donde se encuentran los valores que se desean cambiar
+    @param 
     */
     private static boolean updateAttribute(String type,String code,String value,
     String table, String key){
@@ -87,39 +89,63 @@ public class Query {
     }
     /*
     Este metodo actualiza la infomracion de un sospechoso
-    *@param sus: Es un sospechoso  con la nueva informacion que se desea introducir
+    *@param sus: Es el sospechoso que se desea actualizar el la base de datos cuyos parametros ya tiene los nuevos valores
+    (Los codigos deben de ser los mismos en todos los parametros, asi que lo qu ese debe hacer es usar los setter para cambiar los valores antiguos por los nuevos)
     */
     public static boolean Update(Suspect sus){
         boolean updated=false;
-        if(sus.getName()!=null){
-            updateAttribute("Name",sus.getCodeSuspect().toString(),sus.getName(),"Suspect","CodeSuspect");
-        }
-        if(sus.getLastname1()!=null){
-            updateAttribute("Lastname1",sus.getCodeSuspect().toString(),sus.getLastname1(),"Suspect","CodeSuspect");
-        }
-        if(sus.getLastname2()!=null){
-            updateAttribute("Lastname2",sus.getCodeSuspect().toString(),sus.getLastname2(),"Suspect","CodeSuspect");
-        }
-        if(sus.getRecord()!=null){
-            updateAttribute("Record",sus.getCodeSuspect().toString(),sus.getRecord().toString(),"Suspect","CodeSuspect");
-        }
-        if(sus.getFacts()!=null){
-            updateAttribute("Facts",sus.getCodeSuspect().toString(),sus.getFacts().toString(),"Suspect","CodeSuspect");
-        }
-        if(sus.getSuspect()!=null){
-            for(int i=0;i<sus.getSuspect().size();i++){
-                if(sus.getSuspect().get(i)!=null){
-                    updateAttribute("CodeSuspect2",sus.getCodeSuspect().toString(),sus.getSuspect().get(i).toString(),"COMPANIONS","CodeSuspect");
+        
+            if(sus.getName()!=null){
+                updated=updateAttribute("Name",sus.getCodeSuspect().toString(),sus.getName(),"Suspect","CodeSuspect");
+            }
+            if(sus.getLastname1()!=null){
+                updated=updateAttribute("Lastname1",sus.getCodeSuspect().toString(),sus.getLastname1(),"Suspect","CodeSuspect");
+            }
+            if(sus.getLastname2()!=null){
+                updated=updateAttribute("Lastname2",sus.getCodeSuspect().toString(),sus.getLastname2(),"Suspect","CodeSuspect");
+            }
+            if(sus.getRecord()!=null){
+                updated=updateAttribute("Record",sus.getCodeSuspect().toString(),sus.getRecord().toString(),"Suspect","CodeSuspect");
+            }
+            if(sus.getFacts()!=null){
+                updated=updateAttribute("Facts",sus.getCodeSuspect().toString(),sus.getFacts().toString(),"Suspect","CodeSuspect");
+            }
+            if(sus.getSuspect()!=null){
+                for(int i=0;i<sus.getSuspect().size();i++){
+                    if(sus.getSuspect().get(i)!=null){
+                        updated=updateAttribute("CodeSuspect2",sus.getCodeSuspect().toString(),sus.getSuspect().get(i).toString(),"COMPANIONS","CodeSuspect");
+                    }
                 }
             }
-        }
-        if(sus.getSuspect()!=null){
-            for(int i=0;i<sus.getSuspect().size();i++){
-                if(sus.getSuspect().get(i)!=null){
-                    //updateAttribute("PhoneNumber",sus.getPhone().get(i)getCodePhone().toString,sus.getPhone().get(i).toString(),"PHONE","CodePhone");
+            if(sus.getPhone()!=null){
+                for(int i=0;i<sus.getPhone().size();i++){
+                    if(sus.getPhone().get(i)!=null){
+                        Phone phone=(Phone) sus.getSuspect().get(i);
+                       // updated=updateAttribute("PhoneNumber",phone.getCodePhone().toString(),phone.getPhoneNumber().toString(),"PHONE","CodePhone");
+                    }
                 }
             }
-        }
+            if(sus.getEmail()!=null){
+                for(int i=0;i<sus.getSuspect().size();i++){
+                    if(sus.getEmail().get(i)!=null){
+                        Email email=(Email) sus.getAddress().get(i);
+                        //updated=updateAttribute("Email", email.getCodeEmail().toString(), email.getEmail(), "E_MAIL", "CodeE_mail");
+                    }
+                }
+            }
+            if(sus.getAddress()!=null){
+                for(int i=0;i<sus.getAddress().size();i++){
+                    if(sus.getAddress().get(i)!=null){
+                        Address address=(Address) sus.getAddress().get(i);
+                        //updated=updateAttribute("Address", address.getCodeAddress().toString(), address.getAddress(), "ADDRESS", "CodeAddress");
+                    }
+                }
+            }
+            if(sus.getCar_Resgistration()!=null){
+
+            }
+        
+        
         return updated;
     }
     /*
